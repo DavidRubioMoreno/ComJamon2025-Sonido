@@ -5,7 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class FlechaComponent : MonoBehaviour
 {
-    private float _speed = 50.0f;
+    private float _speed = 10.0f;
     private Vector3 _currentVelocity;
     public Vector3 _target;
     private Rigidbody _myRB;
@@ -31,5 +31,10 @@ public class FlechaComponent : MonoBehaviour
         Vector3 v = (_target - transform.position);
 
         _myRB.MovePosition(_myRB.position + _currentVelocity * Time.fixedDeltaTime * _speed);
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        Destroy(gameObject);
     }
 }

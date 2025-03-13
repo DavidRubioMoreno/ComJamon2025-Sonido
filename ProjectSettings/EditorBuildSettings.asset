@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NINI.unity
     guid: 01bc61df8122b0b4a85c3d5dcb23f441
+  - enabled: 1
+    path: Assets/Scenes/Mazmorra4.unity
+    guid: 78fec0102b25d6843adce63b7693e190
   m_configObjects: {}
