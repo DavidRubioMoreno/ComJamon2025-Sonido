@@ -1,0 +1,64 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class AutoAttack : MonoBehaviour
+{
+    [Header("Collider")]
+    [SerializeField]
+    private GameObject _collider;
+    private Animator _animator;
+    private int _random;
+    private bool _canAttack;
+    private PlayerMovement _myPM;
+    // Start is called before the first frame update
+    void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _canAttack = true;
+        _myPM = GetComponent<PlayerMovement>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.gameObject.GetComponent<>() &&  _collider.gameObject.activeSelf)
+        {
+            Debug.Log("DAÑO");
+        }
+    }
+
+    public void Attack(InputAction.CallbackContext callback)
+    {
+        if (_canAttack){
+            _myPM.StopMovement();
+            _myPM.enabled = false;
+            _random = Random.Range(0, 2);
+            if (_random == 0)
+                _animator.SetBool("Attack", true);
+            else
+                _animator.SetBool("Attack2", true);
+            _canAttack = false;
+        }
+    }
+
+    public void Activar()
+    {
+        _collider.gameObject.SetActive(true);
+    }
+    public void Desactivar()
+    {
+        _collider.gameObject.SetActive(false);
+    }
+
+    public void AcabaAnimacion()
+    {
+        if (_random == 0)
+            _animator.SetBool("Attack", false);
+        else
+            _animator.SetBool("Attack2", false);
+        _myPM.enabled = true;
+        _myPM.StopMovement();
+        _canAttack = true;
+    }
+}

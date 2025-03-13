@@ -119,22 +119,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posX");
             return true;
         }
         if (Physics.Raycast(posX2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posX2");
             return true;
         }
         if (Physics.Raycast(posY, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posY");
             return true;
         }
         if (Physics.Raycast(posY2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posY2");
             return true;
         }
 
@@ -149,6 +145,13 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext callback) 
     {
         _jump = callback.ReadValue<float>();
+    }
+    public void StopMovement()
+    {
+        _myRB.velocity = Vector3.zero;
+        _movePlayer = Vector3.zero;
+        _inputMovement = Vector2.zero;
+        _myRB.MovePosition(transform.position);
     }
 
     private void CamDir()
