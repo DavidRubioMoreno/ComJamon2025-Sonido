@@ -45,6 +45,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowExitConfirmation()
     {
+        Debug.Log("saletete");
         exitConfirmationPanel.SetActive(true);
     }
 
