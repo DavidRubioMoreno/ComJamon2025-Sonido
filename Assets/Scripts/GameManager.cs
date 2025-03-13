@@ -19,12 +19,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float dancingTime = 10;
 
+    [SerializeField]
+    private GameObject player;
+
     private float elapsedTime = 0; 
 
     public enum State { DANCING, NORMAL }
 
     private State state;
     public State CurrentState { get { return state; } }
+
+    public GameObject Player { get { return player; } }
 
     private void Awake()
     {
