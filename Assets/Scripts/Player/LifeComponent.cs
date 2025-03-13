@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ataque : MonoBehaviour
+public class LifeComponent : MonoBehaviour
 {
+    public int vida;
 
-    Animator anim;
+    public void LoseLife(int damage)
+    {
+        vida-= damage;
+        if (vida <= 0) GameManager.Instance.OnDeath();
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.SetBool("isAttacking", true);
+        
     }
 
     // Update is called once per frame
