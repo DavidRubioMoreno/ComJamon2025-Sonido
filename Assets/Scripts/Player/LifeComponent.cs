@@ -6,10 +6,15 @@ public class LifeComponent : MonoBehaviour
 {
     public int vida;
 
+    public void OnDeath()
+    {
+
+    }
+
     public void LoseLife(int damage)
     {
         vida-= damage;
-        if (vida <= 0) GameManager.Instance.OnDeath();
+        if (vida <= 0) OnDeath();
         
     }
     // Start is called before the first frame update

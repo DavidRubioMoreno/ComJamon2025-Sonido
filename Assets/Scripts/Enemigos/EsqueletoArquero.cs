@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Esqueleto: MonoBehaviour
+public class EsqueletoArquero : MonoBehaviour
 {
     public float _maxSpeed = 5f;
     public float _acceleration = 10f;
@@ -20,7 +20,10 @@ public class Esqueleto: MonoBehaviour
     private GameObject _player;
 
     [SerializeField]
-    private GameObject _espada;
+    private GameObject _flecha;
+
+    [SerializeField]
+    private GameObject _ballesta;
 
     private bool _onAttack = false;
     /// <summary>
@@ -37,14 +40,13 @@ public class Esqueleto: MonoBehaviour
     }
     public void OnAttack()
     {
-
-        if (_espada != null)
-            _espada.SetActive(true);
+        GameObject flecha = Instantiate(_flecha, _ballesta.transform.position, Quaternion.identity);
+        FlechaComponent fc = flecha.AddComponent<FlechaComponent>();
+        fc._target = _player.transform.position;
     }
 
     public void OnAttackExit()
     {
-        _espada.SetActive(false);
         _onAttack = false;
         _animator.SetBool("attack", _onAttack);
     }
