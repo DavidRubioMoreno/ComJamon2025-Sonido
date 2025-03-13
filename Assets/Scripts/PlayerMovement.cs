@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Configuración del Movimiento")]
     public float _maxSpeed = 5f;
     public float _acceleration = 10f;
     public float _deceleration = 10f;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
 
+    [Header("Camara")]
     [SerializeField]
     private Camera _mainCamera;
     private Vector3 _camForward;
@@ -22,6 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
     private float _jump;
+
+    [Header("Offsets rayos")]
+    [SerializeField]
+    private int _intLayerMask;
+    [SerializeField]
+    private float _rayLenght;
+    [SerializeField]
+    private float _offsetX;
+    [SerializeField]
+    private float _offsetY;
 
     private void Start()
     {
@@ -58,12 +70,7 @@ public class PlayerMovement : MonoBehaviour
                 _animator.SetBool("Idle", false);
             }
         }
-        Debug.Log(_jump);
-        if(_jump == 1 /*Comprobacion de que esta en el suelo*/)
-        {
-            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
-            Debug.Log("jump");
-        }
+        
     }
 
     private void FixedUpdate()
@@ -75,7 +82,51 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
             _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
+        if (_jump == 1 && IsGrounded())
+        {
+            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
+            Debug.Log("jump"); 
+        }
     }
+    private bool IsGrounded()
+    {
+        RaycastHit hitAbajo;
+
+        Vector3 posX = new Vector3(transform.position.x + _offsetX, transform.position.y + 0.2f, transform.position.z);
+        Vector3 posX2 = new Vector3(transform.position.x - _offsetX, transform.position.y + 0.2f, transform.position.z);
+        Vector3 posY = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z + _offsetY);
+        Vector3 posY2 = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z - _offsetY);
+
+
+        Debug.DrawRay(posX, Vector3.down * _rayLenght, Color.red);   // Rayo hacia abajo desde posX
+        Debug.DrawRay(posX2, Vector3.down * _rayLenght, Color.green); // Rayo hacia abajo desde posX2
+        Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue);   // Rayo hacia abajo desde posY
+        Debug.DrawRay(posY2, Vector3.down * _rayLenght, Color.yellow);
+
+        if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, -1))
+        {
+            Debug.Log("Choca desde posX");
+            return true;
+        }
+        if (Physics.Raycast(posX2, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        {
+            Debug.Log("Choca desde posX2");
+            return true;
+        }
+        if (Physics.Raycast(posY, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        {
+            Debug.Log("Choca desde posY");
+            return true;
+        }
+        if (Physics.Raycast(posY2, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        {
+            Debug.Log("Choca desde posY2");
+            return true;
+        }
+
+        return false;
+    }
+
 
     public void Movement(InputAction.CallbackContext callback)
     {

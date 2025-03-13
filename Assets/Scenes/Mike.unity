@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77
+      value: 3.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -176,7 +176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_Name
-      value: Knight
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -211,7 +215,7 @@ GameObject:
   - component: {fileID: 1166994434}
   - component: {fileID: 1166994433}
   - component: {fileID: 1166994437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +356,12 @@ MonoBehaviour:
   _acceleration: 20
   _deceleration: 20
   _rotationSpeed: 20
+  _jumpForce: 1
   _mainCamera: {fileID: 1764411462}
+  _intLayerMask: 6
+  _rayLenght: 5
+  _offsetX: 0.7
+  _offsetY: 0.7
 --- !u!114 &1424813172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +403,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 532e08cf-8712-41a5-bb5f-25a4cfbdabb0
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1424813171}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5775b6f4-98b2-4747-b31e-db235c7281eb
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -435,7 +460,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424813170}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
   m_Controller: {fileID: 9100000, guid: e1a5959d9d7896343b429422df09d88e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
