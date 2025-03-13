@@ -114,6 +114,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.528338
       objectReference: {fileID: 0}
@@ -152,6 +164,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7232241048097875652, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_IsActive
@@ -270,6 +286,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ebadcbd6-4913-467e-b142-ae37bce6aecb
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
+    m_ActionName: Player/Camara
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -292,7 +312,6 @@ MonoBehaviour:
   _deceleration: 20
   _rotationSpeed: 25
   _jumpForce: 6
-  _mainCamera: {fileID: 7193798602890344821, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
   _intLayerMask: 6
   _rayLenght: 0.21
   _offsetX: 0.7

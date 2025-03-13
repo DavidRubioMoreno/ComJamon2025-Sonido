@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private int branchesCollected = 0;
-
+    public GameObject[] characters;
     [SerializeField]
     private ObjectGenerator branchGenerator; //cuando suena la musica caen ramas
 
@@ -19,9 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float dancingTime = 10;
 
-    [SerializeField]
+    //[SerializeField]
     private GameObject player;
-
+    [SerializeField]
+    public GameObject camara;
     private float elapsedTime = 0; 
 
     public enum State { DANCING, NORMAL }
@@ -47,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        branchGenerator.enabled = false;
+        //branchGenerator.enabled = false;
+        createPlayer();
     }
 
     private void Update()
@@ -55,7 +57,12 @@ public class GameManager : MonoBehaviour
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
     }
-
+    public void createPlayer()
+    {
+        int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
+        player = Instantiate(characters[selectedIndex], Vector3.up, Quaternion.identity);
+        camara.GetComponent<ThirdPersonCamera>().target = player.transform;
+    }
     private void updateState(State currentState)
     {
         if (currentState == State.DANCING)
