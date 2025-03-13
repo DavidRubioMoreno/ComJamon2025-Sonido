@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField]
     private GameObject player;
     [SerializeField]
-    public GameObject camara;
+    public Camera camara;
     private float elapsedTime = 0; 
 
     public enum State { DANCING, NORMAL }
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
         player = Instantiate(characters[selectedIndex], Vector3.up, Quaternion.identity);
         camara.GetComponent<ThirdPersonCamera>().target = player.transform;
+        player.GetComponent<PlayerMovement>()._mainCamera = camara;
     }
     private void updateState(State currentState)
     {

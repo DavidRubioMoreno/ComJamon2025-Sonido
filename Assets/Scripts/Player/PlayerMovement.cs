@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Camara")]
     [SerializeField]
-    private Camera _mainCamera;
+    public Camera _mainCamera;
     private Vector3 _camForward;
     private Vector3 _camRight;
 

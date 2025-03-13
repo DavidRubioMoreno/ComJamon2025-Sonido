@@ -7059,7 +7059,7 @@ MonoBehaviour:
   branchGenerator: {fileID: 0}
   timeToStartDancing: 120
   dancingTime: 10
-  camara: {fileID: 496342162}
+  camara: {fileID: 496342164}
 --- !u!4 &1354696417
 Transform:
   m_ObjectHideFlags: 0
