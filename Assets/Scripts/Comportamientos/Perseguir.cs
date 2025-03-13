@@ -17,7 +17,6 @@ public class Perseguir : MonoBehaviour
 
     private Animator _animator;
 
-    [SerializeField]
     private GameObject _player;
     /// <summary>
     /// Obtiene la dirección
@@ -29,7 +28,13 @@ public class Perseguir : MonoBehaviour
     {
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _player = GameManager.Instance.Player;
     }
+    private void OnArrive()
+    {
+        if(!_animator.GetBool("attack"))_animator.SetBool("attack", true);        
+    }
+
     private void Update()
     {
         Vector3 v = (_player.transform.position - transform.position);
@@ -38,6 +43,7 @@ public class Perseguir : MonoBehaviour
         if (v.magnitude < rObjetivo)
         {
             targetVelocity = Vector3.zero;
+            OnArrive();          
         }else if(v.magnitude < rRalentizado)
         {
             targetVelocity *= fRalentizado;
@@ -45,18 +51,23 @@ public class Perseguir : MonoBehaviour
 
         _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,
                 (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
-        _animator.SetFloat("velocity", _myRB.velocity.magnitude);
+        _animator.SetFloat("velocity", _currentVelocity.magnitude);
     }
 
     private void FixedUpdate()
     {
+        
         Vector3 v = (_player.transform.position - transform.position);
         if (v.magnitude > rObjetivo)
         {
-            _myRB.MovePosition(_myRB.position + _currentVelocity * Time.fixedDeltaTime);
+            Vector3 newPosition = _myRB.position + _currentVelocity * Time.fixedDeltaTime;
+            _myRB.MovePosition(newPosition);
 
-            Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity, Vector3.up);
-            _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
+            if (_currentVelocity.magnitude > 0.1f) // Para evitar rotaciones raras
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity, Vector3.up);
+                _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
+            }
         }        
     }
 
