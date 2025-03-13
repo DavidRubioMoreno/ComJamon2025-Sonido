@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Vefects/Zap VFX/Audio/WAV.meta
 guid: 6aafbf8e0279c244981243935106098a
+========
+guid: 258facb077869d54e97b57a1122dead8
+>>>>>>>> Stashed changes:Assets/Vefects/Zap VFX/Audio.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
