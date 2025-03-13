@@ -1804,7 +1804,7 @@ ModelImporter:
       name: Jump_Start
       takeName: Jump_Start
       internalID: -6402709644054655732
-      firstFrame: 0
+      firstFrame: 9
       lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
@@ -1833,7 +1833,7 @@ ModelImporter:
       name: Jump_Land
       takeName: Jump_Land
       internalID: 3282281275607961068
-      firstFrame: 0
+      firstFrame: 8
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0

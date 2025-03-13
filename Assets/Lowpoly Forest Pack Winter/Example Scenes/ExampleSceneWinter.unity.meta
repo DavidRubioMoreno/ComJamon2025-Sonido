@@ -1,5 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/Lowpoly Forest Pack Winter/Example Scenes/ExampleSceneWinter.unity.meta
 guid: 7f9cd0b1a8f97454383d9393185b6ef3
+========
+guid: 345f03ab47b43344a81705659a0d6cc9
+folderAsset: yes
+>>>>>>>> Stashed changes:Assets/Lowpoly Forest Pack Winter/Prefabs.meta
+=======
+<<<<<<<< HEAD:Assets/Vefects.meta
+guid: c9604ea378c99ee419bd617886f4d481
+folderAsset: yes
+========
+guid: 7f9cd0b1a8f97454383d9393185b6ef3
+>>>>>>>> 27e1f3ba7228373aa1de85283bc3711dc8de4bfc:Assets/Lowpoly Forest Pack Winter/Example Scenes/ExampleSceneWinter.unity.meta
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

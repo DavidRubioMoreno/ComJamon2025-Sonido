@@ -1,5 +1,18 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/Lowpoly Forest Pack Winter/Example Scenes/ExampleScene (All Assets).unity.meta
 guid: 238496d44f9311f47b4d166f76bfd476
+========
+guid: 449730404b2f88c408c6357e14899729
+folderAsset: yes
+>>>>>>>> Stashed changes:Assets/Lowpoly Forest Pack Winter/Example Scenes.meta
+=======
+<<<<<<<< HEAD:Assets/Vefects/Zap VFX/Demo/Vefects Zap VFX.unity.meta
+guid: 11834f0030c93714f84f17fad710a179
+========
+guid: 238496d44f9311f47b4d166f76bfd476
+>>>>>>>> 27e1f3ba7228373aa1de85283bc3711dc8de4bfc:Assets/Lowpoly Forest Pack Winter/Example Scenes/ExampleScene (All Assets).unity.meta
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -38,8 +38,5 @@ public class Dest : MonoBehaviour
         }
         return objetivo.transform;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-       // Destroy(gameObject);
-    }
+
 }
