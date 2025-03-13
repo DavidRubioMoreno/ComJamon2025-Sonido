@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float _acceleration = 10f;
     public float _deceleration = 10f;
     public float _rotationSpeed = 10f;
+    public float _jumpForce = 10f;
     private Vector2 _inputMovement;
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _movePlayer;
 
     private Animator _animator;
+    private float _jump;
 
     private void Start()
     {
@@ -38,15 +40,29 @@ public class PlayerMovement : MonoBehaviour
 
         _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
 
-        if (_movePlayer.magnitude < 0.01f)
+        if (_movePlayer.magnitude < 0.1f)
         {
             _movePlayer = Vector3.zero;
             // Cambiar animacion
-            _animator.SetTrigger("Idle");
+            if (!_animator.GetBool("Idle"))
+            {
+                _animator.SetBool("Idle", true);
+                _animator.SetBool("Run", false);
+            }
         }
-        else
+        else 
         {
-           // _animator.SetTrigger("Idle");
+            if (!_animator.GetBool("Run"))
+            {
+                _animator.SetBool("Run", true);
+                _animator.SetBool("Idle", false);
+            }
+        }
+        Debug.Log(_jump);
+        if(_jump == 1 /*Comprobacion de que esta en el suelo*/)
+        {
+            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
+            Debug.Log("jump");
         }
     }
 
@@ -64,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
     public void Movement(InputAction.CallbackContext callback)
     {
         _inputMovement = callback.ReadValue<Vector2>();
+    }
+    public void Jump(InputAction.CallbackContext callback) 
+    {
+        _jump = callback.ReadValue<float>();
     }
 
     private void CamDir()
