@@ -86,10 +86,15 @@ public class PlayerMovement : MonoBehaviour
         }
         if (_jump == 1 && IsGrounded() && !_isJumping)
         {
-            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
-            _isJumping = true;
+            _animator.SetBool("Jump", true);  
+            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);  
+            _isJumping = true;  
         }
-        if(!IsGrounded() && _jump == 0) _isJumping = false;
+        else if (IsGrounded() && _isJumping)
+        {
+            _animator.SetBool("Jump", false);  
+            _isJumping = false;  
+        }
     }
     private bool IsGrounded()
     {
@@ -101,9 +106,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 posY2 = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z - _offsetY);
 
 
-        Debug.DrawRay(posX, Vector3.down * _rayLenght, Color.red);   // Rayo hacia abajo desde posX
-        Debug.DrawRay(posX2, Vector3.down * _rayLenght, Color.green); // Rayo hacia abajo desde posX2
-        Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue);   // Rayo hacia abajo desde posY
+        Debug.DrawRay(posX, Vector3.down * _rayLenght, Color.red);  
+        Debug.DrawRay(posX2, Vector3.down * _rayLenght, Color.green); 
+        Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue); 
         Debug.DrawRay(posY2, Vector3.down * _rayLenght, Color.yellow);
 
         if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
