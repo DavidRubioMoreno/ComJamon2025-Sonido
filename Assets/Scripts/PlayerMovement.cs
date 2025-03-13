@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _inputMovement;
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
+    private bool _isJumping;
 
     [Header("Camara")]
     [SerializeField]
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _isJumping = false;
     }
 
     private void Update()
@@ -82,11 +84,12 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
             _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
-        if (_jump == 1 && IsGrounded())
+        if (_jump == 1 && IsGrounded() && !_isJumping)
         {
             _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
-            Debug.Log("jump"); 
+            _isJumping = true;
         }
+        if(!IsGrounded() && _jump == 0) _isJumping = false;
     }
     private bool IsGrounded()
     {
@@ -103,22 +106,22 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue);   // Rayo hacia abajo desde posY
         Debug.DrawRay(posY2, Vector3.down * _rayLenght, Color.yellow);
 
-        if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, -1))
+        if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
             Debug.Log("Choca desde posX");
             return true;
         }
-        if (Physics.Raycast(posX2, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        if (Physics.Raycast(posX2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
             Debug.Log("Choca desde posX2");
             return true;
         }
-        if (Physics.Raycast(posY, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        if (Physics.Raycast(posY, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
             Debug.Log("Choca desde posY");
             return true;
         }
-        if (Physics.Raycast(posY2, Vector3.down, out hitAbajo, _rayLenght, _intLayerMask))
+        if (Physics.Raycast(posY2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
             Debug.Log("Choca desde posY2");
             return true;
