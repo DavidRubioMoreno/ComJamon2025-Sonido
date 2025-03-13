@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1897978092}
-  offsetLook: {x: 0, y: 2, z: 0}
-  offset: {x: 3, y: 5, z: -3}
+  offset: {x: 10, y: 8, z: -5}
+  lookOffsetRight: 1.5
   sensitivity: 2
   minYAngle: -60
   maxYAngle: 89
@@ -158,6 +158,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 100
+--- !u!20 &1104898599 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7193798602890344821, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
+  m_PrefabInstance: {fileID: 1505969110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104898601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104898595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f923b9c4f6de2e747b8e66f37432a58f, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 532e08cf-8712-41a5-bb5f-25a4cfbdabb0
+    m_ActionName: Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5775b6f4-98b2-4747-b31e-db235c7281eb
+    m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebadcbd6-4913-467e-b142-ae37bce6aecb
+    m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonWest,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1104898596}
+        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
+    m_ActionName: Player/Camara
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1104898599}
 --- !u!1 &1166994432
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +549,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6771268338401021574, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1104898597}
+    - targetCorrespondingSourceObject: {fileID: 6771268338401021574, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104898601}
   m_SourcePrefab: {fileID: 100100000, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
 --- !u!1 &1679519546
 GameObject:
@@ -646,6 +712,30 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 7193798602890344821, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: d88f738f-c2cb-446e-ad91-c3119306b94e
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: Player/Camara
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104661838715635777, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

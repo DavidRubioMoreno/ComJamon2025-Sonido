@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class ThirdPersonCamera : MonoBehaviour
@@ -16,6 +17,8 @@ public class ThirdPersonCamera : MonoBehaviour
     private float rotationX = 0f; // Rotación en el eje X (horizontal)
     private float rotationY = 0f; // Rotación en el eje Y (vertical)
 
+    private Vector2 rotacion = Vector2.zero;
+
     void Start()
     {
         // Inicializa la rotación con la rotación actual de la cámara
@@ -29,8 +32,8 @@ public class ThirdPersonCamera : MonoBehaviour
         if (target == null) return;
 
         // Obtener entrada del ratón y del mando
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+        float mouseX = rotacion.x * sensitivity;
+        float mouseY = rotacion.y * sensitivity;
         //float joystickX = Input.GetAxis("RightStickX") * sensitivity;
         //float joystickY = Input.GetAxis("RightStickY") * sensitivity;
 
@@ -50,6 +53,11 @@ public class ThirdPersonCamera : MonoBehaviour
         // Aplicar la posición y la dirección de la cámara
         transform.position = desiredPosition;
         transform.LookAt(lookTarget);
+    }
+    public void Move(InputAction.CallbackContext callback)
+    {
+        rotacion= callback.ReadValue<Vector2>();
+        Debug.Log("ee");
     }
 }
 
