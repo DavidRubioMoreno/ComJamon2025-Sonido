@@ -355,11 +355,11 @@ MonoBehaviour:
   _maxSpeed: 7
   _acceleration: 20
   _deceleration: 20
-  _rotationSpeed: 20
-  _jumpForce: 1
+  _rotationSpeed: 25
+  _jumpForce: 6
   _mainCamera: {fileID: 1764411462}
   _intLayerMask: 6
-  _rayLenght: 5
+  _rayLenght: 0.201
   _offsetX: 0.7
   _offsetY: 0.7
 --- !u!114 &1424813172
