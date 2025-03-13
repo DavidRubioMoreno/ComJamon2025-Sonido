@@ -12,16 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public float _rotationSpeed = 10f;
     public float _jumpForce = 10f;
     private Vector2 _inputMovement;
-    private Vector2 _auxInputMovement;
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
     private bool _isJumping;
 
-    [Header("Camara")]
-    [SerializeField]
-    private Camera _mainCamera;
-    private Vector3 _camForward;
-    private Vector3 _camRight;
     private Vector3 _movePlayer;
 
     private Animator _animator;
@@ -46,15 +40,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        CamDir();
 
         Vector2 targetVelocity = _inputMovement * _maxSpeed;
 
         _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
             (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
 
-        _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
-
+        //_movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
+        _movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
         if (_movePlayer.magnitude < 0.1f)
         {
             _movePlayer = Vector3.zero;
@@ -146,15 +139,5 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext callback) 
     {
         _jump = callback.ReadValue<float>();
-    }
-    private void CamDir()
-    {
-        _camForward = _mainCamera.transform.forward;
-        _camRight = _mainCamera.transform.right;
-
-        _camForward.y = 0;
-        _camRight.y = 0;
-        _camForward = _camForward.normalized;
-        _camRight = _camRight.normalized;
     }
 }
