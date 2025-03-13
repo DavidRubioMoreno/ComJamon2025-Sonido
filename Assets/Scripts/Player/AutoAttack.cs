@@ -30,9 +30,7 @@ public class AutoAttack : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext callback)
     {
-        if (_canAttack){
-            _myPM.StopMovement();
-            _myPM.enabled = false;
+        if (_canAttack && _myPM.IsGrounded()){
             _random = Random.Range(0, 2);
             if (_random == 0)
                 _animator.SetBool("Attack", true);
@@ -57,8 +55,6 @@ public class AutoAttack : MonoBehaviour
             _animator.SetBool("Attack", false);
         else
             _animator.SetBool("Attack2", false);
-        _myPM.enabled = true;
-        _myPM.StopMovement();
         _canAttack = true;
     }
 }
