@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float _rotationSpeed = 10f;
     public float _jumpForce = 10f;
     private Vector2 _inputMovement;
+    private Vector2 _auxInputMovement;
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
     private bool _isJumping;
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         else if(IsGrounded()) _animator.SetBool("Jump", false);
 
     }
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit hitAbajo;
 
@@ -119,22 +120,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posX");
             return true;
         }
         if (Physics.Raycast(posX2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posX2");
             return true;
         }
         if (Physics.Raycast(posY, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posY");
             return true;
         }
         if (Physics.Raycast(posY2, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
-            Debug.Log("Choca desde posY2");
             return true;
         }
 
@@ -150,7 +147,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _jump = callback.ReadValue<float>();
     }
-
     private void CamDir()
     {
         _camForward = _mainCamera.transform.forward;

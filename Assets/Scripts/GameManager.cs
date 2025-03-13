@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == State.NORMAL)
         {
-            Debug.Log("No bailo");
+            //Debug.Log("No bailo");
 
             if (elapsedTime > timeToStartDancing)
             {
@@ -94,6 +94,11 @@ public class GameManager : MonoBehaviour
     {
         //if(currentState == State.DANCING)
            // branchGenerator.enabled = false;
+    }
+
+    public void OnDeath()
+    {
+
     }
 
     private void FixedUpdate()

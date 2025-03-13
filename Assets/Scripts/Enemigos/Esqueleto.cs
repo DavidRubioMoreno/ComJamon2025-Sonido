@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Perseguir : MonoBehaviour
+public class Esqueleto : MonoBehaviour
 {
     public float _maxSpeed = 5f;
     public float _acceleration = 10f;
@@ -12,12 +12,20 @@ public class Perseguir : MonoBehaviour
     public float rObjetivo;
     public float rRalentizado;
     public float fRalentizado;
+    public Vector3 _espadaOffset;
     private Vector3 _currentVelocity;
     private Rigidbody _myRB;
 
     private Animator _animator;
 
     private GameObject _player;
+
+    [SerializeField]
+    private GameObject _espada;
+
+    private GameObject _espadaInstance;
+
+    private bool _onAttack = false;
     /// <summary>
     /// Obtiene la dirección
     /// </summary>
@@ -29,10 +37,19 @@ public class Perseguir : MonoBehaviour
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _player = GameManager.Instance.Player;
+        _espadaOffset = new Vector3();
+        _espadaOffset.x = -0.64f;
+        _espadaOffset.y = 1.5f;
+        _espadaOffset.z = -0.4f;
     }
-    private void OnArrive()
+    public void OnAttack()
     {
-        if(!_animator.GetBool("attack"))_animator.SetBool("attack", true);        
+        _espadaInstance = Instantiate(_espada, transform.position + _espadaOffset, Quaternion.identity);
+    }
+
+    public void OnAttackExit()
+    {
+        _espadaInstance.SetActive(false);
     }
 
     private void Update()
@@ -43,8 +60,10 @@ public class Perseguir : MonoBehaviour
         if (v.magnitude < rObjetivo)
         {
             targetVelocity = Vector3.zero;
-            OnArrive();          
-        }else if(v.magnitude < rRalentizado)
+            _onAttack = true;
+            _animator.SetBool("attack", _onAttack);
+        }
+        else if(v.magnitude < rRalentizado)
         {
             targetVelocity *= fRalentizado;
         }

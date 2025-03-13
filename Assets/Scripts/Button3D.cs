@@ -6,6 +6,7 @@ public class Button3D : MonoBehaviour
     public string action; // Define qué acción realizará el botón
     private Renderer rend;
     private Color originalColor;
+    public GameObject optionsMenu;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -26,7 +27,7 @@ public class Button3D : MonoBehaviour
         switch (action)
         {
             case "Play":
-                SceneManager.LoadScene("Mike"); // Cargar la escena del juego
+                SceneManager.LoadScene("ElegirClase"); // Cargar la escena del juego
                 break;
             case "Load":
                 Debug.Log("Cargar partida guardada...");
@@ -34,6 +35,7 @@ public class Button3D : MonoBehaviour
                 break;
             case "Options":
                 Debug.Log("Abrir menú de opciones...");
+                optionsMenu.SetActive(true);
                 // Aquí podrías mostrar un panel de opciones
                 break;
             case "Exit":
