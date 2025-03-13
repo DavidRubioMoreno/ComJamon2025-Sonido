@@ -12,7 +12,6 @@ public class Esqueleto : MonoBehaviour
     public float rObjetivo;
     public float rRalentizado;
     public float fRalentizado;
-    public Vector3 _espadaOffset;
     private Vector3 _currentVelocity;
     private Rigidbody _myRB;
 
@@ -22,8 +21,6 @@ public class Esqueleto : MonoBehaviour
 
     [SerializeField]
     private GameObject _espada;
-
-    private GameObject _espadaInstance;
 
     private bool _onAttack = false;
     /// <summary>
@@ -37,19 +34,18 @@ public class Esqueleto : MonoBehaviour
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _player = GameManager.Instance.Player;
-        _espadaOffset = new Vector3();
-        _espadaOffset.x = -0.64f;
-        _espadaOffset.y = 1.5f;
-        _espadaOffset.z = -0.4f;
     }
     public void OnAttack()
     {
-        _espadaInstance = Instantiate(_espada, transform.position + _espadaOffset, Quaternion.identity);
+        if (_espada != null)
+            _espada.SetActive(true);
     }
 
     public void OnAttackExit()
     {
-        _espadaInstance.SetActive(false);
+        _espada.SetActive(false);
+        _onAttack = false;
+        _animator.SetBool("attack", _onAttack);
     }
 
     private void Update()
