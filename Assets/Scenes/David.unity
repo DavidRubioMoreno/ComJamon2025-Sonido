@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34074a91ed6f99144a6b9d534c252c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToGen: {fileID: 2670893892359800670, guid: 0251bdd0042552b42aec42d5f87a95c0, type: 3}
+  objectToGen: {fileID: 6262143293197806318, guid: 7efb54988b3e5f4458971da92001d18d, type: 3}
   radius: 10
   minGenerationTime: 0.02
   maxGenerationTime: 0.3
