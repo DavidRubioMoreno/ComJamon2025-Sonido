@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+
+public class FlechaComponent : MonoBehaviour
+{
+    private float _speed = 50.0f;
+    private Vector3 _currentVelocity;
+    public Vector3 _target;
+    private Rigidbody _myRB;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _myRB = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 v = (_target - transform.position);
+        Vector3 targetVelocity = v.normalized * _speed;
+
+        _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,
+                _speed* Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 v = (_target - transform.position);
+
+        _myRB.MovePosition(_myRB.position + _currentVelocity * Time.fixedDeltaTime * _speed);
+    }
+}
