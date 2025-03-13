@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _movePlayer;
 
+    [Header("Camara")]
+    [SerializeField]
+    private Camera _mainCamera;
+    private Vector3 _camForward;
+    private Vector3 _camRight;
+
     private Animator _animator;
     private float _jump;
 
@@ -40,14 +46,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        CamDir();
 
         Vector2 targetVelocity = _inputMovement * _maxSpeed;
 
         _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
             (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
 
-        //_movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
-        _movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
+        _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
+        //_movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
         if (_movePlayer.magnitude < 0.1f)
         {
             _movePlayer = Vector3.zero;
@@ -131,6 +138,16 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    private void CamDir()
+    {
+        _camForward = _mainCamera.transform.forward;
+        _camRight = _mainCamera.transform.right;
+
+        _camForward.y = 0;
+        _camRight.y = 0;
+        _camForward = _camForward.normalized;
+        _camRight = _camRight.normalized;
+    }
 
     public void Movement(InputAction.CallbackContext callback)
     {
