@@ -17,7 +17,7 @@ public class AttackComponent : MonoBehaviour
 
     private Animator _animator;
 
-    void Start()
+    private void Start()
     {
         _nAttack = 0;
         _animator = GetComponent<Animator>();
@@ -25,25 +25,27 @@ public class AttackComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_nAttack!=0)
         {
-            
-            Instantiate(fireBall,nSpawn.position,Quaternion.identity);
-            _nAttack =0;
+            _nAttack = 0;
+
+
             _animator.SetBool("Attack", true);
 
         }
-        else
-        {
-            _animator.SetBool("Attack", false);
 
-        }
     }
 
     public void Attack(InputAction.CallbackContext callback)
     {
         _nAttack = callback.ReadValue<float>();
+    }
+    public void activeNormalAttack()
+    {
+        Instantiate(fireBall, nSpawn.position, Quaternion.identity);
+        _animator.SetBool("Attack", false);
+        
     }
 }

@@ -103,7 +103,7 @@
                 {
                     "name": "",
                     "id": "bc387a08-f642-408e-8e8a-c460dd851465",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
