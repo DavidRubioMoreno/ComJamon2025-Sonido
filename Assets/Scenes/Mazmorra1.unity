@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Rock_Pile_Forest_Moss_10 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2146431531174499849, guid: c8134dd87be4906419f13922ddc5bf4f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -934,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 3812069688033886789, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
       propertyPath: m_Name
       value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812069688033886789, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4588290075371706623, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1484,6 +1492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Rock_Pile_Forest_Moss_10 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2146431531174499849, guid: c8134dd87be4906419f13922ddc5bf4f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1790,6 +1802,10 @@ PrefabInstance:
     - target: {fileID: 6607321005359822497, guid: b92ec75469be72e478a2fca8e4629a05, type: 3}
       propertyPath: m_Name
       value: Table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607321005359822497, guid: b92ec75469be72e478a2fca8e4629a05, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2801,6 +2817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3765,6 +3785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 6607321005359822497, guid: b92ec75469be72e478a2fca8e4629a05, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4454,6 +4478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_03
       objectReference: {fileID: 0}
+    - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4945,6 +4973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stair_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6567825137051484570, guid: 71a50e127c2ad8d40aab09fd2e847070, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5349,6 +5381,10 @@ PrefabInstance:
     - target: {fileID: 2146431531174499849, guid: c8134dd87be4906419f13922ddc5bf4f, type: 3}
       propertyPath: m_Name
       value: PP_Rock_Pile_Forest_Moss_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146431531174499849, guid: c8134dd87be4906419f13922ddc5bf4f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6794,6 +6830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence.003
       objectReference: {fileID: 0}
+    - target: {fileID: 9202881346635986890, guid: 151646b6bdac4df48a035925b8ce6ba8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6859,6 +6899,10 @@ PrefabInstance:
     - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
       propertyPath: m_Name
       value: Floor_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7405,6 +7449,10 @@ PrefabInstance:
     - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
       propertyPath: m_Name
       value: Floor_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811500349840798206, guid: 58f28a075e6fb7d478d26ddccdb8e3ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
