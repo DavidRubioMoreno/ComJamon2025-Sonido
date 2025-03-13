@@ -18,6 +18,18 @@ public class ObjectGenerator : MonoBehaviour
     [SerializeField]
     private float maxGenerationTime;
 
+    [SerializeField]
+    private bool setRandomInitialRotation = false;
+
+    [SerializeField]
+    private bool setRandomRotationForce = false;
+
+    [SerializeField]
+    private float minRotationForce = 0;
+
+    [SerializeField]
+    private float maxRotationForce = 5;
+
     private float nextGenerationtime;
 
     float elapsedTime = 0;
@@ -37,16 +49,45 @@ public class ObjectGenerator : MonoBehaviour
             elapsedTime = 0;
 
             Vector3 finalPosition = transform.position;
-            finalPosition.z += Random.Range(-radius, radius);
-            finalPosition.x += Random.Range(-radius, radius);
+            finalPosition.z += getRandomInterval(-radius, radius);
+            finalPosition.x += getRandomInterval(-radius, radius);
 
             Quaternion finalRotation = Quaternion.identity;
-            finalRotation.x = Random.Range(0, 2);
-            finalRotation.y = Random.Range(0, 2);
-            finalRotation.z = Random.Range(0, 2);
-            finalRotation.w = Random.Range(0, 2);
 
-            Instantiate(objectToGen, finalPosition, finalRotation);
+            if (setRandomInitialRotation)
+            {
+                finalRotation = getRandomRotation();
+            }
+
+            GameObject objectSpawned = Instantiate(objectToGen, finalPosition, finalRotation);
+
+            if (setRandomRotationForce)
+            {
+                if (objectSpawned.GetComponent<Rigidbody>())
+                {
+                    Vector3 angularSpeed;
+                    angularSpeed.x = getRandomInterval(minRotationForce, maxRotationForce);
+                    angularSpeed.y = getRandomInterval(minRotationForce, maxRotationForce);
+                    angularSpeed.z = getRandomInterval(minRotationForce, maxRotationForce);
+                    objectSpawned.GetComponent<Rigidbody>().angularVelocity = angularSpeed;
+                    //Debug.Log(angularSpeed);
+                }
+            }
         }
+    }
+
+    Quaternion getRandomRotation()
+    {
+        Quaternion finalRotation = Quaternion.identity;
+        finalRotation.x = getRandomInterval(0, 10) / 10;
+        finalRotation.y = getRandomInterval(0, 10) / 10;
+        finalRotation.z = getRandomInterval(0, 10) / 10;
+        finalRotation.w = getRandomInterval(0, 10) / 10;
+        return finalRotation;
+    }
+
+    float getRandomInterval(float min, float max)
+    {
+        return Random.Range(min, max);
     }
 }
