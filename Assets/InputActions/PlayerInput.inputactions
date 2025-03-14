@@ -42,15 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-<<<<<<< Updated upstream
                     "name": "Block",
                     "type": "Button",
                     "id": "fd3dccfc-9002-444d-a8b3-4d91b79d0006",
-=======
-                    "name": "StrongAttack",
-                    "type": "Button",
-                    "id": "4cc44e45-1b73-476f-958c-9e590b6190e2",
->>>>>>> Stashed changes
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -181,41 +175,23 @@
                 },
                 {
                     "name": "",
-<<<<<<< Updated upstream
                     "id": "eb40e40b-74d1-470c-b7d0-9936841d228c",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Block",
-=======
-                    "id": "d9690e09-7be0-4c60-a630-11ed07ce9bfb",
-                    "path": "<DualShockGamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StrongAttack",
->>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-<<<<<<< Updated upstream
                     "id": "29426e28-6ac6-453e-b1b0-9c6fe449213e",
                     "path": "<DualShockGamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Block",
-=======
-                    "id": "f4467ab0-a7e3-4b45-8250-27f3ad9adf90",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StrongAttack",
->>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
