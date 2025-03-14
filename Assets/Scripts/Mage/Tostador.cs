@@ -46,7 +46,7 @@ public class Tostador : MonoBehaviour
         if (WaveManager.Instance.EnemiesAlive > 0)
         {
             List<GameObject> objs = GetThreeClosestObjects(WaveManager.Instance.getActiveEnemies());
-            for (int i = 0; i < EnemieManager.Instance.getEnemies().Count; i++)
+            for (int i = 0; i < WaveManager.Instance.EnemiesAlive; i++)
             {
                 Instantiate(rayos, objs[i].transform.position, Quaternion.identity);
             }
