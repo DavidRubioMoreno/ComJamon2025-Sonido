@@ -29,7 +29,7 @@ public class AutoAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.GetComponent<>() &&  _collider.gameObject.activeSelf)
+        if (other.gameObject.GetComponent<LifeComponent>() &&  _collider.gameObject.activeSelf)
         {
             Debug.Log("DAÑO");
         }
@@ -45,7 +45,6 @@ public class AutoAttack : MonoBehaviour
             else
                 _animator.SetBool("Attack2", true);
             _canAttack = false;
-            Debug.Log("ATTACK");
         }
     }
 
@@ -64,7 +63,6 @@ public class AutoAttack : MonoBehaviour
         _animator.SetBool("Attack2", false);
 
         StartCoroutine(WaitForReloadTime());
-        Debug.Log("ACABA");
     }
     IEnumerator WaitForReloadTime()
     {
