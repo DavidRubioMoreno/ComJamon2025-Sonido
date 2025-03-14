@@ -27,6 +27,12 @@ public class EnemieManager : MonoBehaviour
         
     }
 
+    public void setEnemies(List<GameObject> e)
+    {
+        enemies = e;
+    }
+   
+
     // Update is called once per frame
     void Update()
     {

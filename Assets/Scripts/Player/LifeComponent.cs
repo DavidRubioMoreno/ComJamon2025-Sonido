@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LifeComponent : MonoBehaviour
 {
     public int vida;
-
+    public event Action Die;
     public void OnDeath()
     {
-
+        Die?.Invoke(); // Notifica al WaveManager que este enemigo murió
+        Destroy(gameObject); // Destruye al enemigo
     }
 
     public void LoseLife(int damage)
