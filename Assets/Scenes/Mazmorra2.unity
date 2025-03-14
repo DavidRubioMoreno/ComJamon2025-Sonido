@@ -9707,8 +9707,11 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 64820798451078254, guid: 93acc49b5a9f4e84b89aa62e0282a2a3, type: 3}
+    - target: {fileID: 64820798451078254, guid: 93acc49b5a9f4e84b89aa62e0282a2a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -11020,12 +11023,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634539757}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41109c4d3ee3990439d0c14a2833723e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSkybox: {fileID: 2100000, guid: 505812acbea021c4191e3e75152991d2, type: 2}
+  newSkybox: {fileID: 2100000, guid: aed657681c6812845bb7736c343b5e9b, type: 2}
 --- !u!4 &1634539759
 Transform:
   m_ObjectHideFlags: 0
