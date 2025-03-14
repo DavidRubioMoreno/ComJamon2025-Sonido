@@ -2857,10 +2857,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1148169914}
   mejora: {fileID: 8300000, guid: d513dd290dc5e204bb3b2d514a9d2741, type: 3}
-  opciones: {fileID: 8300000, guid: 126e8f955d033014d8c20af85c972af3, type: 3}
-  salir: {fileID: 8300000, guid: 16c3e9f48f0c16040ac6889241ee0b69, type: 3}
-  Jugarnueva: {fileID: 8300000, guid: d87c3f9064c256245b1ae2e3b6c64c17, type: 3}
-  jugarcargada: {fileID: 8300000, guid: c81f4105160488545893107d68e160d9, type: 3}
+  opciones: {fileID: 8300000, guid: 9e677db861703f14287184d69420ae8a, type: 3}
+  salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
+  Jugarnueva: {fileID: 8300000, guid: 2c6d8cb104e45fe4bbfecf7b35a84344, type: 3}
+  jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0
