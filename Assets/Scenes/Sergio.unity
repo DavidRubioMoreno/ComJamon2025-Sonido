@@ -465,6 +465,10 @@ MonoBehaviour:
     m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
     m_ActionName: Player/Camara[/DualShock4GamepadHID/rightStick]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd3dccfc-9002-444d-a8b3-4d91b79d0006
+    m_ActionName: Player/Block[/Keyboard/f]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 678579026}
         m_TargetAssemblyTypeName: Tostador, Assembly-CSharp
@@ -478,7 +482,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4cc44e45-1b73-476f-958c-9e590b6190e2
+    m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
     m_ActionName: Player/StrongAttack[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 

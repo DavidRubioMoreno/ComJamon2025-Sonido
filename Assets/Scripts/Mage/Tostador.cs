@@ -11,10 +11,13 @@ public class Tostador : MonoBehaviour
     [SerializeField]
     private GameObject rayos;
 
+    private Animator _animator;
+
     private float _sAttack;
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -23,7 +26,7 @@ public class Tostador : MonoBehaviour
         if(_sAttack > 0)
         {
             _sAttack = 0;
-            storm();
+            _animator.SetBool("Strong",true);
         }
     }
 
@@ -36,6 +39,8 @@ public class Tostador : MonoBehaviour
     }
     public void storm()
     {
+        _animator.SetBool("Strong", false);
+
         Debug.Log(EnemieManager.Instance.getEnemies().Count);
         List<GameObject> objs = GetThreeClosestObjects(EnemieManager.Instance.getEnemies());
         if (EnemieManager.Instance.getEnemies().Count >= 3)
@@ -57,7 +62,12 @@ public class Tostador : MonoBehaviour
     }
     public void StrongAttack(InputAction.CallbackContext callback)
     {
-        _sAttack = callback.ReadValue<float>();
+        Debug.Log(_animator.GetBool("Strong"));
+        if (!_animator.GetBool("Strong"))
+        {
+            _sAttack = callback.ReadValue<float>();
+
+        }
     }
 
 }
