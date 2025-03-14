@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Scenes/BarraDeVida.unity.meta
 guid: 3c968ed9028e0de40b316bfd40337aa8
 DefaultImporter:
+========
+guid: 1c0e35f1d7016b448954c9677fbf1659
+PrefabImporter:
+>>>>>>>> Stashed changes:Assets/Prefabs/Rayo.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -43,9 +43,15 @@
                 },
                 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "name": "Block",
                     "type": "Button",
                     "id": "fd3dccfc-9002-444d-a8b3-4d91b79d0006",
+=======
+                    "name": "StrongAttack",
+                    "type": "Button",
+                    "id": "4cc44e45-1b73-476f-958c-9e590b6190e2",
+>>>>>>> Stashed changes
 =======
                     "name": "StrongAttack",
                     "type": "Button",
@@ -182,6 +188,7 @@
                 {
                     "name": "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "id": "eb40e40b-74d1-470c-b7d0-9936841d228c",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -189,18 +196,24 @@
                     "groups": "",
                     "action": "Block",
 =======
+=======
+>>>>>>> Stashed changes
                     "id": "d9690e09-7be0-4c60-a630-11ed07ce9bfb",
                     "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "StrongAttack",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     "id": "29426e28-6ac6-453e-b1b0-9c6fe449213e",
                     "path": "<DualShockGamepad>/buttonNorth",
@@ -209,12 +222,17 @@
                     "groups": "",
                     "action": "Block",
 =======
+=======
+>>>>>>> Stashed changes
                     "id": "f4467ab0-a7e3-4b45-8250-27f3ad9adf90",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "StrongAttack",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
