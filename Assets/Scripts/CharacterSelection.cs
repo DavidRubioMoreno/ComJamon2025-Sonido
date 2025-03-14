@@ -31,7 +31,7 @@ public class CharacterSelection : MonoBehaviour
     private void OnMouseDown()
     {
         PlayerPrefs.SetInt("SelectedCharacter", characterIndex); // Guarda el índice
-        SceneManager.LoadScene("Mazmorra4"); // Carga la nueva escena
+        SceneManager.LoadScene("PRINCIPAL"); // Carga la nueva escena
         GameManager.Instance.menu = false;
         //GameManager.Instance.createPlayer();
     }
