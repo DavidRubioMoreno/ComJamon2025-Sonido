@@ -2635,6 +2635,7 @@ GameObject:
   - component: {fileID: 1203248322}
   - component: {fileID: 1203248321}
   - component: {fileID: 1203248320}
+  - component: {fileID: 1203248323}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2716,6 +2717,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 94.738, z: 0}
+--- !u!114 &1203248323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203248319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7ea761e220ed84998991e3666e0fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 2, z: 0}
+  lookOffsetRight: 1.5
+  sensitivity: 2
+  minYAngle: -30
+  maxYAngle: 60
 --- !u!1 &1242941610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,8 +2873,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa2edc388848d64489548d97eea3905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: 0
-  characters: []
+  menu: 1
+  characters:
+  - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
+  - {fileID: 3361506183169847512, guid: 06652f03cb0bbad44ae671c6c1a34043, type: 3}
   branchGenerator: {fileID: 0}
   timeToStartDancing: 120
   dancingTime: 10
