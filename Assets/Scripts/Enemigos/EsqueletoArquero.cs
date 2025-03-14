@@ -53,28 +53,37 @@ public class EsqueletoArquero : MonoBehaviour
 
     private void Update()
     {
-        Vector3 v = (_player.transform.position - transform.position);
-        Vector3 targetVelocity =  v.normalized * _maxSpeed;
-
-        if (v.magnitude < rObjetivo)
+        if(_player == null)
         {
-            targetVelocity = Vector3.zero;
-            _onAttack = true;
-            _animator.SetBool("attack", _onAttack);
+            _player = GameManager.Instance.Player;
         }
-        else if(v.magnitude < rRalentizado)
+        else
         {
-            targetVelocity *= fRalentizado;
-        }
+            Vector3 v = (_player.transform.position - transform.position);
+            Vector3 targetVelocity = v.normalized * _maxSpeed;
 
-        _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,
-                (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
-        _animator.SetFloat("velocity", _currentVelocity.magnitude);
+            if (v.magnitude < rObjetivo)
+            {
+                targetVelocity = Vector3.zero;
+                _onAttack = true;
+                _animator.SetBool("attack", _onAttack);
+            }
+            else if (v.magnitude < rRalentizado)
+            {
+                targetVelocity *= fRalentizado;
+            }
+
+            _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,
+                    (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
+            _animator.SetFloat("velocity", _currentVelocity.magnitude);
+        }
+       
     }
 
     private void FixedUpdate()
     {
-        
+        if (_player == null)
+            return;
         Vector3 v = (_player.transform.position - transform.position);
         if (v.magnitude > rObjetivo)
         {
