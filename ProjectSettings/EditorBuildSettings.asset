@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mazmorra4.unity
     guid: 78fec0102b25d6843adce63b7693e190
+  - enabled: 1
+    path: Assets/Scenes/Mazmorra1.unity
+    guid: 634b8d5443412b54c9a37c84d09e51f8
+  - enabled: 1
+    path: Assets/Scenes/Mazmorra2.unity
+    guid: 9957335057e58ed4ba6f4cfee9a9c329
   m_configObjects: {}
