@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;
     private bool _isJumping;
+    private bool _isMoving;
 
     private Vector3 _movePlayer;
 
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _isJumping = false;
+        _isMoving = false;
     }
 
     private void Update()
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (_movePlayer.magnitude < 0.1f)
         {
             _movePlayer = Vector3.zero;
+            _isMoving = false;
             // Cambiar animacion
             if (!_animator.GetBool("Idle"))
             {
@@ -72,11 +75,22 @@ public class PlayerMovement : MonoBehaviour
                 _animator.SetBool("Run", true);
                 _animator.SetBool("Idle", false);
             }
+            _isMoving = true;
         }
         
         
     }
 
+    public bool IsMoving()
+    {
+        return _isMoving;
+    }
+
+    public void StopMovement()
+    {
+        _inputMovement = Vector2.zero;
+        _movePlayer = Vector2.zero;
+    }
     private void FixedUpdate()
     {
         if (_movePlayer.magnitude > 0.01f)
