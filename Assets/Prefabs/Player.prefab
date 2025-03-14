@@ -353,6 +353,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fd3dccfc-9002-444d-a8b3-4d91b79d0006
     m_ActionName: Player/Block[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
+    m_ActionName: Player/StrongAttack[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -377,7 +381,7 @@ MonoBehaviour:
   _jumpForce: 6
   _mainCamera: {fileID: 7193798602890344821, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
   _intLayerMask: 6
-  _rayLenght: 0.21
+  _rayLenght: 0.3
   _offsetX: 0.7
   _offsetY: 0.7
 --- !u!54 &6418189029880252105
