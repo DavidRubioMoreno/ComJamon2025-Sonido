@@ -9,10 +9,13 @@ public class Dest : MonoBehaviour
     [SerializeField]
     private float velocity;
 
+    private Transform obj;
+
     private Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        obj = getFirst();
     }
 
     // Update is called once per frame
@@ -23,7 +26,15 @@ public class Dest : MonoBehaviour
     private void FixedUpdate()
     {
         //rb.MovePosition(*Time.deltaTime);
-        rb.velocity= (getFirst().position - transform.position).normalized*Time.fixedDeltaTime*velocity*100;
+        if (obj != null)
+        {
+            rb.velocity = (obj.position - transform.position).normalized * Time.fixedDeltaTime * velocity * 100;
+        }
+        else
+        {
+            rb.velocity = (getFirst().position - transform.position).normalized * Time.fixedDeltaTime * velocity * 100;
+
+        }
     }
     private Transform getFirst()
     {
