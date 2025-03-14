@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    public bool menu;
     private int branchesCollected = 0;
     public GameObject[] characters;
     [SerializeField]
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //branchGenerator.enabled = false;
+        menu = true;
         createPlayer();
     }
 
