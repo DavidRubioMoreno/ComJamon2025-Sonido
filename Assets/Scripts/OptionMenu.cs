@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -61,9 +62,17 @@ public class OptionsMenu : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void QuitGame()
+    public void QuitGame(int val)
     {
         Debug.Log("Saliendo del juego...");
+        if(val == 1)
+        {
+            GuardarJuego();
+        }
         Application.Quit();
+    }
+    private void GuardarJuego()
+    {
+
     }
 }
