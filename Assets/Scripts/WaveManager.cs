@@ -7,7 +7,9 @@ public class WaveManager : MonoBehaviour
     [Header("Enemy Configuration")]
     public GameObject[] enemyPrefabs; // Lista de enemigos disponibles
     public GameObject bossPrefab; // Prefab del jefe final
-    public Transform spawnArea; // Área donde aparecerán los enemigos
+    public Transform[] spawnAreas; // Área donde aparecerán los enemigos
+    private Transform spawnArea;
+    public int areaRadius = 5;
     public int numberOfWaves = 3; // Número total de oleadas
     public int enemiesPerWave = 5; // Cantidad de enemigos por oleada
 
@@ -21,10 +23,23 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;
     private List<GameObject> activeEnemies = new List<GameObject>(); // Lista de enemigos vivos
     private bool spawning = false;
+    public static WaveManager Instance { get; private set; }
+
+    public int EnemiesAlive { get { return activeEnemies.Count; } }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
         StartNextWave();
+    }
+
+    public List<GameObject> getActiveEnemies()
+    {
+        return activeEnemies;
     }
 
     void Update()
@@ -41,13 +56,14 @@ public class WaveManager : MonoBehaviour
                 SpawnBoss();
             }
         }
-
-        EnemieManager.Instance.setEnemies(activeEnemies);
+        Debug.Log(activeEnemies.Count);
+       
 
     }
 
     void StartNextWave()
     {
+        if(currentWave < spawnAreas.Length) spawnArea = spawnAreas[currentWave];
         currentWave++;
         spawning = true;
         StartCoroutine(SpawnWave());
@@ -66,7 +82,7 @@ public class WaveManager : MonoBehaviour
                 if(spawnParticles[j] != null)
                 {
                     particles[j] = Instantiate(spawnParticles[j], spawnPosition, Quaternion.identity);
-                   
+                    if (j == 1) particles[j].transform.localScale *= 3;
                 }
             }
            
@@ -121,9 +137,9 @@ public class WaveManager : MonoBehaviour
     Vector3 GetRandomSpawnPosition()
     {
         return spawnArea.position + new Vector3(
-            Random.Range(-3f, 3f),
+            Random.Range(-areaRadius, areaRadius),
             0,
-            Random.Range(-3f, 3f)
+            Random.Range(-areaRadius, areaRadius)
         );
     }
 }

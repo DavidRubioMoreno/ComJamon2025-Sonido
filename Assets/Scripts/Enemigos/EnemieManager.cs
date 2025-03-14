@@ -6,9 +6,11 @@ public class EnemieManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> enemies;
     
     public static EnemieManager Instance { get; private set; }
+
+    WaveManager mngr;
 
     private void Awake()
     {
@@ -24,23 +26,16 @@ public class EnemieManager : MonoBehaviour
     }
     void Start()
     {
-        
+        mngr = WaveManager.Instance;
+        enemies = mngr.getActiveEnemies();
     }
 
-    public void setEnemies(List<GameObject> e)
+    private void Update()
     {
-        enemies = e;
-    }
-   
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       
     }
 
-    public List<GameObject> getEnemies()
-    {
+    public List<GameObject> getEnemies() { 
         return enemies;
     }
 }

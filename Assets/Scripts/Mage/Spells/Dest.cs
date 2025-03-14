@@ -32,21 +32,25 @@ public class Dest : MonoBehaviour
         }
         else
         {
-            rb.velocity = (getFirst().position - transform.position).normalized * Time.fixedDeltaTime * velocity * 100;
+            obj = getFirst();
 
         }
     }
     private Transform getFirst()
     {
+        if (WaveManager.Instance.EnemiesAlive == 0)
+            return null;
+
         float minDist = 10000.0f;
         GameObject objetivo = null;
-        foreach (GameObject g in EnemieManager.Instance.getEnemies()) {
+        foreach (GameObject g in WaveManager.Instance.getActiveEnemies()) {
             if ((g.transform.position - transform.position).magnitude <= minDist)
             {
                 objetivo =(GameObject)g;
                 minDist = (g.transform.position - transform.position).magnitude;
             }
         }
+        
         return objetivo.transform;
     }
 
