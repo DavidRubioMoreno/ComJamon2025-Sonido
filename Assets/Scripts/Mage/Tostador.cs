@@ -42,23 +42,15 @@ public class Tostador : MonoBehaviour
         _animator.SetBool("Strong", false);
 
         Debug.Log(EnemieManager.Instance.getEnemies().Count);
-        List<GameObject> objs = GetThreeClosestObjects(EnemieManager.Instance.getEnemies());
-        if (EnemieManager.Instance.getEnemies().Count >= 3)
+       
+        if (WaveManager.Instance.EnemiesAlive > 0)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                Instantiate(rayos, objs[i].transform.position, Quaternion.identity);
-            }
-        }
-        else
-        {
+            List<GameObject> objs = GetThreeClosestObjects(WaveManager.Instance.getActiveEnemies());
             for (int i = 0; i < EnemieManager.Instance.getEnemies().Count; i++)
             {
                 Instantiate(rayos, objs[i].transform.position, Quaternion.identity);
             }
         }
-
-
     }
     public void StrongAttack(InputAction.CallbackContext callback)
     {
