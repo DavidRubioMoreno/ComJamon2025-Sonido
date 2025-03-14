@@ -76,12 +76,11 @@ public class ArbolHabilidades : MonoBehaviour
             GameObject btn = CrearBotonHabilidad(habilidad);
             if (btn != null)
             {
-                // Asignar el botón al panel correcto
                 Transform panelDestino = ObtenerPanelPorHabilidad(habilidad.nombre);
                 if (panelDestino != null)
                 {
                     btn.transform.SetParent(panelDestino, false);
-                    botones[habilidad.nombre] = btn; // Guardar el botón en el diccionario
+                    botones[habilidad.nombre] = btn;
                 }
             }
         }
@@ -98,7 +97,6 @@ public class ArbolHabilidades : MonoBehaviour
         GameObject btn = Instantiate(botonPrefab);
         btn.name = habilidad.nombre;
 
-        // Buscar el componente TextMeshProUGUI en lugar de Text
         TMP_Text textoBoton = btn.GetComponentInChildren<TMP_Text>();
         if (textoBoton != null)
             textoBoton.text = habilidad.nombre;
@@ -108,16 +106,12 @@ public class ArbolHabilidades : MonoBehaviour
         Button boton = btn.GetComponent<Button>();
         if (boton != null)
         {
-            // Establecer el estado de interactuar según si la habilidad está desbloqueada o no
-            boton.interactable = habilidad.EsDesbloqueable();  // Solo interactuable si puede desbloquearse.
-
-            // Cambiar el color del botón según su estado (bloqueado/desbloqueado)
+            boton.interactable = habilidad.EsDesbloqueable();
             CambiarColorBoton(boton, habilidad);
 
-            // Si el botón es desbloqueado, no permitir que se haga clic en él.
             if (habilidad.desbloqueada)
             {
-                boton.interactable = false; // Deshabilitar el botón
+                boton.interactable = false;
             }
 
             boton.onClick.AddListener(() => DesbloquearHabilidad(habilidad));
@@ -146,11 +140,13 @@ public class ArbolHabilidades : MonoBehaviour
         {
             habilidad.desbloqueada = true;
             puntosHabilidad -= habilidad.costo;
-            Debug.Log($"Desbloqueada: {habilidad.nombre}");
+
+            // Aplicar la mejora correspondiente
+            AplicarMejora(habilidad.nombre);
+
             ActualizarHabilidades();
         }
     }
-
     void ActualizarHabilidades()
     {
         foreach (var habilidad in habilidades.Values)
@@ -170,30 +166,65 @@ public class ArbolHabilidades : MonoBehaviour
             }
         }
     }
+    void AplicarMejora(string habilidadNombre)
+    {
+        switch (habilidadNombre)
+        {
+            case "Más daño":
+                // Implementar lógica para aumentar el daño del jugador
+                Debug.Log("Se ha aumentado el daño del jugador.");
+                break;
 
-    // Método para cambiar el color del botón según el estado de la habilidad
+            case "Más rango":
+                // Implementar lógica para aumentar el rango de ataque
+                Debug.Log("Se ha aumentado el rango de ataque.");
+                break;
+
+            case "Ataque giratorio":
+                // Implementar lógica para habilitar un ataque giratorio
+                Debug.Log("Ahora el jugador puede hacer un ataque giratorio.");
+                break;
+
+            case "Más tiempo de bloqueo":
+                Debug.Log("El tiempo de bloqueo ha sido aumentado.");
+                break;
+
+            case "Velocidad bloqueando":
+                Debug.Log("La velocidad al bloquear ha sido mejorada.");
+                break;
+
+            case "Doble tiempo bloqueando":
+                Debug.Log("El bloqueo ahora dura el doble de tiempo.");
+                break;
+
+            case "Más velocidad":
+                Debug.Log("El jugador ahora tiene más velocidad de movimiento.");
+                break;
+
+            case "Dash":
+                Debug.Log("El jugador ha desbloqueado la habilidad de Dash.");
+                break;
+
+            default:
+                Debug.LogWarning("No se ha encontrado una mejora para la habilidad: " + habilidadNombre);
+                break;
+        }
+    }
+
     void CambiarColorBoton(Button boton, Habilidad habilidad)
     {
         Image imagenBoton = boton.GetComponent<Image>();
-        TMP_Text textoBoton = boton.GetComponentInChildren<TMP_Text>(); // Usar TMP_Text
+        TMP_Text textoBoton = boton.GetComponentInChildren<TMP_Text>();
 
         if (habilidad.desbloqueada)
         {
-            // Si está desbloqueada, cambiar a verde
             if (imagenBoton != null)
                 imagenBoton.color = Color.green;
-
-            if (textoBoton != null)
-                textoBoton.color = Color.white;
         }
         else
         {
-            // Si está bloqueada, cambiar a gris
             if (imagenBoton != null)
                 imagenBoton.color = Color.gray;
-
-            if (textoBoton != null)
-                textoBoton.color = Color.white;
         }
     }
 }
