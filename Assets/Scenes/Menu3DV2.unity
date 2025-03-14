@@ -2861,6 +2861,8 @@ MonoBehaviour:
   salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
   Jugarnueva: {fileID: 8300000, guid: 2c6d8cb104e45fe4bbfecf7b35a84344, type: 3}
   jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
+  eligemeM: {fileID: 8300000, guid: 5b075aadb7e7783459963bd0dd71e529, type: 3}
+  eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0

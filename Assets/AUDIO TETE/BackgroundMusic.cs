@@ -10,6 +10,7 @@ public class BackgroundMusic : MonoBehaviour
     void Start()
     {
         musicSource.clip = musicClip;
+        musicSource.loop = true;
         musicSource.Play();
     }
 }

@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip salir;
     public AudioClip Jugarnueva;
     public AudioClip jugarcargada;
+    public AudioClip eligemeM;
+    public AudioClip eligemeC;
     private void Awake()
     {
         if (Instance == null)

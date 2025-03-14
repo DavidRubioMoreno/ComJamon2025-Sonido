@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public bool menu;
     private bool nocreado;
+    public bool cinematica; 
     private int branchesCollected = 0;
     public GameObject[] characters;
     [SerializeField]
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
-        if (!menu && !nocreado)
+        if (!menu && !nocreado && cinematica)
         {
             createPlayer();
 
@@ -67,12 +68,12 @@ public class GameManager : MonoBehaviour
     public void createPlayer()
     {
         //camara = Camera.main;
+        nocreado = true;
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
-        player = Instantiate(characters[selectedIndex],  new Vector3(0,100,0), Quaternion.identity);
+        player = Instantiate(characters[selectedIndex],  new Vector3(-6, 13, -13), Quaternion.identity);
         Debug.Log(player);
         player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
         Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
-        nocreado = true;
     }
     private void updateState(State currentState)
     {

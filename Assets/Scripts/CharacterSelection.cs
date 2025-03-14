@@ -20,6 +20,14 @@ public class CharacterSelection : MonoBehaviour
     {
         //rend.material.color = new Color(1f, 1f, 0.6f);
         anim.SetBool("Cambio",true); // Activa la animación al pasar el mouse
+        if (characterIndex == 0)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
+        }
     }
 
     private void OnMouseExit()
