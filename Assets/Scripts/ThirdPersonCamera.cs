@@ -51,8 +51,8 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 desiredPosition = target.position + rotation * offset;
 
         // Desplazamiento fijo a la derecha en coordenadas globales
-        Vector3 rightOffset = transform.right * lookOffsetRight;
-        Vector3 lookTarget = target.position + rightOffset; // Punto a mirar (ligeramente a la derecha del jugador)
+        Vector3 upOffset = transform.up * lookOffsetRight;
+        Vector3 lookTarget = target.position + upOffset; // Punto a mirar (ligeramente a la derecha del jugador)
 
         // Aplicar la posición y la dirección de la cámara
         transform.position = desiredPosition;
