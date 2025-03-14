@@ -7,7 +7,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [SerializeField]
     public bool menu;
+    private bool nocreado;
     private int branchesCollected = 0;
     public GameObject[] characters;
     [SerializeField]
@@ -49,21 +51,28 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //branchGenerator.enabled = false;
-        menu = true;
-        createPlayer();
+        
     }
 
     private void Update()
     {
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
+        if (!menu && !nocreado)
+        {
+            createPlayer();
+
+        }
     }
     public void createPlayer()
     {
+        //camara = Camera.main;
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
-        player = Instantiate(characters[selectedIndex], Vector3.up, Quaternion.identity);
-        camara.GetComponent<ThirdPersonCamera>().target = player.transform;
-        player.GetComponent<PlayerMovement>()._mainCamera = camara;
+        player = Instantiate(characters[selectedIndex],  new Vector3(0,100,0), Quaternion.identity);
+        Debug.Log(player);
+        player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
+        Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
+        nocreado = true;
     }
     private void updateState(State currentState)
     {
