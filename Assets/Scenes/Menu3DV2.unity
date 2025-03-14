@@ -2876,7 +2876,7 @@ MonoBehaviour:
   menu: 1
   characters:
   - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
-  - {fileID: 3361506183169847512, guid: 06652f03cb0bbad44ae671c6c1a34043, type: 3}
+  - {fileID: 1782158115661602860, guid: 923eaf87aa5b4114cb2af740d0df044a, type: 3}
   branchGenerator: {fileID: 0}
   timeToStartDancing: 120
   dancingTime: 10
