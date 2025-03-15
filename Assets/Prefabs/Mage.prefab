@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   reloadTime: 7.5
+  d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!114 &9164341682907505180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 100
   maxVida: 100
+  lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
 --- !u!4 &8828317778749461075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7997947301047521070, guid: fec6dc22ec45829438e316ad6c17c219, type: 3}

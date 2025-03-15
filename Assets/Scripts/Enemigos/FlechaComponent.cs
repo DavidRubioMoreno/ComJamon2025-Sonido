@@ -6,6 +6,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class FlechaComponent : MonoBehaviour
 {
     private float _speed = 10.0f;
+    [SerializeField]
+    private int damage = 1;
     private Vector3 _currentVelocity;
     public Vector3 _target;
     private Rigidbody _myRB;
@@ -28,13 +30,17 @@ public class FlechaComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 v = (_target - transform.position);
-
         _myRB.MovePosition(_myRB.position + _currentVelocity * Time.fixedDeltaTime * _speed);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (collider.GetComponent<PlayerMovement>())
+        {
+            Debug.Log("Hit");
+            collider.GetComponent<LifeComponent>().LoseLife(damage);
+        }
+            
         Destroy(gameObject);
     }
 }
