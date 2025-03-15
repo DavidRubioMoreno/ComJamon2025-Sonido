@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7544802285386444345}
   - component: {fileID: 5604761661932597247}
   - component: {fileID: 9174389206318597543}
+  - component: {fileID: 459379797122098016}
   m_Layer: 0
   m_Name: EsqueletoArquero
   m_TagString: Untagged
@@ -126,6 +127,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.2815373, z: 1}
   m_Center: {x: 0, y: 1.1592132, z: 0}
+--- !u!114 &459379797122098016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623784655520561469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41925da9f9ff5554c861dd9921bde3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 5
 --- !u!1 &1733638500832371135
 GameObject:
   m_ObjectHideFlags: 0
