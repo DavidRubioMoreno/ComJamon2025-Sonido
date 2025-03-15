@@ -47,7 +47,7 @@ public class BlockAttack : MonoBehaviour
                 _myPM.StopMovement();
                 _wasMoving = true;
             }
-
+            SoundManager.Instance.PlaySound(SoundManager.Instance.escudo);
             _animator.SetBool("Block", true);
             _canBlock = false;
         }

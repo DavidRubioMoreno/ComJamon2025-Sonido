@@ -8,6 +8,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource sfxSource; 
     public AudioClip mejora;
+    public AudioClip espada;
+    public AudioClip espada2;
+    public AudioClip escudo;
+    public AudioClip magia;
+    public AudioClip masmagia;
     public AudioClip opciones;
     public AudioClip salir;
     public AudioClip Jugarnueva;
@@ -27,13 +32,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip, float vol = 1)
     {
+        
         if (sfxSource.isPlaying && GameManager.Instance.menu)
         {
             sfxSource.Stop(); // Detener el sonido actual
         }
-        sfxSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip,vol);
     }
 }
 
