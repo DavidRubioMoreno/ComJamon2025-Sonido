@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
+            
             SceneManager.LoadScene(cargar);
         }
     }

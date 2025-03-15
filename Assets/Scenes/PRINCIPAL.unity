@@ -1311,11 +1311,11 @@ PrefabInstance:
       objectReference: {fileID: 1969717349}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: duracionRotacion
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: duracionMovimiento
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: tiempoAntesDeCambio

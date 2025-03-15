@@ -59,12 +59,23 @@ public class GameManager : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
+        Debug.Log("noCreado:" + nocreado);
+        Debug.Log(cinematica);
         if (!menu && !nocreado && cinematica)
         {
             createPlayer();
 
         }
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        nocreado = false;
+    }
+    //public void addPlayer()
+    //{
+    //    nocreado = false;
+    //}
     public void createPlayer()
     {
         //camara = Camera.main;
