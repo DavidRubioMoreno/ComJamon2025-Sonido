@@ -291,6 +291,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
     m_ActionName: Player/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
+    m_ActionName: Player/Opciones[/Keyboard/escape,/DualShock4GamepadHID/touchpadButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
