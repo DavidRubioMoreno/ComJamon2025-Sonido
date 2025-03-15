@@ -53,7 +53,7 @@ public class AutoAttack : MonoBehaviour
             }
             else
             {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.espada2);
+                SoundManager.Instance.PlaySound(SoundManager.Instance.espada2,0.2f);
             }
         }
     }
