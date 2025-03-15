@@ -357,6 +357,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
     m_ActionName: Player/StrongAttack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
+    m_ActionName: Player/Dash[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -451,10 +455,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8305154
+  m_Radius: 0.3410665
   m_Height: 2.4497187
   m_Direction: 1
-  m_Center: {x: 0.013227224, y: 1.2136375, z: 0}
+  m_Center: {x: 0.032497257, y: 1.2136375, z: -6.771469e-12}
 --- !u!114 &5151636329407123482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 10
+  maxVida: 0
 --- !u!114 &3347864577308523017
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -256,6 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 10
+  maxVida: 0
+  lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
 --- !u!136 &7319854553690561583
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: areaRadius
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: bossPrefab
@@ -9064,8 +9064,11 @@ MonoBehaviour:
   maxGenerationTime: 0.04
   setRandomInitialRotation: 1
   setRandomRotationForce: 0
+  setRandomScale: 0
   minRotationForce: 0.55
   maxRotationForce: 9
+  minScale: 0.5
+  maxScale: 2
 --- !u!4 &1332402725
 Transform:
   m_ObjectHideFlags: 0

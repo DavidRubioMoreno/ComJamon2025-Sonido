@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 5
   maxVida: 0
+  lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
 --- !u!136 &8872288375211076552
 CapsuleCollider:
   m_ObjectHideFlags: 0
