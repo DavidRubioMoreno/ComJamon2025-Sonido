@@ -32,9 +32,8 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip, float vol = 1)
+    public void PlaySound(AudioClip clip, float vol = 1f)
     {
-        
         if (sfxSource.isPlaying && GameManager.Instance.menu)
         {
             sfxSource.Stop(); // Detener el sonido actual
