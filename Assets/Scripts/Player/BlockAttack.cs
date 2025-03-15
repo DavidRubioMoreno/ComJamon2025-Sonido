@@ -14,6 +14,7 @@ public class BlockAttack : MonoBehaviour
     private bool _wasMoving;
     private PlayerMovement _myPM;
     private Animator _animator;
+    public bool isBlocking;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class BlockAttack : MonoBehaviour
         _animator = GetComponent<Animator>();
         _canBlock = true;
         _wasMoving = false;
+        isBlocking = false;
     }
 
     private void Update()
@@ -50,6 +52,7 @@ public class BlockAttack : MonoBehaviour
             SoundManager.Instance.PlaySound(SoundManager.Instance.escudo);
             _animator.SetBool("Block", true);
             _canBlock = false;
+            isBlocking = true;
         }
     }
 
@@ -71,6 +74,7 @@ public class BlockAttack : MonoBehaviour
         _animator.SetBool("Block", false);
         _animator.SetBool("Blocking", false);
         _animator.SetBool("Blocked", false);
+        isBlocking = false;
         AcabaAnimacion();
     }
 

@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513345104201346208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -361,6 +361,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
     m_ActionName: Player/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
+    m_ActionName: Player/Opciones[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -487,7 +491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 10
-  maxVida: 0
+  maxVida: 10
+  lifePrefab: {fileID: 0}
 --- !u!114 &3347864577308523017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reloadTime: 0.5
+  isBlocking: 0
 --- !u!4 &2027603445228041236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}

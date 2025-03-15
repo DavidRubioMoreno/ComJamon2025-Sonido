@@ -16,14 +16,19 @@ public class LifeComponent : MonoBehaviour
 
         if (lifePrefab && UnityEngine.Random.Range(0, 3) == 0)
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
-        Die?.Invoke(); // Notifica al WaveManager que este enemigo murió
+        Die?.Invoke(); // Notifica al WaveManager que este enemigo muriï¿½
         Destroy(gameObject); // Destruye al enemigo
     }
 
     public void LoseLife(int damage)
     {
-        vida-= damage;
-        //Debug.Log(vida);
+        if(GetComponent<BlockAttack>() != null && GetComponent<BlockAttack>().isBlocking)
+        {
+            Debug.Log("NO DAï¿½O");
+            return;
+        }
+
+        vida -= damage;
         if (vida <= 0) OnDeath();
         
     }
