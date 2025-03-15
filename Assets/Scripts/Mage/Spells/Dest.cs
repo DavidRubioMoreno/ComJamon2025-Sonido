@@ -45,7 +45,7 @@ public class Dest : MonoBehaviour
 
 
     }
-    private Transform getFirst()
+    public Transform getFirst()
     {
         if (!WaveManager.Instance || WaveManager.Instance.EnemiesAlive == 0)
             return null;

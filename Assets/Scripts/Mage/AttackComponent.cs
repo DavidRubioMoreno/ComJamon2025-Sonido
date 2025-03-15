@@ -66,6 +66,7 @@ public class AttackComponent : MonoBehaviour
     public void activeNormalAttack()
     {
         Instantiate(fireBall, nSpawn.position, Quaternion.identity);
+
         _animator.SetBool("Attack", false);
         
     }
