@@ -31,6 +31,7 @@ public class AutoAttack : MonoBehaviour
     {
         if (other.gameObject.GetComponent<LifeComponent>() &&  _collider.gameObject.activeSelf)
         {
+            other.gameObject.GetComponent<LifeComponent>().LoseLife(_damage);
             Debug.Log("DAÑO");
         }
     }

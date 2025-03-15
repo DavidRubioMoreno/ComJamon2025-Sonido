@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 513345104201346208}
-  _damage: 0
+  _damage: 3
   _reloadTime: 0.5
 --- !u!114 &5628913436012919497
 MonoBehaviour:
