@@ -35,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu3DV2.unity
     guid: 6cacc299ff580044c96dfd7026d8bdfa
-  - enabled: 1
-    path: Assets/Scenes/marcossososos.unity
-    guid: a05f9507e6ff1564dab8733252d2fb46
   m_configObjects: {}
