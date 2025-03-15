@@ -37,7 +37,7 @@ public class LifeComponent : MonoBehaviour
 
         vida -= damage;
         if (vida <= 0) OnDeath();
-        
+        Debug.Log(vida);
     }
 
     public void AddLife(int hp)
