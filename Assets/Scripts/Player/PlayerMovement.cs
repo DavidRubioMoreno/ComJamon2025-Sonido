@@ -48,6 +48,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
+=======
+        //if (GetComponent<AutoAttack>() != null)
+        //{
+        //    if (GetComponent<AutoAttack>().isAttacking)
+        //    {
+        //        _currentVelocity = Vector2.MoveTowards(_currentVelocity, Vector2.zero, _deceleration * 0.5f * Time.deltaTime);
+
+        //        _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
+
+        //        if (_currentVelocity.magnitude < 0.1f)
+        //        {
+        //            _currentVelocity = Vector2.zero;
+        //            _movePlayer = Vector3.zero;
+        //            _isMoving = false;
+
+        //            if (!_animator.GetBool("Idle"))
+        //            {
+        //                _animator.SetBool("Idle", true);
+        //                _animator.SetBool("Run", false);
+        //            }
+        //        }
+
+        //        return;
+        //    }
+        //}
+
+
+>>>>>>> Stashed changes
         CamDir();
 
         Vector2 targetVelocity = _inputMovement * _maxSpeed;

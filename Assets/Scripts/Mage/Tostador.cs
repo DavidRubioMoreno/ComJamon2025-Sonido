@@ -34,10 +34,18 @@ public class Tostador : MonoBehaviour
 
     List<GameObject> GetThreeClosestObjects(List<GameObject> objects)
     {
-        return objects
+        if(objects.Count <= 3)
+        {
+            return objects;
+        }
+        else
+        {
+                return objects
             .OrderBy(obj => Vector3.Distance(transform.position, obj.transform.position))
             .Take(3)
             .ToList();
+        }
+
     }
     public void storm()
     {
