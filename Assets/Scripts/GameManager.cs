@@ -102,22 +102,20 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         nocreado = false;
+        if(level == 4)
+        cinematica = false;
+        camara = Camera.main;
     }
 
     public void createPlayer()
     {
         //camara = Camera.main;
-        
+        cinematica = true;
         nocreado = true;
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
-        Debug.Log(selectedIndex);
-        Debug.Log(characters[selectedIndex]);
         player = Instantiate(characters[selectedIndex], SpawnPoint.Instance.Position.position, SpawnPoint.Instance.Position.rotation);
-        Debug.Log(player);
         player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
-        Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
-        
-        
+        Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;    
     }
     private void updateState(State currentState)
     {
