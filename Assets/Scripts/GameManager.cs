@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
             createPlayer();
 
         }
-        if (UIManager.Instance && nocreado)
+        if (UIManager.Instance && player)
         {
-            UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().maxVida, player.GetComponent<LifeComponent>().vida);
+            UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
         }
     }
 

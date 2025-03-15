@@ -23,6 +23,7 @@ public class LifeComponent : MonoBehaviour
     public void LoseLife(int damage)
     {
         vida-= damage;
+        //Debug.Log(vida);
         if (vida <= 0) OnDeath();
         
     }
