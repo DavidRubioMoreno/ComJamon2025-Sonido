@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private Guardado guardado;
     private bool _cargarPartida = false;
     private bool paused = false;
-
+    public bool jeferojo = false;
     //[SerializeField]
     private GameObject player;
     [SerializeField]
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
         player = Instantiate(characters[selectedIndex], SpawnPoint.Instance.Position.position, SpawnPoint.Instance.Position.rotation);
         player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
         Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;    
+
     }
     private void updateState(State currentState)
     {
