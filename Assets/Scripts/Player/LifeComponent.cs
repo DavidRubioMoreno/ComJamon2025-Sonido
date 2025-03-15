@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 
 public class LifeComponent : MonoBehaviour
 {
@@ -22,9 +21,6 @@ public class LifeComponent : MonoBehaviour
         if(deathParticles)
             Instantiate(deathParticles, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         Die?.Invoke(); // Notifica al WaveManager que este enemigo muri�
-
-        if(GetComponent<PlayerMovement>())
-            SceneManager.LoadScene("PRINCIPAL");
         Destroy(gameObject); // Destruye al enemigo
     }
 
