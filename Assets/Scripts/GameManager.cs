@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -156,5 +158,13 @@ public class GameManager : MonoBehaviour
     {
         if (gameObject.GetComponent<Collectable>())
             gameObject.GetComponent<Collectable>().onCollect();
+    }
+
+    public void CargarPartida()
+    {
+        Cargado c = GetComponent<Cargado>();
+
+        SceneManager.LoadScene(c.GetMensajes("Escena"));
+        Debug.Log(c.GetMensajes("Escena"));
     }
 }
