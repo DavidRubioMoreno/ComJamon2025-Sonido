@@ -9,7 +9,7 @@ public class reaparece : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
-            collision.transform.position = new Vector3(-6,13,-13);
+            collision.transform.position = SpawnPoint.Instance.Position.position;
         }
     }
 }

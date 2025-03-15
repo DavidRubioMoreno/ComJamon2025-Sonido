@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         //camara = Camera.main;
         nocreado = true;
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
-        player = Instantiate(characters[selectedIndex],  new Vector3(-6, 13, -13), Quaternion.identity);
+        player = Instantiate(characters[selectedIndex],  SpawnPoint.Instance.Position.position, Quaternion.identity);
         Debug.Log(player);
         player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
         Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
