@@ -23,6 +23,12 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;
     private List<GameObject> activeEnemies = new List<GameObject>(); // Lista de enemigos vivos
     private bool spawning = false;
+
+    [SerializeField]
+    private float timeToBegin = 3;
+    private float elapsed = 0;
+
+    private bool started = false;
     public static WaveManager Instance { get; private set; }
 
     public int EnemiesAlive { get { return activeEnemies.Count; } }
@@ -34,7 +40,8 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        StartNextWave();
+        
+       
     }
 
     public List<GameObject> getActiveEnemies()
@@ -44,8 +51,16 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
+        elapsed += Time.deltaTime;
+
+        if (!started && elapsed > timeToBegin)
+        {
+            started = true;
+            StartNextWave();
+        }
+
         // Si no estamos generando enemigos y ya no hay enemigos vivos, pasamos a la siguiente oleada
-        if (!spawning && activeEnemies.Count == 0)
+        if (started && !spawning && activeEnemies.Count == 0)
         {
             if (currentWave < numberOfWaves)
             {
