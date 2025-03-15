@@ -39264,6 +39264,8 @@ GameObject:
   - component: {fileID: 5673882187403641986}
   - component: {fileID: 4947933051450358189}
   - component: {fileID: 7173460952318934285}
+  - component: {fileID: 3897603419379851599}
+  - component: {fileID: 2189557625303654925}
   m_Layer: 0
   m_Name: Rayo
   m_TagString: Untagged
@@ -44103,3 +44105,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &3897603419379851599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993021486099998120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.42, y: 15.142805, z: 1.42}
+  m_Center: {x: 0, y: 6.8614025, z: 0}
+--- !u!114 &2189557625303654925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993021486099998120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d981caf684d5bb2409aab1fcb7b662f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15

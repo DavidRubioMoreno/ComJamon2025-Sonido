@@ -312,7 +312,7 @@ MonoBehaviour:
   _jumpForce: 7.5
   _mainCamera: {fileID: 0}
   _intLayerMask: 6
-  _rayLenght: 0.21
+  _rayLenght: 0.35
   _offsetX: 0.7
   _offsetY: 0.7
 --- !u!114 &6324445642581789813
