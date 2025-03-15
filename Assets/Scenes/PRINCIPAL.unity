@@ -488,6 +488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -547,6 +551,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_Name
       value: IslaJam
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7289971650518294000, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_Layer
@@ -713,11 +725,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
---- !u!4 &471621330 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7493596028755563170, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
-  m_PrefabInstance: {fileID: 471621316}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545314537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1187,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 88.963, z: 0}
+--- !u!1 &1219942030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219942031}
+  m_Layer: 0
+  m_Name: CinematicaPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219942031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219942030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.7, y: 12.54, z: -8.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321331131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
@@ -1266,9 +1304,17 @@ PrefabInstance:
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: arbolObjetivo
       value: 
-      objectReference: {fileID: 471621330}
+      objectReference: {fileID: 1219942031}
+    - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
+      propertyPath: posicionInicial
+      value: 
+      objectReference: {fileID: 1969717349}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: duracionRotacion
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
+      propertyPath: duracionMovimiento
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
@@ -1388,7 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1842521288}
   offset: {x: 4, y: 2, z: -4}
-  lookOffsetRight: 3
+  lookOffsetRight: 1.5
   sensitivity: 2
   minYAngle: -30
   maxYAngle: 60
@@ -1515,6 +1561,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2027603445228041236, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
   m_PrefabInstance: {fileID: 1842521287}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1969717348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969717349}
+  m_Layer: 0
+  m_Name: CinematicaInicio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1969717349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969717348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 137.07, y: 67.22, z: -3.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097063814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,3 +1820,5 @@ SceneRoots:
   - {fileID: 1628589579}
   - {fileID: 1688992515}
   - {fileID: 1854816677957687292}
+  - {fileID: 1219942031}
+  - {fileID: 1969717349}

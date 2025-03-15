@@ -6,9 +6,9 @@ public class CinematicCamera : MonoBehaviour
     public Transform arbolObjetivo; // Árbol al que se acercará la cámara
     public Camera mainCamera; // Cámara del jugador (Main Camera)
 
-    public float duracionMovimiento = 5f; // Tiempo para moverse al árbol
+    public float duracionMovimiento = 3f; // Tiempo para moverse al árbol
     public float duracionRotacion = 3f; // Tiempo para girar y subir
-    public Vector3 posicionInicial = new Vector3(0, 50, -100); // Posición inicial
+    public Transform posicionInicial; // Posición inicial
     public float alturaExtra = 10f; // Altura extra después de girar
     public float tiempoAntesDeCambio = 2f; // Tiempo antes de cambiar a la Main Camera
 
@@ -22,7 +22,7 @@ public class CinematicCamera : MonoBehaviour
         cinematicCamera.enabled = true;
         if (mainCamera != null) mainCamera.enabled = false;
 
-        transform.position = posicionInicial;
+        transform.position = posicionInicial.position;
 
         StartCoroutine(SecuenciaCinematica());
     }
