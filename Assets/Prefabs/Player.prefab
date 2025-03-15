@@ -254,6 +254,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3347864577308523017}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657885432192493998}
   m_SourcePrefab: {fileID: 100100000, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
 --- !u!1 &1686789631571177134 stripped
 GameObject:
@@ -358,7 +361,19 @@ MonoBehaviour:
     m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
     m_ActionName: Player/StrongAttack[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1657885432192493998}
+        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+        m_MethodName: Dashito
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
     m_ActionName: Player/Dash[/Keyboard/shift]
   - m_PersistentCalls:
@@ -494,6 +509,7 @@ MonoBehaviour:
   vida: 10
   maxVida: 10
   lifePrefab: {fileID: 0}
+  deathParticles: {fileID: 0}
 --- !u!114 &3347864577308523017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +524,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reloadTime: 0.5
   isBlocking: 0
+--- !u!114 &1657885432192493998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686789631571177134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf50a52408907d45be3bec9bd115cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 10
+  reloadTime: 7.5
+  d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!4 &2027603445228041236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
