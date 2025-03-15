@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     public bool cinematica; 
     private int branchesCollected = 0;
     public GameObject[] characters;
-    [SerializeField]
-    private ObjectGenerator branchGenerator; //cuando suena la musica caen ramas
 
     [SerializeField]
     private float timeToStartDancing = 120;
@@ -34,7 +32,7 @@ public class GameManager : MonoBehaviour
     public Camera camara;
     private float elapsedTime = 0;
     private Scene _currentScene;
-    public enum State { DANCING, NORMAL }
+    public enum State { DANCING, NORMAL, PAUSE }
 
     private State state;
     public State CurrentState { get { return state; } }
@@ -89,10 +87,7 @@ public class GameManager : MonoBehaviour
     {
         nocreado = false;
     }
-    //public void addPlayer()
-    //{
-    //    nocreado = false;
-    //}
+
     public void createPlayer()
     {
         //camara = Camera.main;

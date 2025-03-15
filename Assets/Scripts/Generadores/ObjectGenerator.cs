@@ -25,10 +25,19 @@ public class ObjectGenerator : MonoBehaviour
     private bool setRandomRotationForce = false;
 
     [SerializeField]
+    private bool setRandomScale = false;
+
+    [SerializeField]
     private float minRotationForce = 0;
 
     [SerializeField]
     private float maxRotationForce = 5;
+
+    [SerializeField]
+    private float minScale = 0.5f;
+
+    [SerializeField]
+    private float maxScale = 2;
 
     private float nextGenerationtime;
 
@@ -60,6 +69,11 @@ public class ObjectGenerator : MonoBehaviour
             }
 
             GameObject objectSpawned = Instantiate(objectToGen, finalPosition, finalRotation);
+
+            if (setRandomScale)
+            {
+                objectSpawned.transform.localScale *= getRandomInterval(minScale * 10, maxScale * 10) / 10;
+            }
 
             if (setRandomRotationForce)
             {
