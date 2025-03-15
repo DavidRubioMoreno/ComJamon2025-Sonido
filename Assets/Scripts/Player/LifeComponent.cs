@@ -6,6 +6,7 @@ using System;
 public class LifeComponent : MonoBehaviour
 {
     public int vida;
+    public int maxVida;
     public event Action Die;
     public void OnDeath()
     {
@@ -22,12 +23,6 @@ public class LifeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        maxVida = vida;
     }
 }

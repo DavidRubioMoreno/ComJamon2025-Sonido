@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -61,12 +60,14 @@ public class GameManager : MonoBehaviour
     {
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
-        Debug.Log("noCreado:" + nocreado);
-        Debug.Log(cinematica);
         if (!menu && !nocreado && cinematica)
         {
             createPlayer();
 
+        }
+        if (UIManager.Instance && nocreado)
+        {
+            UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().maxVida, player.GetComponent<LifeComponent>().vida);
         }
     }
 
