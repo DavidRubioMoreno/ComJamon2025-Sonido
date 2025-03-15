@@ -18,8 +18,8 @@ public class OptionsMenu : MonoBehaviour
         // Cargar valores guardados
         volumenSlider.value = PlayerPrefs.GetFloat("Music", 1f);
         musicaSlider.value = PlayerPrefs.GetFloat("SFX", 1f);
-        ChangeGeneralVolume(volumenSlider.value);
-        ChangeMusicVolume(musicaSlider.value);
+        //ChangeGeneralVolume(volumenSlider.value);
+        //ChangeMusicVolume(musicaSlider.value);
         // Asignar los valores al AudioListener
         volumenSlider.onValueChanged.AddListener(ChangeGeneralVolume);
         musicaSlider.onValueChanged.AddListener(ChangeMusicVolume);

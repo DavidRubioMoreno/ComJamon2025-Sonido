@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float timeToStartDancing = 120;
-
+    [SerializeField]
+    public GameObject canvas;
     [SerializeField]
     private float dancingTime = 10;
 
@@ -58,6 +59,9 @@ public class GameManager : MonoBehaviour
         //branchGenerator.enabled = false;
         c = GetComponent<Cargado>();
         _currentScene = SceneManager.GetActiveScene();
+
+        canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
+        canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
     }
 
     private void Update()

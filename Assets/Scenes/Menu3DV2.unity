@@ -3164,6 +3164,7 @@ MonoBehaviour:
   - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
   - {fileID: 1782158115661602860, guid: 923eaf87aa5b4114cb2af740d0df044a, type: 3}
   timeToStartDancing: 120
+  canvas: {fileID: 1600415580}
   dancingTime: 10
   camara: {fileID: 1203248321}
 --- !u!4 &1389648961
@@ -3181,6 +3182,7 @@ Transform:
   m_Children:
   - {fileID: 1148169915}
   - {fileID: 276982825}
+  - {fileID: 1600415584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1389648962
@@ -3682,7 +3684,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600415580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -3695,11 +3697,11 @@ RectTransform:
   - {fileID: 329343576}
   - {fileID: 2048239989}
   - {fileID: 2091852819}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1389648961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1040, y: -984}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1600415585
@@ -4949,7 +4951,6 @@ SceneRoots:
   - {fileID: 1148177094}
   - {fileID: 1864131321}
   - {fileID: 173392347}
-  - {fileID: 1600415584}
   - {fileID: 933615927}
   - {fileID: 821776437}
   - {fileID: 1144729708}
