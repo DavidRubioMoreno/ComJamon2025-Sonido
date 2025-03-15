@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1107 &-4685189305675871203
+--- !u!1107 &-2593951961952118838
 AnimatorStateMachine:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -10,34 +10,28 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 9190602484732883830}
-    m_Position: {x: 260, y: 100, z: 0}
+    m_State: {fileID: 5129690132255583496}
+    m_Position: {x: 290, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 220, y: 240, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 9190602484732883830}
+  m_DefaultState: {fileID: 5129690132255583496}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Esqueleto
+  m_Name: EsqueletoMago
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: velocity
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: attack
+  - m_Name: Cambio
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -46,7 +40,7 @@ AnimatorController:
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: -4685189305675871203}
+    m_StateMachine: {fileID: -2593951961952118838}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -56,19 +50,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!114 &7461676898174640877
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e798f576a889e346beda19e32438971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1102 &9190602484732883830
+--- !u!1102 &5129690132255583496
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1

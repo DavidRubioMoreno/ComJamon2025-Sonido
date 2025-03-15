@@ -21,7 +21,7 @@ public class WaveManager : MonoBehaviour
     public GameObject[] spawnParticles; // Prefab de partículas antes de la aparición del enemigo
 
     private int currentWave = 0;
-    private List<GameObject> activeEnemies = new List<GameObject>(); // Lista de enemigos vivos
+    public List<GameObject> activeEnemies = new List<GameObject>(); // Lista de enemigos vivos
     private bool spawning = false;
 
     [SerializeField]
