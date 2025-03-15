@@ -7,6 +7,8 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     private int damage;
+
+    private bool hit;
     void Start()
     {
         
@@ -22,13 +24,20 @@ public class Damage : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("eeeee");
-            LifeComponent l = GetComponent<LifeComponent>();
-            if (l != null)
+            if (!hit)
             {
-                l.LoseLife(damage);
+                Debug.Log("Tostao");
+                LifeComponent l = other.GetComponent<LifeComponent>();
+                if (l != null)
+                {
+                    l.LoseLife(damage);
+                }
+                if (GetComponent<Dest>() != null)
+                {
+                    Destroy(gameObject);
+                }
+                hit = true;
             }
-            Destroy(gameObject);
         }
 
     }

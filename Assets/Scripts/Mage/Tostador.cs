@@ -13,6 +13,8 @@ public class Tostador : MonoBehaviour
 
     private Animator _animator;
 
+ 
+
     private float _sAttack;
     void Start()
     {
