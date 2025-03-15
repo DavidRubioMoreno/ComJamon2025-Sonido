@@ -148,7 +148,8 @@ public class WaveManager : MonoBehaviour
     IEnumerator SpawnBossWithDelay(Vector3 position)
     {
         yield return new WaitForSeconds(preSpawnEffectTime);
-        Instantiate(bossPrefab, position, Quaternion.identity);
+        GameObject boss = Instantiate(bossPrefab, position, Quaternion.identity);
+        activeEnemies.Add(boss);
         spawning = false;
     }
 
