@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        if (level == 4)
+            cinematica = false;
         nocreado = false;
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LifeComponent : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class LifeComponent : MonoBehaviour
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
         if(deathParticles)
             Instantiate(deathParticles, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        if (GetComponent<PlayerMovement>())
+            SceneManager.LoadScene("PRINCIPAL");
         Die?.Invoke(); // Notifica al WaveManager que este enemigo muri�
         Destroy(gameObject); // Destruye al enemigo
     }
