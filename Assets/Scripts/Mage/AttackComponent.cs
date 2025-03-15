@@ -20,12 +20,15 @@ public class AttackComponent : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
+    private float elapsed;
+
+
     private void Start()
     {
         _nAttack = 0;
         _animator = GetComponent<Animator>();
         _rigidbody= GetComponent<Rigidbody>();
-
+        elapsed = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +41,16 @@ public class AttackComponent : MonoBehaviour
 
             _animator.SetBool("Attack", true);
 
+        }
+
+        if (_animator.GetBool("Attack"))
+        {
+           elapsed+= Time.deltaTime;
+            if (elapsed > 0.9)
+            {
+                _animator.SetBool("Attack", false);
+                elapsed = 0;
+            }
         }
     }
 

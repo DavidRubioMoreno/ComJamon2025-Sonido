@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ataquen
-  m_Speed: 1.35
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6068072885426547750}
@@ -311,9 +311,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Run
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Idle
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2899995420577611338}
   m_Solo: 0
@@ -373,7 +370,7 @@ AnimatorStateMachine:
     m_Position: {x: 750, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9051208312964803105}
-    m_Position: {x: 350, y: -100, z: 0}
+    m_Position: {x: 350, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6609287049633338599}
     m_Position: {x: 530, y: 540, z: 0}
@@ -660,9 +657,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Idle
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Run
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5772618219222332944}
