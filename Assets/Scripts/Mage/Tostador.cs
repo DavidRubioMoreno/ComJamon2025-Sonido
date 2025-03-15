@@ -51,7 +51,7 @@ public class Tostador : MonoBehaviour
     {
         _animator.SetBool("Strong", false);
         SoundManager.Instance.PlaySound(SoundManager.Instance.masmagia);
-
+        Debug.Log(WaveManager.Instance.EnemiesAlive);
         if (WaveManager.Instance.EnemiesAlive > 0)
         {
             List<GameObject> objs = GetThreeClosestObjects(WaveManager.Instance.getActiveEnemies());
