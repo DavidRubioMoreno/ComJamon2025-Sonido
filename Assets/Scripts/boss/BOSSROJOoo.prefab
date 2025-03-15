@@ -11439,6 +11439,7 @@ GameObject:
   - component: {fileID: 7564087433244636747}
   - component: {fileID: 9039790372923568342}
   - component: {fileID: 7988331131558015039}
+  - component: {fileID: 6019689212602726732}
   m_Layer: 0
   m_Name: BOSSROJOoo
   m_TagString: Untagged
@@ -11553,6 +11554,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.90301454, y: 1.4033127, z: 0.90856075}
   m_Center: {x: 0.04849273, y: 0.7112781, z: -0.045719624}
+--- !u!114 &6019689212602726732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500138633114310123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41925da9f9ff5554c861dd9921bde3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 100
+  maxVida: 0
+  lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
+  deathParticles: {fileID: 4202501866729362098, guid: 0efb1ff3527edab41b92a3a56ab60b92, type: 3}
 --- !u!1 &8557449884889456496
 GameObject:
   m_ObjectHideFlags: 0

@@ -6848,7 +6848,7 @@ PrefabInstance:
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 4556817180686021323, guid: 427d9728ec83c334ca2ee075f094d986, type: 3}
+      objectReference: {fileID: 8500138633114310123, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: spawnDelay
       value: 1
@@ -6907,7 +6907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7271943490169638393, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9484,7 +9484,6 @@ MonoBehaviour:
   timeToStartDancing: 120
   canvas: {fileID: 0}
   dancingTime: 10
-  jeferojo: 0
   camara: {fileID: 0}
 --- !u!4 &1554965896
 Transform:
@@ -11845,63 +11844,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 38ed51e80755b464b9e0741214dd910d, type: 3}
   m_PrefabInstance: {fileID: 1933957820}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1943497316
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.981917
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8661251
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -33.755745
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962511604783629280, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8500138633114310123, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
-      propertyPath: m_Name
-      value: BOSSROJOoo
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
 --- !u!1001 &1978513483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13264,4 +13206,3 @@ SceneRoots:
   - {fileID: 1073157720}
   - {fileID: 1554965896}
   - {fileID: 163145088}
-  - {fileID: 1943497316}
