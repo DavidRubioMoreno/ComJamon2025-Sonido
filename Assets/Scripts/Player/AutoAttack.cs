@@ -18,6 +18,7 @@ public class AutoAttack : MonoBehaviour
     private Animator _animator;
     private int _random;
     private bool _canAttack;
+    public bool isAttacking;
     private PlayerMovement _myPM;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class AutoAttack : MonoBehaviour
         _animator = GetComponent<Animator>();
         _canAttack = true;
         _myPM = GetComponent<PlayerMovement>();
+        isAttacking = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +57,7 @@ public class AutoAttack : MonoBehaviour
             {
                 SoundManager.Instance.PlaySound(SoundManager.Instance.espada2,0.2f);
             }
+            isAttacking = true;
         }
     }
 
@@ -71,7 +74,7 @@ public class AutoAttack : MonoBehaviour
     {
         _animator.SetBool("Attack", false);
         _animator.SetBool("Attack2", false);
-
+        isAttacking = false;
         StartCoroutine(WaitForReloadTime());
     }
     IEnumerator WaitForReloadTime()
