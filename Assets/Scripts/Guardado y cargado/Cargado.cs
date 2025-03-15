@@ -18,6 +18,36 @@ public class MessageData
     public List<DataType> dataTypes;
 }
 
+[System.Serializable]
+public class Position
+{
+    public float x;
+    public float y;
+    public float z;
+}
+
+[System.Serializable]
+public class Rotation
+{
+    public float x;
+    public float y;
+    public float z;
+    public float w;
+}
+
+[System.Serializable]
+public class Type
+{
+    public int type;
+}
+
+[System.Serializable]
+public class PlayerData
+{
+    public Position position;
+    public Rotation rotation;
+    public Type type;
+}
 public class Cargado : MonoBehaviour
 {
     public MessageData mData;
@@ -73,5 +103,20 @@ public class Cargado : MonoBehaviour
         }
         return null;
 
+    }
+
+    public PlayerData GetPlayerData()
+    {
+        if (mData != null && mData.dataTypes != null)
+        {
+            foreach (DataType message in mData.dataTypes)
+            {
+                if (message.id == "Player") 
+                {
+                    return JsonUtility.FromJson<PlayerData>(message.data);
+                }
+            }
+        }
+        return null;  
     }
 }

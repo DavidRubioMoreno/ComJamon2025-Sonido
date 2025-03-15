@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.SceneManagement;
@@ -23,12 +25,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float dancingTime = 10;
 
+    private Cargado c;
+    private bool _cargarPartida = false;
+
     //[SerializeField]
     private GameObject player;
     [SerializeField]
     public Camera camara;
-    private float elapsedTime = 0; 
-
+    private float elapsedTime = 0;
+    private Scene _currentScene;
     public enum State { DANCING, NORMAL }
 
     private State state;
@@ -53,11 +58,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //branchGenerator.enabled = false;
-        
+        c = GetComponent<Cargado>();
+        _currentScene = SceneManager.GetActiveScene();
     }
 
     private void Update()
     {
+        if(_currentScene != SceneManager.GetActiveScene())
+        {
+            if (_cargarPartida)
+            {
+                Cargar();
+            }
+            _currentScene = SceneManager.GetActiveScene();
+        }
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
         if (!menu && !nocreado && cinematica)
@@ -160,12 +174,28 @@ public class GameManager : MonoBehaviour
         if (gameObject.GetComponent<Collectable>())
             gameObject.GetComponent<Collectable>().onCollect();
     }
-
     public void CargarPartida()
     {
-        Cargado c = GetComponent<Cargado>();
-
+        _cargarPartida = true;
         SceneManager.LoadScene(c.GetMensajes("Escena"));
-        Debug.Log(c.GetMensajes("Escena"));
+    }
+    private void Cargar()
+    {
+        var a = c.GetPlayerData();
+        foreach (var item in c.mData.dataTypes)
+        {
+            switch (item.id)
+            {
+                case "Player":
+                    player = Instantiate(characters[a.type.type], new Vector3(a.position.x, a.position.y, a.position.z),
+                        new Quaternion(a.rotation.x, a.rotation.y, a.rotation.z, a.rotation.w));
+                    break;
+            }
+        }
+        _cargarPartida = false;
+    }
+    public void GuardarPartida()
+    {
+
     }
 }
