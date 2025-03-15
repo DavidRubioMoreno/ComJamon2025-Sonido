@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.PlayerSettings;
 
 public class Dash : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Dash : MonoBehaviour
 
     [SerializeField]
     private float reloadTime;
+
+    [SerializeField]
+    private GameObject d;
 
     private Rigidbody _rb;
     private Animator _an;
@@ -45,6 +49,8 @@ public class Dash : MonoBehaviour
         {
             _dash = 0;
             _rb.velocity=Vector3.zero;
+            GameObject ds=Instantiate(d, transform.position, Quaternion.identity);
+            ds.transform.parent=transform;
             _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
             _an.SetBool("Dash", true);
             nDash += 1;

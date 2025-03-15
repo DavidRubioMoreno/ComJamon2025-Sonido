@@ -4241,6 +4241,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
     m_ActionName: Player/Dash[/DualShock4GamepadHID/rightTrigger,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
+    m_ActionName: Player/Opciones[/Keyboard/escape,/DualShock4GamepadHID/touchpadButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -9340,6 +9344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 428210499}
   mejora: {fileID: 8300000, guid: d513dd290dc5e204bb3b2d514a9d2741, type: 3}
+  espada: {fileID: 0}
+  espada2: {fileID: 0}
+  escudo: {fileID: 0}
+  magia: {fileID: 0}
+  masmagia: {fileID: 0}
   opciones: {fileID: 8300000, guid: 9e677db861703f14287184d69420ae8a, type: 3}
   salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
   Jugarnueva: {fileID: 8300000, guid: 2c6d8cb104e45fe4bbfecf7b35a84344, type: 3}
@@ -9364,6 +9373,7 @@ MonoBehaviour:
   - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
   - {fileID: 1782158115661602860, guid: 923eaf87aa5b4114cb2af740d0df044a, type: 3}
   timeToStartDancing: 120
+  canvas: {fileID: 0}
   dancingTime: 10
   camara: {fileID: 0}
 --- !u!4 &1554965896
@@ -13069,6 +13079,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f14c3b1b72c33b43a84b95fc2d00914, type: 3}
   m_PrefabInstance: {fileID: 2106509913}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4823828135558244683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.661455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.92474365
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.169971
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164720343565546133, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+      propertyPath: m_Name
+      value: VFX_Smoke
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13086,3 +13153,4 @@ SceneRoots:
   - {fileID: 313376564}
   - {fileID: 1073157720}
   - {fileID: 1554965896}
+  - {fileID: 4823828135558244683}
