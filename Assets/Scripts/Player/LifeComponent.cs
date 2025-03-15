@@ -11,11 +11,15 @@ public class LifeComponent : MonoBehaviour
 
     [SerializeField]
     private GameObject lifePrefab;
+    [SerializeField]
+    private GameObject deathParticles;
     public void OnDeath()
     {
 
         if (lifePrefab && UnityEngine.Random.Range(0, 3) == 0)
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
+        if(deathParticles)
+            Instantiate(deathParticles, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         Die?.Invoke(); // Notifica al WaveManager que este enemigo muri�
         Destroy(gameObject); // Destruye al enemigo
     }
