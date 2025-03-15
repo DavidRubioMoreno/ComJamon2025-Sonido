@@ -130,7 +130,12 @@ public class WaveManager : MonoBehaviour
 
         enemy.GetComponent<LifeComponent>().Die += () => activeEnemies.Remove(enemy);
     }
+    public void Peruano(GameObject enemy)
+    {
+        activeEnemies.Add(enemy);
 
+        enemy.GetComponent<LifeComponent>().Die += () => activeEnemies.Remove(enemy);
+    }
     void SpawnBoss()
     {
         spawning = true;
