@@ -33,19 +33,25 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         if (target == null) return;
 
+        
+
         // Obtener entrada del ratón y del mando
-        float mouseX;
-        float mouseY;
-        if (mando)
-        {
-             mouseX = rotacion.x * sensitivity;
-             mouseY = rotacion.y * sensitivity;
-        }
-        else
-        {
-            mouseX = Input.GetAxis("Mouse X") * sensitivity;
-            mouseY = Input.GetAxis("Mouse Y") * sensitivity;
-        }
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+
+        float mandoX = rotacion.x * sensitivity;
+        float mandoY = rotacion.y * sensitivity;
+
+        //if (mando)
+        //{
+        //     mouseX = rotacion.x * sensitivity;
+        //     mouseY = rotacion.y * sensitivity;
+        //}
+        //else
+        //{
+        //    mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        //    mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+        //}
 
         //float joystickX = Input.GetAxis("Mouse") * sensitivity;
         //float joystickY = Input.GetAxis("RightStickY") * sensitivity;
@@ -53,8 +59,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
 
         // Aplicar movimiento de cámara sumando ratón y joystick
-        rotationX += mouseX;
-        rotationY -= mouseY;
+        rotationX += mouseX+mandoX;
+        rotationY -= mouseY+mandoY;
      
         rotationY = Mathf.Clamp(rotationY, minYAngle, maxYAngle); // Limita la inclinación vertical
 
