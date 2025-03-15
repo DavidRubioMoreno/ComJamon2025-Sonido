@@ -71,20 +71,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(_currentScene != SceneManager.GetActiveScene())
-        {
-            if (_cargarPartida)
-            {
-                Cargar();
-            }
-            _currentScene = SceneManager.GetActiveScene();
-        }
+        
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
-        if (!menu && !nocreado && cinematica)
+        if (!menu && !nocreado && cinematica && !_cargarPartida)
         {
             createPlayer();
 
+        }
+        if (_currentScene != SceneManager.GetActiveScene() && cinematica)
+        {
+            if (_cargarPartida)
+            {
+                _cargarPartida = false;
+                Cargar();
+            }
+            _currentScene = SceneManager.GetActiveScene();
         }
         if (UIManager.Instance && nocreado)
         {
@@ -100,15 +102,17 @@ public class GameManager : MonoBehaviour
     public void createPlayer()
     {
         //camara = Camera.main;
-     
+        
         nocreado = true;
         int selectedIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); // Carga el personaje elegido
         Debug.Log(selectedIndex);
         Debug.Log(characters[selectedIndex]);
-        player = Instantiate(characters[selectedIndex],  SpawnPoint.Instance.Position.position, SpawnPoint.Instance.Position.rotation);
+        player = Instantiate(characters[selectedIndex], SpawnPoint.Instance.Position.position, SpawnPoint.Instance.Position.rotation);
         Debug.Log(player);
         player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
         Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
+        
+        
     }
     private void updateState(State currentState)
     {
@@ -193,10 +197,12 @@ public class GameManager : MonoBehaviour
                 case "Player":
                     player = Instantiate(characters[a.type.type], new Vector3(a.position.x, a.position.y, a.position.z),
                         new Quaternion(a.rotation.x, a.rotation.y, a.rotation.z, a.rotation.w));
+                    player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
+                    Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
                     break;
             }
         }
-        _cargarPartida = false;
+        
     }
     public void GuardarPartida()
     {
