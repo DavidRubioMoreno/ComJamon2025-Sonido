@@ -41,7 +41,6 @@ public class Tostador : MonoBehaviour
     {
         _animator.SetBool("Strong", false);
 
-        Debug.Log(EnemieManager.Instance.getEnemies().Count);
        
         if (WaveManager.Instance.EnemiesAlive > 0)
         {
