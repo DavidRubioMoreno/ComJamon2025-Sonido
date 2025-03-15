@@ -1239,6 +1239,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 986837171}
   mejora: {fileID: 8300000, guid: d513dd290dc5e204bb3b2d514a9d2741, type: 3}
+  espada: {fileID: 0}
+  espada2: {fileID: 0}
+  escudo: {fileID: 0}
+  magia: {fileID: 0}
+  masmagia: {fileID: 0}
   opciones: {fileID: 8300000, guid: 9e677db861703f14287184d69420ae8a, type: 3}
   salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
   Jugarnueva: {fileID: 8300000, guid: 2c6d8cb104e45fe4bbfecf7b35a84344, type: 3}
@@ -1427,6 +1432,7 @@ GameObject:
   - component: {fileID: 520032166}
   - component: {fileID: 520032165}
   - component: {fileID: 520032168}
+  - component: {fileID: 520032169}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1520,12 +1526,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7ea761e220ed84998991e3666e0fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mando: 0
   target: {fileID: 0}
   offset: {x: 0, y: 2, z: -4}
   lookOffsetRight: 1.5
   sensitivity: 2
   minYAngle: -30
   maxYAngle: 60
+--- !u!114 &520032169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520032164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f923b9c4f6de2e747b8e66f37432a58f, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 532e08cf-8712-41a5-bb5f-25a4cfbdabb0
+    m_ActionName: Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5775b6f4-98b2-4747-b31e-db235c7281eb
+    m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebadcbd6-4913-467e-b142-ae37bce6aecb
+    m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonWest,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 520032168}
+        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
+    m_ActionName: Player/Camara[/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd3dccfc-9002-444d-a8b3-4d91b79d0006
+    m_ActionName: Player/Block[/Keyboard/f,/DualShock4GamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
+    m_ActionName: Player/StrongAttack[/DualShock4GamepadHID/buttonEast,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
+    m_ActionName: Player/Dash[/DualShock4GamepadHID/rightTrigger,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
+    m_ActionName: Player/Opciones[/Keyboard/escape,/DualShock4GamepadHID/touchpadButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &529629774
 GameObject:
   m_ObjectHideFlags: 0
