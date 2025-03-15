@@ -16,9 +16,10 @@ public class OptionsMenu : MonoBehaviour
     private void Start()
     {
         // Cargar valores guardados
-        volumenSlider.value = PlayerPrefs.GetFloat("GeneralVolume", 1f);
-        musicaSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-
+        volumenSlider.value = PlayerPrefs.GetFloat("Music", 1f);
+        musicaSlider.value = PlayerPrefs.GetFloat("SFX", 1f);
+        ChangeGeneralVolume(volumenSlider.value);
+        ChangeMusicVolume(musicaSlider.value);
         // Asignar los valores al AudioListener
         volumenSlider.onValueChanged.AddListener(ChangeGeneralVolume);
         musicaSlider.onValueChanged.AddListener(ChangeMusicVolume);
@@ -36,14 +37,14 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeGeneralVolume(float value)
     {
-        audioMixer.SetFloat("Musica", Mathf.Log10(value) * 20); // Ajustar volumen
-        PlayerPrefs.SetFloat("SFX", value); // Guardar configuración
+        audioMixer.SetFloat("Music", Mathf.Log10(value) * 20); // Ajustar volumen
+        PlayerPrefs.SetFloat("Music", value); // Guardar configuración
     }
 
     public void ChangeMusicVolume(float value)
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(value) * 20); // Ajustar música
-        PlayerPrefs.SetFloat("Musica", value); // Guardar configuración
+        PlayerPrefs.SetFloat("SFX", value); // Guardar configuración
     }
 
     public void ShowExitConfirmation()
