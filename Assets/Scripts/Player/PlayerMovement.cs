@@ -48,6 +48,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GetComponent<AutoAttack>().isAttacking)
+        {
+            _currentVelocity = Vector2.MoveTowards(_currentVelocity, Vector2.zero, _deceleration * 0.5f* Time.deltaTime);
+
+            _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
+
+            if (_currentVelocity.magnitude < 0.1f)
+            {
+                _currentVelocity = Vector2.zero;
+                _movePlayer = Vector3.zero;
+                _isMoving = false;
+
+                if (!_animator.GetBool("Idle"))
+                {
+                    _animator.SetBool("Idle", true);
+                    _animator.SetBool("Run", false);
+                }
+            }
+
+            return;
+        }
+
         CamDir();
 
         Vector2 targetVelocity = _inputMovement * _maxSpeed;
@@ -55,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
             (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
 
+           
         _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
         //_movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
         if (_movePlayer.magnitude < 0.1f)
@@ -93,30 +116,31 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_movePlayer.magnitude > 0.01f)
-        {
-            _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
+        
+            if (_movePlayer.magnitude > 0.01f)
+            {
+                _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
 
-            Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
-            _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
-        }
-        if (_jump == 1 && IsGrounded() && !_isJumping)
-        {
-            _animator.SetBool("Jump", true);  
-            _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);  
-            _isJumping = true;  
-        }
-        else if (IsGrounded() && _isJumping)
-        {
-            _animator.SetBool("Jump", false);  
-            _isJumping = false;  
-        }
-        else if (!IsGrounded() && !_isJumping)
-        {
-            _animator.SetBool("Jump", true);  
-        }
-        else if(IsGrounded()) _animator.SetBool("Jump", false);
-
+                Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
+                _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
+            }
+            if (_jump == 1 && IsGrounded() && !_isJumping)
+            {
+                _animator.SetBool("Jump", true);
+                _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
+                _isJumping = true;
+            }
+            else if (IsGrounded() && _isJumping)
+            {
+                _animator.SetBool("Jump", false);
+                _isJumping = false;
+            }
+            else if (!IsGrounded() && !_isJumping)
+            {
+                _animator.SetBool("Jump", true);
+            }
+            else if (IsGrounded()) _animator.SetBool("Jump", false);
+        
     }
     public bool IsGrounded()
     {

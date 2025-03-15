@@ -24,7 +24,7 @@ public class LifeComponent : MonoBehaviour
     {
         if(GetComponent<BlockAttack>() != null && GetComponent<BlockAttack>().isBlocking)
         {
-            Debug.Log("NO DA�O");
+            Debug.Log("NO DAÑO");
             return;
         }
 

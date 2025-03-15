@@ -48,4 +48,8 @@ public class Guardado : MonoBehaviour
         File.WriteAllText(filePath, json); 
         Debug.Log("Datos guardados en: " + filePath);
     }
+    public void Guarda()
+    {
+        GameManager.Instance.GuardarPartida();
+    }
 }
