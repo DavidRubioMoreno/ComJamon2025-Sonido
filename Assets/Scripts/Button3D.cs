@@ -45,8 +45,8 @@ public class Button3D : MonoBehaviour
                 SceneManager.LoadScene("ElegirClase"); // Cargar la escena del juego
                 break;
             case "Load":
-                Debug.Log("Cargar partida guardada...");
                 // Aquí cargarías datos de una partida guardada
+                GameManager.Instance.CargarPartida();
                 break;
             case "Options":
                 Debug.Log("Abrir menú de opciones...");
