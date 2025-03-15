@@ -22,7 +22,13 @@ public class LifeComponent : MonoBehaviour
 
     public void LoseLife(int damage)
     {
-        vida-= damage;
+        if(GetComponent<BlockAttack>() != null && GetComponent<BlockAttack>().isBlocking)
+        {
+            Debug.Log("NO DAÑO");
+            return;
+        }
+
+        vida -= damage;
         if (vida <= 0) OnDeath();
         
     }
