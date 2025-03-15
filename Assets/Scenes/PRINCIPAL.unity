@@ -831,7 +831,7 @@ Transform:
   m_GameObject: {fileID: 545314537}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.2, y: 14.7, z: 0}
+  m_LocalPosition: {x: -40.2, y: 18.38, z: -28.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1069,7 +1069,7 @@ Transform:
   m_GameObject: {fileID: 767015685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3, y: 27.6, z: 26.8}
+  m_LocalPosition: {x: -6.3, y: 15.71, z: 26.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1417,7 +1417,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688992513}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 97fca95f33987e548be9dd7c03cb1a96, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 20cbde986f628bb41bbc92dfd61311cf, type: 2}
 --- !u!4 &1688992515
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,7 @@ Transform:
   m_GameObject: {fileID: 1688992513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.971068, y: 18.95584, z: 22.873474}
+  m_LocalPosition: {x: -7.971068, y: 18.95584, z: 33.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
