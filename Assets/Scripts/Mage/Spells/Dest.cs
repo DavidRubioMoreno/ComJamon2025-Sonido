@@ -38,7 +38,7 @@ public class Dest : MonoBehaviour
     }
     private Transform getFirst()
     {
-        if (WaveManager.Instance.EnemiesAlive == 0)
+        if (!WaveManager.Instance || WaveManager.Instance.EnemiesAlive == 0)
             return null;
 
         float minDist = 10000.0f;

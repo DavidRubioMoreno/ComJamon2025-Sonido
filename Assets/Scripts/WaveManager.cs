@@ -74,7 +74,7 @@ public class WaveManager : MonoBehaviour
                 SpawnBoss();
             }
         }
-        Debug.Log(activeEnemies.Count);
+        //Debug.Log(activeEnemies.Count);
        
 
     }
