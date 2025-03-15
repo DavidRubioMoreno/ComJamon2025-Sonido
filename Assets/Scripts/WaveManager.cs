@@ -29,6 +29,8 @@ public class WaveManager : MonoBehaviour
     private float elapsed = 0;
 
     private bool started = false;
+
+    private bool bossSpawned = false;
     public static WaveManager Instance { get; private set; }
 
     public int EnemiesAlive { get { return activeEnemies.Count; } }
@@ -66,8 +68,9 @@ public class WaveManager : MonoBehaviour
             {
                 StartNextWave();
             }
-            else if (bossPrefab != null)
+            else if (bossPrefab != null && !bossSpawned)
             {
+                bossSpawned = true;
                 SpawnBoss();
             }
         }
