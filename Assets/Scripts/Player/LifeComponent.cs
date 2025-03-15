@@ -8,8 +8,14 @@ public class LifeComponent : MonoBehaviour
     public int vida;
     public int maxVida;
     public event Action Die;
+
+    [SerializeField]
+    private GameObject lifePrefab;
     public void OnDeath()
     {
+
+        if (lifePrefab && UnityEngine.Random.Range(0, 3) == 0)
+            Instantiate(lifePrefab, transform.position, Quaternion.identity);
         Die?.Invoke(); // Notifica al WaveManager que este enemigo murió
         Destroy(gameObject); // Destruye al enemigo
     }
@@ -19,6 +25,11 @@ public class LifeComponent : MonoBehaviour
         vida-= damage;
         if (vida <= 0) OnDeath();
         
+    }
+
+    public void AddLife(int hp)
+    {
+        vida = Mathf.Min(vida + hp, maxVida);
     }
     // Start is called before the first frame update
     void Start()
