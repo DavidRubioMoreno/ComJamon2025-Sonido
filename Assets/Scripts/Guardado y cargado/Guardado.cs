@@ -10,17 +10,25 @@ public class Guardado : MonoBehaviour
 
     private void Awake()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "DatosPartida.json");
+        // Ruta dentro del proyecto: Assets/Resources
+        string directoryPath = Path.Combine(Application.dataPath, "Resources");
+        filePath = Path.Combine(directoryPath, "DatosPartida.json");
+
+        // Crear la carpeta Resources si no existe
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
     }
 
-    public void GuardarMensaje(string id, PlayerData playerData)
+    public void GuardarMensaje(string id, Data Data)
     {
         if (mData.dataTypes == null)
         {
             mData.dataTypes = new List<DataType>();
         }
 
-        string playerJson = JsonUtility.ToJson(playerData);
+        string playerJson = JsonUtility.ToJson(Data);
 
         bool found = false;
 
@@ -28,7 +36,7 @@ public class Guardado : MonoBehaviour
         {
             if (item.id == id)
             {
-                item.data = playerJson; 
+                item.data = playerJson;
                 found = true;
                 break;
             }
@@ -45,9 +53,10 @@ public class Guardado : MonoBehaviour
     private void GuardarArchivo()
     {
         string json = JsonUtility.ToJson(mData, true);
-        File.WriteAllText(filePath, json); 
+        File.WriteAllText(filePath, json);
         Debug.Log("Datos guardados en: " + filePath);
     }
+
     public void Guarda()
     {
         GameManager.Instance.GuardarPartida();

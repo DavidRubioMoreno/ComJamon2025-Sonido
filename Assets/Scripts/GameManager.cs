@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float dancingTime = 10;
 
-    private Cargado c;
+    private Cargado cargado;
+    private Guardado guardado;
     private bool _cargarPartida = false;
     private bool paused = false;
 
@@ -62,7 +63,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //branchGenerator.enabled = false;
-        c = GetComponent<Cargado>();
+        cargado = GetComponent<Cargado>();
+        guardado = GetComponent<Guardado>();
         _currentScene = SceneManager.GetActiveScene();
 
         canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
@@ -71,7 +73,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GuardarPartida();
+        }
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
         if (!menu && !nocreado && cinematica && !_cargarPartida)
@@ -185,12 +190,12 @@ public class GameManager : MonoBehaviour
     public void CargarPartida()
     {
         _cargarPartida = true;
-        SceneManager.LoadScene(c.GetMensajes("Escena"));
+        SceneManager.LoadScene(cargado.GetMensajes("Escena"));
     }
     private void Cargar()
     {
-        var a = c.GetPlayerData();
-        foreach (var item in c.mData.dataTypes)
+        var a = cargado.GetPlayerData();
+        foreach (var item in cargado.mData.dataTypes)
         {
             switch (item.id)
             {
@@ -206,7 +211,12 @@ public class GameManager : MonoBehaviour
     }
     public void GuardarPartida()
     {
-
+        PlayerData pData = cargado.GetPlayerData();
+        pData.position.x = player.transform.position.x;
+        pData.position.y = player.transform.position.y;
+        pData.position.z = player.transform.position.z;
+        guardado.GuardarMensaje("Player", pData);
+        Debug.Log("Guardando partida...");
     }
     public void Options(InputAction.CallbackContext callback)
     {

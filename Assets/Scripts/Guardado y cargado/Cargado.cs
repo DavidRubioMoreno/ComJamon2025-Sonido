@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.IO;
+using JetBrains.Annotations;
 
 
 [System.Serializable]
@@ -42,12 +43,19 @@ public class Type
 }
 
 [System.Serializable]
-public class PlayerData
+public class Data
+{
+
+}
+
+[System.Serializable]
+public class PlayerData : Data
 {
     public Position position;
     public Rotation rotation;
     public Type type;
 }
+
 public class Cargado : MonoBehaviour
 {
     public MessageData mData;
