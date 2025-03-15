@@ -43,7 +43,11 @@ public class AttackComponent : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext callback)
     {
-        _nAttack = callback.ReadValue<float>();
+        if (!_animator.GetBool("Attack"))
+        {
+            _nAttack = callback.ReadValue<float>();
+        }
+        
     }
 
     public void activeNormalAttack()

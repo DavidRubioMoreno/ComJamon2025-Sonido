@@ -13,6 +13,11 @@ public class Dash : MonoBehaviour
 
     private int nDash;
 
+    private float elapsedTime;
+
+    [SerializeField]
+    private float reloadTime;
+
     private Rigidbody _rb;
     private Animator _an;
     private PlayerMovement _pm;
@@ -31,16 +36,20 @@ public class Dash : MonoBehaviour
         {
             nDash = 0;
         }
+
+        elapsedTime += Time.deltaTime;
     }
     private void FixedUpdate()
     {
         if (_dash > 0)
         {
             _dash = 0;
+            _rb.velocity=Vector3.zero;
             _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
             _an.SetBool("Dash", true);
             nDash += 1;
         }
+        
     }
     public void EndDash()
     {
@@ -49,9 +58,10 @@ public class Dash : MonoBehaviour
     public void Dashito(InputAction.CallbackContext callback)
     {
         Debug.Log("Dash");
-        if (!_an.GetBool("Dash")&&nDash<1)
+        if (!_an.GetBool("Dash")&&nDash<1&&elapsedTime>reloadTime)
         {
             _dash = callback.ReadValue<float>();
+            elapsedTime = 0;
         }
         
     }

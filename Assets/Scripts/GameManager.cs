@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Android;
+using UnityEngine.InputSystem;
+
 
 using UnityEngine.SceneManagement;
 
@@ -26,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private Cargado c;
     private bool _cargarPartida = false;
+    private bool paused = false;
 
     //[SerializeField]
     private GameObject player;
@@ -195,6 +200,20 @@ public class GameManager : MonoBehaviour
     }
     public void GuardarPartida()
     {
+
+    }
+    public void Options(InputAction.CallbackContext callback)
+    {
+        if (canvas.active)
+        {
+            canvas.SetActive(false);
+            paused = false;
+        }
+        else
+        {
+            canvas.SetActive(true);
+            paused = true;
+        }
 
     }
 }

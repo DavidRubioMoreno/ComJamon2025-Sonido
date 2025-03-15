@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    [SerializeField]
+    private bool mando;
     [Header("Camera Settings")]
     public Transform target; // Referencia al jugador
     public Vector3 offset = new Vector3(0, 2, -4); // Offset detrás del jugador
@@ -32,13 +34,23 @@ public class ThirdPersonCamera : MonoBehaviour
         if (target == null) return;
 
         // Obtener entrada del ratón y del mando
-        //float mouseX = rotacion.x * sensitivity;
-        //float mouseY = rotacion.y * sensitivity;
+        float mouseX;
+        float mouseY;
+        if (mando)
+        {
+             mouseX = rotacion.x * sensitivity;
+             mouseY = rotacion.y * sensitivity;
+        }
+        else
+        {
+            mouseX = Input.GetAxis("Mouse X") * sensitivity;
+            mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+        }
+
         //float joystickX = Input.GetAxis("Mouse") * sensitivity;
         //float joystickY = Input.GetAxis("RightStickY") * sensitivity;
 
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+
 
         // Aplicar movimiento de cámara sumando ratón y joystick
         rotationX += mouseX;
