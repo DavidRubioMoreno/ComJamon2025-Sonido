@@ -83,6 +83,7 @@ public class WaveManager : MonoBehaviour
     {
         if(currentWave < spawnAreas.Length) spawnArea = spawnAreas[currentWave];
         currentWave++;
+        SoundManager.Instance.PlaySound(SoundManager.Instance.invocar);
         spawning = true;
         StartCoroutine(SpawnWave());
     }
