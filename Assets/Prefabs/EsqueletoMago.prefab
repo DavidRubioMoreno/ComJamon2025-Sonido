@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 4380918445339287248, guid: affae9cbc1304964aac6bd81b495c235, type: 3}
-  spawnTimeMax: 13.5
-  spawnTimeMin: 7.5
+  spawnTimeMax: 25
+  spawnTimeMin: 20
 --- !u!4 &4695802585455404370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8225049665850245593, guid: 774e984ae84ff9940815566d56363f42, type: 3}
