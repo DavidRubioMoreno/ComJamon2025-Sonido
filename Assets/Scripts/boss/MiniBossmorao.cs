@@ -7,6 +7,7 @@ public class MiniBossMorao : MonoBehaviour
     public float rangoAndar = 5f;
     public float velocidadAndar = 2f;
     public float velocidadCorrer = 5f;
+    public float rangoCerca = 1f;
 
     public GameObject carcelPrefab; // Prefab de la cárcel
     public GameObject charcoPrefab; // Prefab del charco
@@ -66,7 +67,7 @@ public class MiniBossMorao : MonoBehaviour
                 }
             }
         }
-        else
+        else if(distancia < 1f || distancia > rangoVision) // QUIETOOO 
         {
             if (_animationState != AnimationState.Idle)
             {
