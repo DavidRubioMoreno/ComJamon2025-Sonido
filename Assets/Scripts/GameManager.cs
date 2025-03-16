@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private Guardado guardado;
     private bool _cargarPartida = false;
     private bool _partidaGuardada = false;
+    private bool enterZone = false;
     public SceneData sData;
     public PlayerData pData;
 
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     public State CurrentState { get { return state; } }
 
     public GameObject Player { get { return player; } }
+
+    
 
     private void Awake()
     {
@@ -80,6 +83,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void enterFinalZone()
+    {
+        if(branchesCollected >= 3)
+        {
+            enterZone = true;
+        }
+    }
+
+    public bool ReadyToANim()
+    {
+        return branchesCollected >= 3 && enterZone;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
