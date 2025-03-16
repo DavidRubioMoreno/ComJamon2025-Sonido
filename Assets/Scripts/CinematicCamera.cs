@@ -31,7 +31,7 @@ public class CinematicCamera : MonoBehaviour
     {
         // ?? Primera fase: Movimiento hacia el árbol
         Vector3 inicio = transform.position;
-        Vector3 destino = arbolObjetivo.position + new Vector3(0, 5, -10);
+        Vector3 destino = arbolObjetivo.position;
 
         float tiempo = 0;
         while (tiempo < duracionMovimiento)
