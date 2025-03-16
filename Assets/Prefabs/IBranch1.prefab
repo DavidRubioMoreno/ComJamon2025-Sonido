@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053863f2279ed0144b5b1378777bfb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentDungeon: 2
 --- !u!1 &4406362488678974804
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ GameObject:
   - component: {fileID: 5475784777116803148}
   - component: {fileID: 6958540034587325418}
   m_Layer: 6
-  m_Name: ImportantBranch
+  m_Name: IBranch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

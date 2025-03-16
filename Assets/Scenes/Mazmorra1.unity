@@ -1250,6 +1250,21 @@ MonoBehaviour:
   jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
   eligemeM: {fileID: 8300000, guid: 5b075aadb7e7783459963bd0dd71e529, type: 3}
   eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
+  bosrojomet: {fileID: 0}
+  bossrojobolon: {fileID: 0}
+  portales: {fileID: 0}
+  finmazmorra: {fileID: 0}
+  muerte: {fileID: 0}
+  dash: {fileID: 0}
+  invocar: {fileID: 0}
+  bruja: {fileID: 0}
+  arco: {fileID: 0}
+  espadaesqueleto: {fileID: 0}
+  giro: {fileID: 0}
+  carcel: {fileID: 0}
+  bolasrota: {fileID: 0}
+  toxico: {fileID: 0}
+  pegao: {fileID: 0}
 --- !u!114 &481116645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,6 +1285,20 @@ MonoBehaviour:
   timeToStartDancing: 120
   canvas: {fileID: 0}
   dancingTime: 10
+  sData:
+    sceneName: 
+  pData:
+    position:
+      x: 0
+      y: 0
+      z: 0
+    rotation:
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    type:
+      type: 0
   camara: {fileID: 520032166}
 --- !u!4 &481116646
 Transform:
@@ -2395,7 +2424,7 @@ PrefabInstance:
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 4556817180686021323, guid: 427d9728ec83c334ca2ee075f094d986, type: 3}
+      objectReference: {fileID: 1895013562162311071, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: enemiesPerWave
       value: 10

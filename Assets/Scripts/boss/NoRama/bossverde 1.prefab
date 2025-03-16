@@ -8750,7 +8750,7 @@ GameObject:
   - component: {fileID: 76635503995130611}
   - component: {fileID: 1976841793397408504}
   m_Layer: 0
-  m_Name: bossverde
+  m_Name: bossverde 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8860,10 +8860,10 @@ MonoBehaviour:
   maxVida: 0
   lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
   deathParticles: {fileID: 4202501866729362098, guid: 0efb1ff3527edab41b92a3a56ab60b92, type: 3}
-  importantBranch: {fileID: 4406362488678974804, guid: a70067e0e6fb7f442a15292945088196, type: 3}
+  importantBranch: {fileID: 0}
   missile: {fileID: 0}
-  dropBranch: 1
-  spawnMissile: 0
+  dropBranch: 0
+  spawnMissile: 1
 --- !u!114 &1976841793397408504
 MonoBehaviour:
   m_ObjectHideFlags: 0

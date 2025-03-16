@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Branch : Collectable
 {
@@ -26,6 +27,7 @@ public class Branch : Collectable
         {
             case DungeonAssig.DUNGEON_1:
                 GameManager.Instance.portalsBool.dun1_finished = true;
+               
                 break;
             case DungeonAssig.DUNGEON_2:
                 GameManager.Instance.portalsBool.dun2_finished = true;
@@ -34,6 +36,7 @@ public class Branch : Collectable
                 GameManager.Instance.portalsBool.dun3_finished = true;
                 break;
         }
+        SceneManager.LoadScene("PRINCIPAL");
         Destroy(transform.parent.gameObject);
     }
 }

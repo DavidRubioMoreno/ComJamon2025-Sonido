@@ -9632,7 +9632,7 @@ PrefabInstance:
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 4556817180686021323, guid: 427d9728ec83c334ca2ee075f094d986, type: 3}
+      objectReference: {fileID: 6498581095319646004, guid: 4decf55e00caaf94c8760559d9e81dbc, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: numberOfWaves
       value: 5
