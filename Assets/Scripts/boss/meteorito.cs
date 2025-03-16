@@ -22,8 +22,9 @@ public class Meteorito : MonoBehaviour
             // Aquí puedes restarle vida al jugador
             Debug.Log("Jugador impactado por meteorito!");
             other.GetComponent<LifeComponent>().LoseLife(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject); 
+        //Destroy(gameObject); 
 
     }
 }
