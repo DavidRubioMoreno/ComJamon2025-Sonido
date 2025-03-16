@@ -7,13 +7,14 @@ public class CharacterSelection : MonoBehaviour
     public int characterIndex; // 0 o 1, depende del personaje
     private Renderer rend;
     private Color originalColor;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
-        
-            //rend = GetComponent<Renderer>();
-            //originalColor = rend.material.color;
-        
+
+        //rend = GetComponent<Renderer>();
+        //originalColor = rend.material.color;
+        //BackgroundMusic.Instance.bossfinal();
     }
 
     private void OnMouseEnter()
