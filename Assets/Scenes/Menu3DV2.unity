@@ -3178,6 +3178,11 @@ MonoBehaviour:
   arco: {fileID: 8300000, guid: 44e4d0d8ca82a1e4cb2c0bceb28a3690, type: 3}
   espadaesqueleto: {fileID: 8300000, guid: 382e04a0abd6fbf4c8c3682221d9d0ce, type: 3}
   giro: {fileID: 8300000, guid: 4375db5628f1a944ca6c23d92f13aa07, type: 3}
+  carcel: {fileID: 8300000, guid: e7b717ed3526c614b92f7709f18f0ee5, type: 3}
+  bolasrota: {fileID: 8300000, guid: 741475489902d5540bb64bf629c011e3, type: 3}
+  toxico: {fileID: 8300000, guid: d6cb3d0a68a4f4c45a9da5b1df807964, type: 3}
+  pegao: {fileID: 8300000, guid: e1e509781f10814478685a68689666e9, type: 3}
+  manin: {fileID: 8300000, guid: 9632ca7005fcbcb4cb9771f97af12cf0, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3192,6 +3197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: 1
   cinematica: 0
+  branchesCollected: 0
   characters:
   - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
   - {fileID: 1782158115661602860, guid: 923eaf87aa5b4114cb2af740d0df044a, type: 3}

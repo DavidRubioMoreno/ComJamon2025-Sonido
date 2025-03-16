@@ -38,6 +38,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip toxico;
     public AudioClip pegao;
 
+    public AudioClip manin;
     private void Awake()
     {
         if (Instance == null)
