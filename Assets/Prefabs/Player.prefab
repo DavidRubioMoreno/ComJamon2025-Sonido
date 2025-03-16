@@ -540,7 +540,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -633,6 +633,10 @@ MonoBehaviour:
   maxVida: 10
   lifePrefab: {fileID: 0}
   deathParticles: {fileID: 0}
+  importantBranch: {fileID: 0}
+  missile: {fileID: 0}
+  dropBranch: 0
+  spawnMissile: 0
 --- !u!114 &3347864577308523017
 MonoBehaviour:
   m_ObjectHideFlags: 0
