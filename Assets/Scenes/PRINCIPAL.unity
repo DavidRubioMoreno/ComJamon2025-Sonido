@@ -2654,6 +2654,8 @@ MonoBehaviour:
   toxico: {fileID: 0}
   pegao: {fileID: 0}
   manin: {fileID: 0}
+  explo: {fileID: 0}
+  terre: {fileID: 0}
 --- !u!114 &1200901490
 MonoBehaviour:
   m_ObjectHideFlags: 0

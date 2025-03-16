@@ -52,7 +52,11 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject); // Mantiene el UIManager entre escenas
     }
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     public void Hit()
     {
         active = true;

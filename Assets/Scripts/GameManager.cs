@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 4 ||level == 1)
+        if (level == 5 ||level == 2)
             cinematica = false;
         nocreado = false;
     }

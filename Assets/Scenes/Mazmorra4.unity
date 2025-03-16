@@ -2665,6 +2665,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1226584400330655799, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3812069688033886789, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
       propertyPath: m_Name
       value: Terrain
