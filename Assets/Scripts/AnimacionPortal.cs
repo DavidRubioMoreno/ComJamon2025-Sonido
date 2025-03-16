@@ -9,7 +9,6 @@ public class AnimacionPortal : MonoBehaviour
     public Camera cameraMain;
     public float delayBeforeReturningCamera = 3f;
     public float camSpeed = 20f;
-    public UIManager uimanager; 
 
     void Start()
     {

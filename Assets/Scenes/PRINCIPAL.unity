@@ -632,7 +632,6 @@ MonoBehaviour:
   cameraMain: {fileID: 1648328566}
   delayBeforeReturningCamera: 3
   camSpeed: 20
-  uimanager: {fileID: 885926761}
 --- !u!65 &354377611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -652,8 +651,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 86.48816, y: 2.1410837, z: 99.04929}
-  m_Center: {x: 3.6883163, y: -5.8649697, z: -4.506237}
+  m_Size: {x: 86.48816, y: 4.6580906, z: 99.04929}
+  m_Center: {x: 3.6883163, y: -4.6064663, z: -4.506237}
 --- !u!1 &366297967
 GameObject:
   m_ObjectHideFlags: 0
