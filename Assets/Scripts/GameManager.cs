@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     private Cargado cargado;
     private Guardado guardado;
     private bool _cargarPartida = false;
+    private bool _partidaGuardada = false;
+    public SceneData sData;
+    public PlayerData pData;
+
     private bool paused = false;
 
     //[SerializeField]
@@ -69,6 +73,11 @@ public class GameManager : MonoBehaviour
 
         canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
         canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
+
+        if (sData.sceneName != null)
+        {
+            _partidaGuardada = true;
+        }
     }
 
     private void Update()
@@ -79,20 +88,27 @@ public class GameManager : MonoBehaviour
         }
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
-        if (!menu && !nocreado && cinematica && !_cargarPartida)
-        {
-            createPlayer();
-
-        }
-        if (_currentScene != SceneManager.GetActiveScene() && cinematica)
+        if (cinematica && _partidaGuardada)
         {
             if (_cargarPartida)
             {
                 _cargarPartida = false;
                 Cargar();
             }
+        }
+        if (!menu && !nocreado && cinematica && !_cargarPartida)
+        {
+            createPlayer();
+
+        }
+        if (_currentScene != SceneManager.GetActiveScene())
+        {
             _currentScene = SceneManager.GetActiveScene();
         }
+
+
+        
+       
        if (UIManager.Instance && player)
         {
             UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
@@ -191,8 +207,13 @@ public class GameManager : MonoBehaviour
     }
     public void CargarPartida()
     {
-        _cargarPartida = true;
-        SceneManager.LoadScene(cargado.GetMensajes("Escena"));
+        if (sData != null)
+        {
+            _cargarPartida = true;
+            SceneManager.LoadScene(sData.sceneName);
+        }
+        else Debug.Log("No existe partida guardada");
+       
     }
     private void Cargar()
     {
@@ -206,6 +227,7 @@ public class GameManager : MonoBehaviour
                         new Quaternion(a.rotation.x, a.rotation.y, a.rotation.z, a.rotation.w));
                     player.GetComponent<PlayerMovement>()._mainCamera = Camera.main;
                     Camera.main.GetComponent<ThirdPersonCamera>().target = player.transform;
+                    Debug.Log(characters[a.type.type]);
                     break;
             }
         }
@@ -213,11 +235,14 @@ public class GameManager : MonoBehaviour
     }
     public void GuardarPartida()
     {
-        PlayerData pData = cargado.GetPlayerData();
         pData.position.x = player.transform.position.x;
         pData.position.y = player.transform.position.y;
         pData.position.z = player.transform.position.z;
+        pData.type.type = PlayerPrefs.GetInt("SelectedCharacter", 0);
         guardado.GuardarMensaje("Player", pData);
+
+        sData.sceneName = _currentScene.name;
+        guardado.GuardarMensaje("Escena", sData);
         Debug.Log("Guardando partida...");
     }
     public void Options(InputAction.CallbackContext callback)
