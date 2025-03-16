@@ -52,7 +52,7 @@ public class MiniBossMorao : MonoBehaviour
             yield return new WaitForSeconds(20f);
 
             // Posición inicial elevada de la cárcel (encima del jugador)
-            Vector3 posicionInicial = GameManager.Instance.Player.transform.position + Vector3.up * 15f;
+            Vector3 posicionInicial = GameManager.Instance.Player.transform.position + Vector3.up * 8f;
 
             // Rotación de la cárcel (-90° en X)
             Quaternion rotacionCarcel = Quaternion.Euler(-90f, 0f, 0f);
