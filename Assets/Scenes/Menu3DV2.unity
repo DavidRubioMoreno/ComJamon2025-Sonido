@@ -3169,14 +3169,15 @@ MonoBehaviour:
   eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
   bosrojomet: {fileID: 8300000, guid: 5301fd5b063e28c42919676fb7de007b, type: 3}
   bossrojobolon: {fileID: 8300000, guid: 470e69811a77e2047ad02bc16a4c76af, type: 3}
-  portales: {fileID: 8300000, guid: bcafb149d4b76934183ac5bb275a3f4a, type: 3}
+  portales: {fileID: 8300000, guid: 6f9136ae4845fbf4eb4fc23fc55215a7, type: 3}
   finmazmorra: {fileID: 8300000, guid: 3ab229fae394ba745bdfb731a1a566f6, type: 3}
-  muerte: {fileID: 8300000, guid: 43737296cbbd6d343b1042eb32864802, type: 3}
+  muerte: {fileID: 8300000, guid: d74cc109c9651c048aae1d8c65a07435, type: 3}
   dash: {fileID: 8300000, guid: 293b89ff904f28c43b1c44b758d6e3fa, type: 3}
-  invocar: {fileID: 0}
-  bruja: {fileID: 0}
-  arco: {fileID: 0}
-  espadaesqueleto: {fileID: 0}
+  invocar: {fileID: 8300000, guid: 5f467a2ad4a832c4eb5d925d19a772b5, type: 3}
+  bruja: {fileID: 8300000, guid: 0b9313c382bab014cac4d2b57bc794e8, type: 3}
+  arco: {fileID: 8300000, guid: 44e4d0d8ca82a1e4cb2c0bceb28a3690, type: 3}
+  espadaesqueleto: {fileID: 8300000, guid: 382e04a0abd6fbf4c8c3682221d9d0ce, type: 3}
+  giro: {fileID: 8300000, guid: 4375db5628f1a944ca6c23d92f13aa07, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0
