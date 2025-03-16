@@ -50,6 +50,7 @@ public class CinemAnim : MonoBehaviour
 
         GameObject obj=Instantiate(boss, bossT.position, Quaternion.identity);
         WaveManager.Instance.Peruano(obj);
+        WaveManager.Instance.EscenaFinal();
         BackgroundMusic.Instance.bossfinal();
 
         Destroy(gameObject);

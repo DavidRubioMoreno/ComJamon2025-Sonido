@@ -35,7 +35,9 @@ public class LifeComponent : MonoBehaviour
         if (spawnMissile && missile)
             Instantiate(missile, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         if (GetComponent<PlayerMovement>())
-            SceneManager.LoadScene("PRINCIPAL");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //if (GetComponent<PlayerMovement>())
+        //    SceneManager.LoadScene("PRINCIPAL");
         Die?.Invoke(); // Notifica al WaveManager que este enemigo muri�
         Destroy(gameObject); // Destruye al enemigo
     }
