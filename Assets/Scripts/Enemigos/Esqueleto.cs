@@ -42,7 +42,7 @@ public class Esqueleto: MonoBehaviour
         {
 
             _espada.SetActive(true);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto, 0.2f);
         }
     }
 
