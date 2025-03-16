@@ -94,11 +94,13 @@ public class WaveManager : MonoBehaviour
        if(final && activeEnemies.Count == 0 && !GG)
         {
             GG = true;
+            SoundManager.Instance.PlaySound(SoundManager.Instance.explo);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.terre);
             if (tree)
                StartCoroutine(tree.ScaleObject());
             explosions.SetActive(true);
             StartCoroutine(goBack());
-       
+            
         }
 
     }
