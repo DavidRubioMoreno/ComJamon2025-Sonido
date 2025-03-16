@@ -39,7 +39,7 @@ public class CinemAnim : MonoBehaviour
     public void portal()
     {
         Instantiate(puño,transform.position, Quaternion.identity);
-        //SoundManager.Instance.PlaySound(SoundManager.Instance.manin);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.manin);
 
         //r.AddForce(new Vector3 (0,-100,0));
     }
