@@ -166,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94290473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 95783845}
   - component: {fileID: 95783844}
   - component: {fileID: 95783843}
+  - component: {fileID: 95783847}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -303,7 +304,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95783842}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -361,6 +362,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1600415584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95783847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95783842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cb61c0a5b606f4e832c36b535e35a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97512850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1051,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307860219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3160,6 +3173,10 @@ MonoBehaviour:
   finmazmorra: {fileID: 8300000, guid: 3ab229fae394ba745bdfb731a1a566f6, type: 3}
   muerte: {fileID: 8300000, guid: 43737296cbbd6d343b1042eb32864802, type: 3}
   dash: {fileID: 8300000, guid: 293b89ff904f28c43b1c44b758d6e3fa, type: 3}
+  invocar: {fileID: 0}
+  bruja: {fileID: 0}
+  arco: {fileID: 0}
+  espadaesqueleto: {fileID: 0}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,7 +3817,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600415580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -3817,7 +3834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1040, y: -984}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1600415585

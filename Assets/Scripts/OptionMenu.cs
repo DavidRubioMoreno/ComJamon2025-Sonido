@@ -70,12 +70,8 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log("Saliendo del juego...");
         if(val == 1)
         {
-            GuardarJuego();
+            GameManager.Instance.GuardarPartida();
         }
         Application.Quit();
-    }
-    private void GuardarJuego()
-    {
-
     }
 }
