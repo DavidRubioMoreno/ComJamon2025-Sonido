@@ -38,6 +38,7 @@ public class EsqueletoMago : MonoBehaviour
             spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
             //Instantiate(esq[Random.Range(0, 3)],origen,Quaternion.identity);
         }
+        if(GameManager.Instance.Player)
         transform.LookAt(GameManager.Instance.Player.transform);
     }
 }

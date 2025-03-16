@@ -26,12 +26,20 @@ public class WaveManager : MonoBehaviour
     private bool spawning = false;
 
     [SerializeField]
+    private Scaler tree;
+
+    [SerializeField]
+    private GameObject explosions;
+
+    [SerializeField]
     private float timeToBegin = 3;
     private float elapsed = 0;
 
     private bool started = false;
 
     private bool final = false;
+
+    private bool GG = false;
 
     private bool bossSpawned = false;
     public static WaveManager Instance { get; private set; }
@@ -83,9 +91,14 @@ public class WaveManager : MonoBehaviour
             }
         }
         //Debug.Log(activeEnemies.Count);
-       if(final && activeEnemies.Count == 0)
+       if(final && activeEnemies.Count == 0 && !GG)
         {
-            Debug.Log("GG");
+            GG = true;
+            if (tree)
+               StartCoroutine(tree.ScaleObject());
+            explosions.SetActive(true);
+            StartCoroutine(goBack());
+       
         }
 
     }
@@ -96,6 +109,12 @@ public class WaveManager : MonoBehaviour
         currentWave++;
         spawning = true;
         StartCoroutine(SpawnWave());
+    }
+
+    IEnumerator goBack()
+    {
+        yield return new WaitForSeconds(10.0f);
+        SceneManager.LoadScene("Menu3DV2");
     }
 
     IEnumerator SpawnWave()
