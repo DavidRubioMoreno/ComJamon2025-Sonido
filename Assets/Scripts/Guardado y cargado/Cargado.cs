@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using JetBrains.Annotations;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -51,9 +53,15 @@ public class Data
 [System.Serializable]
 public class PlayerData : Data
 {
-    public Position position;
-    public Rotation rotation;
-    public Type type;
+    public Position position = new Position();
+    public Rotation rotation = new Rotation();
+    public Type type = new Type();
+}
+
+[System.Serializable]
+public class SceneData : Data
+{
+    public string sceneName;
 }
 
 public class Cargado : MonoBehaviour
@@ -64,11 +72,14 @@ public class Cargado : MonoBehaviour
     {
         // Cargar el archivo JSON desde Resources
         TextAsset jsonTextFile = Resources.Load<TextAsset>("DatosPartida");
-        
+
 
         if (jsonTextFile != null)
         {
             mData = JsonUtility.FromJson<MessageData>(jsonTextFile.text);
+
+            GameManager.Instance.sData = GetSceneData();
+            GameManager.Instance.pData = GetPlayerData();
         }
         else
         {
@@ -77,7 +88,7 @@ public class Cargado : MonoBehaviour
     }
 
     // Debug
-    public void MostrarMensajes() 
+    public void MostrarMensajes()
     {
         if (mData != null && mData.dataTypes != null)
         {
@@ -119,12 +130,30 @@ public class Cargado : MonoBehaviour
         {
             foreach (DataType message in mData.dataTypes)
             {
-                if (message.id == "Player") 
+                if (message.id == "Player")
                 {
                     return JsonUtility.FromJson<PlayerData>(message.data);
                 }
             }
         }
-        return null;  
+        Debug.LogWarning("No se encontraron datos del jugador.");
+        return new PlayerData();
+    }
+
+    public SceneData GetSceneData()
+    {
+        if (mData != null && mData.dataTypes != null)
+        {
+            foreach (DataType message in mData.dataTypes)
+            {
+                if (message.id == "Escena")
+                {
+                    return JsonUtility.FromJson<SceneData>(message.data);
+                }
+            }
+        }
+        Debug.LogWarning("No se encontraron datos de la escena.");
+        return new SceneData();
     }
 }
+
