@@ -14,6 +14,15 @@ public class LifeComponent : MonoBehaviour
     private GameObject lifePrefab;
     [SerializeField]
     private GameObject deathParticles;
+    [SerializeField]
+    private GameObject importantBranch;
+    [SerializeField]
+    private GameObject missile;
+    [SerializeField]
+    private bool dropBranch;
+    [SerializeField]
+    private bool spawnMissile;
+
     public void OnDeath()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.muerte);
@@ -21,6 +30,10 @@ public class LifeComponent : MonoBehaviour
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
         if(deathParticles)
             Instantiate(deathParticles, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        if (dropBranch && importantBranch)
+            Instantiate(importantBranch, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        if (spawnMissile && missile)
+            Instantiate(missile, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         if (GetComponent<PlayerMovement>())
             SceneManager.LoadScene("PRINCIPAL");
         Die?.Invoke(); // Notifica al WaveManager que este enemigo muri�
