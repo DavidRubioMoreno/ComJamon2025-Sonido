@@ -611,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 288827306}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.35681692, z: -0, w: 0.93417436}
-  m_LocalPosition: {x: -61.2, y: 7.0966434, z: 61.5}
+  m_LocalPosition: {x: -61.2, y: 2.7, z: 61.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2642,6 +2642,10 @@ MonoBehaviour:
   finmazmorra: {fileID: 0}
   muerte: {fileID: 0}
   dash: {fileID: 0}
+  invocar: {fileID: 0}
+  bruja: {fileID: 0}
+  arco: {fileID: 0}
+  espadaesqueleto: {fileID: 0}
 --- !u!114 &1200901490
 MonoBehaviour:
   m_ObjectHideFlags: 0
