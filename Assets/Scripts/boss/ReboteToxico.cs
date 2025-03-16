@@ -11,7 +11,7 @@ public class ReboteToxico : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Dispara en dirección aleatoria con fuerza inicial
-        Vector3 direccion = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
+        Vector3 direccion = new Vector3(Random.Range(-1f, 1f), Random.Range(-0.3f, 0.3f), Random.Range(-1f, 1f)).normalized;
         rb.velocity = direccion * velocidad;
 
         Destroy(gameObject, 10f); // Se destruye después de 10 segundos si no impacta

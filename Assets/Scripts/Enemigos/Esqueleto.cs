@@ -50,11 +50,12 @@ public class Esqueleto: MonoBehaviour
     {
         _espada.SetActive(false);
         _onAttack = false;
-        _animator.SetBool("attack", _onAttack);
+        _animator.SetBool("attack", false);
     }
 
     private void Update()
     {
+        _player = GameManager.Instance.Player;
         if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);
         Vector3 targetVelocity =  v.normalized * _maxSpeed;
@@ -63,26 +64,40 @@ public class Esqueleto: MonoBehaviour
         {
             targetVelocity = Vector3.zero;
             _onAttack = true;
-            _animator.SetBool("attack", _onAttack);
+            _animator.SetBool("attack", true);
+            OnAttack();
         }
         else if(v.magnitude < rRalentizado)
         {
             targetVelocity *= fRalentizado;
         }
+        
 
-        _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,
-                (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
-        _animator.SetFloat("velocity", _currentVelocity.magnitude);
+        _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,(targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
+
+        if (_currentVelocity == Vector3.zero)
+        {
+            _animator.SetBool("vel", false);
+            _animator.SetBool("idle", true);
+        }
+        if (!_animator.GetBool("attack"))
+        {
+            _animator.SetBool("vel", true);
+            _animator.SetBool("idle", false);
+        }
     }
 
     private void FixedUpdate()
     {
+        _player = GameManager.Instance.Player;
         if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);
+        Debug.Log("EEEEEE");
         if (v.magnitude > rObjetivo)
         {
             Vector3 newPosition = _myRB.position + _currentVelocity * Time.fixedDeltaTime;
             _myRB.MovePosition(newPosition);
+           
 
             if (_currentVelocity.magnitude > 0.1f) // Para evitar rotaciones raras
             {
