@@ -39,7 +39,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip pegao;
 
     public AudioClip manin;
-
+    public AudioClip explo;
+    public AudioClip terre;
     private void Awake()
     {
         if (Instance == null)
