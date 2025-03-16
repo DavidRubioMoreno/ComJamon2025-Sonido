@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadCaida: 20000
   tiempoVida: 7
-  damage: 3
+  damage: 5
 --- !u!54 &4543675914009216340
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadCaida: 1
   tiempoVida: 10
-  damage: 3
+  damage: 5
 --- !u!1001 &8745393537421788719
 PrefabInstance:
   m_ObjectHideFlags: 0

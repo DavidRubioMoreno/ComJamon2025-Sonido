@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 513345104201346208}
-  _damage: 3
+  _damage: 5
   _reloadTime: 0.2
   isAttacking: 0
 --- !u!114 &5628913436012919497
@@ -633,8 +633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41925da9f9ff5554c861dd9921bde3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
-  maxVida: 10
+  vida: 120
+  maxVida: 120
   lifePrefab: {fileID: 0}
   deathParticles: {fileID: 0}
   importantBranch: {fileID: 0}
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  reloadTime: 7.5
+  reloadTime: 4
   d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!114 &3824840060443755227
 MonoBehaviour:
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 6032903974973978629}
-  _damage: 5
+  _damage: 1
   _reloadTime: 3
   _damageTime: 0.3
   _time: 3

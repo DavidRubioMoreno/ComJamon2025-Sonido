@@ -9740,5 +9740,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981caf684d5bb2409aab1fcb7b662f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 5
   explosion: {fileID: 3543709941997539655, guid: f516167d6ce62414eab5d4039f6f4377, type: 3}
