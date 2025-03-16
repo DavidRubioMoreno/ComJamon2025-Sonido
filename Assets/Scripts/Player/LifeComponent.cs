@@ -16,7 +16,7 @@ public class LifeComponent : MonoBehaviour
     private GameObject deathParticles;
     public void OnDeath()
     {
-
+        SoundManager.Instance.PlaySound(SoundManager.Instance.muerte);
         if (lifePrefab && UnityEngine.Random.Range(0, 3) == 0)
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
         if(deathParticles)

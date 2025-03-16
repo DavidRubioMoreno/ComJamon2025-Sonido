@@ -54,6 +54,7 @@ public class Dash : MonoBehaviour
             _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
             _an.SetBool("Dash", true);
             nDash += 1;
+            SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
         }
         
     }

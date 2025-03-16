@@ -19,6 +19,18 @@ public class SoundManager : MonoBehaviour
     public AudioClip jugarcargada;
     public AudioClip eligemeM;
     public AudioClip eligemeC;
+
+    public AudioClip bosrojomet;
+    public AudioClip bossrojobolon;
+    public AudioClip portales;
+    public AudioClip finmazmorra;
+    public AudioClip muerte;
+    public AudioClip dash;
+
+
+
+
+
     private void Awake()
     {
         if (Instance == null)

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class misiles : MonoBehaviour
 {
-    public float velocidadRotacion = 100f; // Velocidad de giro
-    public float radio = 2f; // Distancia al MiniBoss
+    public float velocidadRotacion = 100f; 
+    public float radio = 2f; 
     public int daño = 10;
     public int tiempoVida = 10;
     private Transform miniboss;
@@ -12,17 +12,17 @@ public class misiles : MonoBehaviour
     public void Configurar(Transform boss, float offsetAngulo)
     {
         miniboss = boss;
-        angulo = offsetAngulo; // Ángulo inicial de cada misil
+        angulo = offsetAngulo; 
     }
     void Start()
     {
-        Destroy(gameObject, tiempoVida); // Autodestruirse tras 10 segundos
+        Destroy(gameObject, tiempoVida); 
     }
     void Update()
     {
         if (miniboss == null) return;
 
-        angulo += velocidadRotacion * Time.deltaTime; // Rotar alrededor del boss
+        angulo += velocidadRotacion * Time.deltaTime; 
         float rad = Mathf.Deg2Rad * angulo;
         Vector3 posicionOrbita = miniboss.position + new Vector3(Mathf.Cos(rad) * radio, 1, Mathf.Sin(rad) * radio);
         transform.position = posicionOrbita;
@@ -33,7 +33,7 @@ public class misiles : MonoBehaviour
         if (other.GetComponent<PlayerMovement>())
         {
             Debug.Log("Jugador impactado por misil orbital!");
-            // Aquí puedes aplicar daño al jugador
+            //daño player
         }
     }
 }

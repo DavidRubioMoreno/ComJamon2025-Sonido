@@ -3,11 +3,11 @@ using UnityEngine;
 public class Meteorito : MonoBehaviour
 {
     public float velocidadCaida = 10f;
-    public float tiempoVida = 10f; // Tiempo antes de que se destruya automáticamente
+    public float tiempoVida = 10f; 
     public int damage = 5;
     void Start()
     {
-        Destroy(gameObject, tiempoVida); // Autodestruirse tras 10 segundos
+        Destroy(gameObject, tiempoVida); 
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class Meteorito : MonoBehaviour
             Debug.Log("Jugador impactado por meteorito!");
             other.GetComponent<LifeComponent>().LoseLife(damage);
         }
-        Destroy(gameObject); // Destruir el meteorito tras el impacto
+        Destroy(gameObject); 
 
     }
 }

@@ -4809,16 +4809,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7423830995465681291, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
+      propertyPath: misilPrefab
+      value: 
+      objectReference: {fileID: 2898262132930136279, guid: 33a012b4889d1584cadc1c1577ba2d28, type: 3}
+    - target: {fileID: 7423830995465681291, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
       propertyPath: carcelPrefab
       value: 
       objectReference: {fileID: 6880024102621881412, guid: 3e8684fe7864901478329ce8926a078d, type: 3}
     - target: {fileID: 7423830995465681291, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
       propertyPath: velocidadAndar
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7423830995465681291, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
       propertyPath: velocidadCorrer
-      value: 57
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9598,6 +9602,12 @@ MonoBehaviour:
   jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
   eligemeM: {fileID: 8300000, guid: 5b075aadb7e7783459963bd0dd71e529, type: 3}
   eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
+  bosrojomet: {fileID: 0}
+  bossrojobolon: {fileID: 0}
+  portales: {fileID: 0}
+  finmazmorra: {fileID: 0}
+  muerte: {fileID: 0}
+  dash: {fileID: 0}
 --- !u!114 &1554965895
 MonoBehaviour:
   m_ObjectHideFlags: 0

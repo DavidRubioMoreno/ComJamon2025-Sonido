@@ -3146,7 +3146,7 @@ MonoBehaviour:
   espada: {fileID: 8300000, guid: 415509d84acbc784587fe56f0c25b9b0, type: 3}
   espada2: {fileID: 8300000, guid: 54b2719de6d4dd04a9d6ca8e906fd924, type: 3}
   escudo: {fileID: 8300000, guid: 9ab6d789d23aed84caca7f2dcf0cc40b, type: 3}
-  magia: {fileID: 0}
+  magia: {fileID: 8300000, guid: c5e6a2f0a6f79e14f9b4acd704eda224, type: 3}
   masmagia: {fileID: 8300000, guid: 1aaa607fa47fda047903019af90ac782, type: 3}
   opciones: {fileID: 8300000, guid: 9e677db861703f14287184d69420ae8a, type: 3}
   salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
@@ -3154,6 +3154,12 @@ MonoBehaviour:
   jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
   eligemeM: {fileID: 8300000, guid: 5b075aadb7e7783459963bd0dd71e529, type: 3}
   eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
+  bosrojomet: {fileID: 8300000, guid: 5301fd5b063e28c42919676fb7de007b, type: 3}
+  bossrojobolon: {fileID: 8300000, guid: 470e69811a77e2047ad02bc16a4c76af, type: 3}
+  portales: {fileID: 8300000, guid: bcafb149d4b76934183ac5bb275a3f4a, type: 3}
+  finmazmorra: {fileID: 8300000, guid: 3ab229fae394ba745bdfb731a1a566f6, type: 3}
+  muerte: {fileID: 8300000, guid: 43737296cbbd6d343b1042eb32864802, type: 3}
+  dash: {fileID: 8300000, guid: 293b89ff904f28c43b1c44b758d6e3fa, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3174,6 +3180,20 @@ MonoBehaviour:
   timeToStartDancing: 120
   canvas: {fileID: 1600415580}
   dancingTime: 10
+  sData:
+    sceneName: 
+  pData:
+    position:
+      x: 0
+      y: 0
+      z: 0
+    rotation:
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    type:
+      type: 0
   camara: {fileID: 1203248321}
 --- !u!4 &1389648961
 Transform:

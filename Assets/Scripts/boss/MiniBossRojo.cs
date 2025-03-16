@@ -10,8 +10,8 @@ public class MiniBossRojo : MonoBehaviour
     public float velocidadAndar = 2f;
     public float velocidadCorrer = 5f;
 
-    public GameObject meteoritoPrefab; // Prefab del meteorito
-    public GameObject ataqueDirigidoPrefab; // Prefab del ataque dirigido
+    public GameObject meteoritoPrefab; 
+    public GameObject ataqueDirigidoPrefab; 
 
     private bool atacando = false;
     private Rigidbody rb;
@@ -19,7 +19,7 @@ public class MiniBossRojo : MonoBehaviour
     void Start()
     {
         //jugador = GameManager.Instance.Player?.transform;
-        rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody si existe
+        rb = GetComponent<Rigidbody>(); 
 
         StartCoroutine(LluviaDeMeteoritos());
         StartCoroutine(AtaqueDirigido());
@@ -32,7 +32,7 @@ public class MiniBossRojo : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position);
         Debug.Log(distancia);
 
-        if (distancia <= rangoVision) // Si el jugador está en el área de visión
+        if (distancia <= rangoVision) 
         {
             Vector3 direccion = (GameManager.Instance.Player.transform.position - transform.position).normalized;
 
@@ -80,8 +80,8 @@ public class MiniBossRojo : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             Debug.Log("Lluvia de meteoritos!");
-
-            for (int i = 0; i < 15; i++) // Número de meteoritos por lluvia
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bosrojomet);
+            for (int i = 0; i < 15; i++) 
             {
                 Vector3 posicionAleatoria = GenerarPosicionAleatoria();
                 Instantiate(meteoritoPrefab, posicionAleatoria, Quaternion.identity);
@@ -108,6 +108,7 @@ public class MiniBossRojo : MonoBehaviour
             if (GameManager.Instance.Player != null)
             {
                 Instantiate(ataqueDirigidoPrefab, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+                SoundManager.Instance.PlaySound(SoundManager.Instance.bossrojobolon);
             }
         }
     }
