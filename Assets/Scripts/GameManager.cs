@@ -1,5 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.InputSystem;
+
+
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
