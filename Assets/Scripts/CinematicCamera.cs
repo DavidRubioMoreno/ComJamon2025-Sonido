@@ -11,6 +11,7 @@ public class CinematicCamera : MonoBehaviour
     public Transform posicionInicial; // Posición inicial
     public float alturaExtra = 10f; // Altura extra después de girar
     public float tiempoAntesDeCambio = 2f; // Tiempo antes de cambiar a la Main Camera
+    public float angleGiro = 30.0f;
 
     private Camera cinematicCamera;
 
@@ -46,7 +47,7 @@ public class CinematicCamera : MonoBehaviour
 
         // ?? Segunda fase: Girar 90° hacia arriba y subir
         Quaternion rotacionInicial = transform.rotation;
-        Quaternion rotacionFinal = Quaternion.Euler(-90, transform.eulerAngles.y, transform.eulerAngles.z); // Mirar hacia arriba
+        Quaternion rotacionFinal = Quaternion.Euler(-angleGiro, transform.eulerAngles.y, transform.eulerAngles.z); // Mirar hacia arriba
         Vector3 posicionFinal = transform.position + new Vector3(0, alturaExtra, 0);
 
         tiempo = 0;
