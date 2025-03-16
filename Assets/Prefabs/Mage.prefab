@@ -322,6 +322,9 @@ MonoBehaviour:
   _rayLenght: 0.35
   _offsetX: 0.7
   _offsetY: 0.7
+  _extraGravityBase: 25
+  _extraGravityScale: 0.8
+  _currentJumpForce: 0
 --- !u!114 &6324445642581789813
 MonoBehaviour:
   m_ObjectHideFlags: 0
