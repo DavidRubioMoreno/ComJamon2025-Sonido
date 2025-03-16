@@ -48,6 +48,9 @@ public class LifeComponent : MonoBehaviour
             return;
         }
 
+        if (UIManager.Instance && GetComponent<PlayerMovement>())
+            UIManager.Instance.Hit();
+
         vida -= damage;
         if (vida <= 0) OnDeath();
         Debug.Log(vida);
