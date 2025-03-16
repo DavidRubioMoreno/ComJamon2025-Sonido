@@ -90,6 +90,7 @@ public class MiniBossVerde : MonoBehaviour
     {
         while (true)
         {
+            
             yield return new WaitForSeconds(1f);
             Debug.Log("MiniBoss Verde lanza rebote tóxico!");
             Vector3 spawnPos = transform.position + transform.forward * 2;

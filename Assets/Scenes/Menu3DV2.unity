@@ -304,7 +304,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95783842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3142,6 +3142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 276982824}
   musicClip: {fileID: 8300000, guid: 7ecfcaa2d10c956458a817f11c9d5042, type: 3}
+  boss: {fileID: 8300000, guid: 79e037a7c4c57524cbc83a588cb27b08, type: 3}
 --- !u!114 &1389648959
 MonoBehaviour:
   m_ObjectHideFlags: 0

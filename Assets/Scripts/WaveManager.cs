@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class WaveManager : MonoBehaviour
 
     private bool started = false;
 
+    private bool final = false;
+
     private bool bossSpawned = false;
     public static WaveManager Instance { get; private set; }
 
@@ -49,6 +52,11 @@ public class WaveManager : MonoBehaviour
     public List<GameObject> getActiveEnemies()
     {
         return activeEnemies;
+    }
+
+    public void EscenaFinal()
+    {
+        final = true;
     }
 
     void Update()
@@ -75,7 +83,10 @@ public class WaveManager : MonoBehaviour
             }
         }
         //Debug.Log(activeEnemies.Count);
-       
+       if(final && activeEnemies.Count == 0)
+        {
+            Debug.Log("GG");
+        }
 
     }
 
