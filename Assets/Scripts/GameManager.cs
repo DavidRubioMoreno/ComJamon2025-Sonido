@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Para guardar el avance de las dungeons que llevamos
+    [SerializeField]
     public PortalsBool portalsBool; 
 
     private void Awake()

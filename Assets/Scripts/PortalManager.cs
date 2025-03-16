@@ -32,7 +32,8 @@ public class PortalManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        Debug.Log("Checkea BIENN");
+        if (other.gameObject.GetComponent<PlayerMovement>())
         {
 
             Debug.Log("DEBERIA COLISIONAR ;P");
@@ -40,6 +41,7 @@ public class PortalManager : MonoBehaviour
 
             if (pb.dun1_finished && !pb.dungeon_2)
             {
+                _portal1.SetActive(false);
                 unlockDun2();
             }
             else if (pb.dun2_finished && !pb.dungeon_3)
