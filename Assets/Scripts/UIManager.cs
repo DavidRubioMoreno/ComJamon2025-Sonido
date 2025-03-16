@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +27,15 @@ public class UIManager : MonoBehaviour
     private float timeDamage = 0.5f;
 
     private bool active = false;
+
+    public Texture texRamaNegra;
+    public Texture texRamaNormal;
+
+    [SerializeField]
+    private RawImage[] branchImgs; 
+
+    int branchesShown = 0; 
+
 
     private void Awake()
     {
@@ -53,6 +64,7 @@ public class UIManager : MonoBehaviour
     {
         if(GameManager.Instance.Player)
         UpdateHealthBar(GameManager.Instance.Player.GetComponent<LifeComponent>().vida, GameManager.Instance.Player.GetComponent<LifeComponent>().maxVida);
+        UpdateBranches(GameManager.Instance.branchesCollected);
         if(active)
         {
             elapsed += Time.deltaTime;
@@ -78,6 +90,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateBranches(int num)
+    {
+        if(num > branchesShown)
+        {
+            for(int i = 0; i< num; i++)
+            {
+                branchImgs[i].texture = texRamaNormal;
+            }
 
+            branchesShown = num;
+        }
+
+    }
 
 }

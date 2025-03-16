@@ -15,6 +15,8 @@ public class CinematicCamera : MonoBehaviour
 
     private Camera cinematicCamera;
 
+    public UIManager uimanager;
+
     void Start()
     {
         cinematicCamera = GetComponent<Camera>();
@@ -30,6 +32,8 @@ public class CinematicCamera : MonoBehaviour
 
     IEnumerator SecuenciaCinematica()
     {
+        uimanager.gameObject.SetActive(false);
+
         // ?? Primera fase: Movimiento hacia el árbol
         Vector3 inicio = transform.position;
         Vector3 destino = arbolObjetivo.position;
@@ -65,5 +69,7 @@ public class CinematicCamera : MonoBehaviour
         GameManager.Instance.cinematica = true;
         cinematicCamera.enabled = false;
         if (mainCamera != null) mainCamera.enabled = true;
+
+        uimanager.gameObject.SetActive(true);
     }
 }

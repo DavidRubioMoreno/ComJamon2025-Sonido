@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool menu;
     private bool nocreado;
     public bool cinematica; 
-    private int branchesCollected = 0;
+    public int branchesCollected = 0;
     public GameObject[] characters;
 
     [SerializeField]
