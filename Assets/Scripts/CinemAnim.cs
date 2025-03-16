@@ -39,6 +39,8 @@ public class CinemAnim : MonoBehaviour
     public void portal()
     {
         Instantiate(puño,transform.position, Quaternion.identity);
+        //SoundManager.Instance.PlaySound(SoundManager.Instance.manin);
+
         //r.AddForce(new Vector3 (0,-100,0));
     }
 
@@ -46,7 +48,8 @@ public class CinemAnim : MonoBehaviour
     {
         Instantiate(puño, bossT.position, Quaternion.identity);
 
-        Instantiate(boss, bossT.position, Quaternion.identity);
+        GameObject obj=Instantiate(boss, bossT.position, Quaternion.identity);
+        WaveManager.Instance.Peruano(obj);
         
 
         Destroy(gameObject);
