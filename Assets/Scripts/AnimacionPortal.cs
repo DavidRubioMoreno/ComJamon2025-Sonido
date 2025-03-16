@@ -6,35 +6,33 @@ using UnityEngine;
 
 public class AnimacionPortal : MonoBehaviour
 {
-    public Camera cameraA;
-    public Camera cameraB;
-
-    public Transform cameraFin;
+    public Camera cameraMain;
     public float delayBeforeReturningCamera = 3f;
-    public float camSpeed = 4f;
+    public float camSpeed = 12f;
 
     void Start()
     {
     }
-    public IEnumerator MoveCameraAndOpenPortal(GameObject portal, Transform portalTr)
+    public IEnumerator MoveCameraAndOpenPortal(GameObject portal, Camera camera, Transform cameraFin)
     {
-        cameraA.gameObject.SetActive(false);
-        cameraB.gameObject.SetActive(true);
-        yield return StartCoroutine(MoveCameraPortal());
+        cameraMain.gameObject.SetActive(false);
+        camera.gameObject.SetActive(true);
+        yield return StartCoroutine(MoveCameraPortal(camera, cameraFin));
         
-        Instantiate(portal, portalTr.position, portalTr.rotation);
+        portal.SetActive(true);
+        StartCoroutine(portal.GetComponent<Scaler>().ScaleObject()); 
 
         yield return new WaitForSeconds(delayBeforeReturningCamera);
 
-        cameraA.gameObject.SetActive(true);
-        cameraB.gameObject.SetActive(false);
+        cameraMain.gameObject.SetActive(true);
+        camera.gameObject.SetActive(false);
     } 
 
-    private IEnumerator MoveCameraPortal()
+    private IEnumerator MoveCameraPortal(Camera camera, Transform cameraFin)
     {
-        while (Vector3.Distance(cameraB.transform.position, cameraFin.position) > 0.1f)
+        while (Vector3.Distance(camera.transform.position, cameraFin.position) > 0.1f)
         {
-            cameraB.transform.position = Vector3.MoveTowards(cameraB.transform.position, cameraFin.position, camSpeed * Time.deltaTime);
+            camera.transform.position = Vector3.MoveTowards(camera.transform.position, cameraFin.position, camSpeed * Time.deltaTime);
             yield return null;
         }
     }

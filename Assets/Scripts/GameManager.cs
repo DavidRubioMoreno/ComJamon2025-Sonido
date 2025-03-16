@@ -54,8 +54,13 @@ public class GameManager : MonoBehaviour
     public struct PortalsBool
     {
         public bool dungeon_1;
+        public bool dun1_finished;
+
         public bool dungeon_2;
+        public bool dun2_finished;
+
         public bool dungeon_3;
+        public bool dun3_finished;
 
         // Constructor opcional para inicializar los valores
         public PortalsBool(bool d1, bool d2, bool d3)
@@ -63,6 +68,9 @@ public class GameManager : MonoBehaviour
             dungeon_1 = d1;
             dungeon_2 = d2;
             dungeon_3 = d3;
+            dun1_finished = false;
+            dun2_finished = false;
+            dun3_finished = false;
         }
     }
 

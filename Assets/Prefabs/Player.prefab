@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2196004506624635508, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.074
@@ -633,6 +637,10 @@ MonoBehaviour:
   maxVida: 10
   lifePrefab: {fileID: 0}
   deathParticles: {fileID: 0}
+  importantBranch: {fileID: 0}
+  missile: {fileID: 0}
+  dropBranch: 0
+  spawnMissile: 0
 --- !u!114 &3347864577308523017
 MonoBehaviour:
   m_ObjectHideFlags: 0

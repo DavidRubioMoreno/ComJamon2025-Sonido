@@ -43,8 +43,8 @@ public class AnimationBranches : MonoBehaviour
         }
 
         // Instanciar prefab en otra posición
-        Instantiate(prefabToInstantiate, prefabSpawnPosition.position, prefabSpawnPosition.rotation);
-
+        GameObject portalFinal = Instantiate(prefabToInstantiate, prefabSpawnPosition.position, prefabSpawnPosition.rotation);
+        StartCoroutine(portalFinal.GetComponent<Scaler>().ScaleObject());
         yield return new WaitForSeconds(delayBeforeReturningCamera);
         cameraA.gameObject.SetActive(true);
         cameraB.gameObject.SetActive(false);
