@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         //branchGenerator.enabled = false;
         cargado = GetComponent<Cargado>();
         guardado = GetComponent<Guardado>();

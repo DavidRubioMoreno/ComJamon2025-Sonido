@@ -3188,6 +3188,8 @@ MonoBehaviour:
   toxico: {fileID: 8300000, guid: d6cb3d0a68a4f4c45a9da5b1df807964, type: 3}
   pegao: {fileID: 8300000, guid: e1e509781f10814478685a68689666e9, type: 3}
   manin: {fileID: 8300000, guid: 9632ca7005fcbcb4cb9771f97af12cf0, type: 3}
+  explo: {fileID: 8300000, guid: 9749882f80c255643bf06e17672b3011, type: 3}
+  terre: {fileID: 8300000, guid: 725291d452d4e3548834986d8f5e9171, type: 3}
 --- !u!114 &1389648960
 MonoBehaviour:
   m_ObjectHideFlags: 0

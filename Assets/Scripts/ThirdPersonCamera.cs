@@ -14,7 +14,7 @@ public class ThirdPersonCamera : MonoBehaviour
     public float lookOffsetRight = 1.5f; // Distancia a la derecha donde la cámara apuntará
     public float sensitivity = 2.0f; // Sensibilidad del ratón/mando
     public float minYAngle = -30f; // Ángulo mínimo de la cámara
-    public float maxYAngle = 60f; // Ángulo máximo de la cámara
+    public float maxYAngle = 90f; // Ángulo máximo de la cámara
 
     private float rotationX = 0f; // Rotación en el eje X (horizontal)
     private float rotationY = 0f; // Rotación en el eje Y (vertical)
@@ -39,9 +39,10 @@ public class ThirdPersonCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * sensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        float mandoX = rotacion.x * sensitivity;
-        float mandoY = rotacion.y * sensitivity;
+        float mandoX = rotacion.x * sensitivity * 1.5f;
+        float mandoY = rotacion.y * sensitivity * 1.5f;
 
+     
 
         // Aplicar movimiento de cámara sumando ratón y joystick
         rotationX += mouseX+mandoX;
