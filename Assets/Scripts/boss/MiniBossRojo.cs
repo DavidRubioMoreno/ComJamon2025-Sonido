@@ -92,7 +92,7 @@ public class MiniBossRojo : MonoBehaviour
     Vector3 GenerarPosicionAleatoria()
     {
         Vector3 randomPos = Random.insideUnitSphere * (rangoVision - 20);
-        randomPos.y = transform.position.y + 10f; // Asegurar que caigan desde arriba
+        randomPos.y = 8;
         randomPos += transform.position;
 
         return randomPos;
