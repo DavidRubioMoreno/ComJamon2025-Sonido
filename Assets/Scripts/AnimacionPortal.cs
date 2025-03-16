@@ -16,8 +16,8 @@ public class AnimacionPortal : MonoBehaviour
     }
     public IEnumerator MoveCameraAndOpenPortal(GameObject portal, Camera camera, Transform cameraFin)
     {
-        uimanager.gameObject.SetActive(false);
-        uimanager.gameObject.SetActive(false);
+        UIManager.Instance.gameObject.SetActive(false);
+ 
         cameraMain.gameObject.SetActive(false);
         camera.gameObject.SetActive(true);
         yield return StartCoroutine(MoveCameraPortal(camera, cameraFin));
@@ -30,7 +30,7 @@ public class AnimacionPortal : MonoBehaviour
         cameraMain.gameObject.SetActive(true);
         camera.gameObject.SetActive(false);
 
-        uimanager.gameObject.SetActive(true);
+        UIManager.Instance.gameObject.SetActive(true);
     } 
 
     private IEnumerator MoveCameraPortal(Camera camera, Transform cameraFin)

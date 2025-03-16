@@ -39,7 +39,7 @@ public class CinemAnim : MonoBehaviour
     public void portal()
     {
         Instantiate(puño,transform.position, Quaternion.identity);
-        r.AddForce(new Vector3 (0,-100,0));
+        //r.AddForce(new Vector3 (0,-100,0));
     }
 
     public void tp()

@@ -30,7 +30,11 @@ public class CinematicCamera : MonoBehaviour
 
     IEnumerator SecuenciaCinematica()
     {
-        UIManager.Instance.gameObject.SetActive(false);
+        if (UIManager.Instance)
+        {
+            UIManager.Instance.gameObject.SetActive(false);
+
+        }
 
         // ?? Primera fase: Movimiento hacia el árbol
         Vector3 inicio = transform.position;
