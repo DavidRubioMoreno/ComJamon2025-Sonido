@@ -4766,7 +4766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895013562162311071, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2744211166854599994, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6858,6 +6858,10 @@ PrefabInstance:
     - target: {fileID: 8500138633114310123, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
       propertyPath: m_Name
       value: BOSSROJOoo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500138633114310123, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

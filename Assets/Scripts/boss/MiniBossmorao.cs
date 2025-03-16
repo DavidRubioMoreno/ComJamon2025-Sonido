@@ -46,7 +46,7 @@ public class MiniBossMorao : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position);
         Vector3 direccion = (GameManager.Instance.Player.transform.position - transform.position).normalized;
 
-        if (distancia <= rangoVision)
+        if (distancia <= rangoVision && distancia > rangoCerca)
         {
             if (distancia > rangoAndar)
             {
@@ -67,7 +67,7 @@ public class MiniBossMorao : MonoBehaviour
                 }
             }
         }
-        else if(distancia < 1f || distancia > rangoVision) // QUIETOOO 
+        else // QUIETOOO
         {
             if (_animationState != AnimationState.Idle)
             {
