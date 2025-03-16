@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CamDir();
-
+        Debug.Log(_maxSpeed);
         Vector2 targetVelocity = _inputMovement * _maxSpeed;
 
         _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
