@@ -31,7 +31,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bruja;
     public AudioClip arco;
     public AudioClip espadaesqueleto;
-
+    public AudioClip giro;
 
 
     private void Awake()
