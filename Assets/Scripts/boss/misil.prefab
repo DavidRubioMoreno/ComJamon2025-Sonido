@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadRotacion: 300
   radio: 4
-  "da\xF1o": 1
+  "da\xF1o": 3
   tiempoVida: 6
 --- !u!1001 &4570897168028289186
 PrefabInstance:

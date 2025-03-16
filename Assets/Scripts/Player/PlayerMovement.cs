@@ -92,33 +92,71 @@ public class PlayerMovement : MonoBehaviour
         _inputMovement = Vector2.zero;
         _movePlayer = Vector2.zero;
     }
+
+    [SerializeField]
+    private float _extraGravityBase = 10f; // Gravedad base
+    [SerializeField]
+    private float _extraGravityScale = 0.8f; // Escala de la gravedad extra según el impulso
+    [SerializeField]
+    private float _currentJumpForce = 0f; // Almacena la fuerza del salto actual
+
     private void FixedUpdate()
     {
-        
-            if (_movePlayer.magnitude > 0.01f)
-            {
-                _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
+        if (_movePlayer.magnitude > 0.01f)
+        {
+            _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
 
-                Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
-                _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
-            }
-            if (_jump == 1 && IsGrounded() && !_isJumping)
+            Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
+            _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
+        }
+
+        if (_jump == 1 && IsGrounded() && !_isJumping)
+        {
+            _animator.SetBool("Jump", true);
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, _rayLenght, 1 << _intLayerMask))
             {
-                _animator.SetBool("Jump", true);
-                _myRB.AddForce(0, _jumpForce, 0, ForceMode.Impulse);
-                _isJumping = true;
+                Vector3 surfaceNormal = hit.normal;
+                float angle = Vector3.Angle(surfaceNormal, Vector3.up);
+
+                float angleThreshold = 20f;
+                float jumpMultiplier = Mathf.Clamp01(1f - (angle / angleThreshold));
+
+                _currentJumpForce = _jumpForce * jumpMultiplier; // Guarda la fuerza de este salto
+
+                Vector3 jumpDirection = Vector3.up * _currentJumpForce;
+                _myRB.AddForce(jumpDirection, ForceMode.Impulse);
             }
-            else if (IsGrounded() && _isJumping)
+            else
             {
-                _animator.SetBool("Jump", false);
-                _isJumping = false;
+                _currentJumpForce = _jumpForce; // Salto con fuerza máxima
+                _myRB.AddForce(Vector3.up * _currentJumpForce, ForceMode.Impulse);
             }
-            else if (!IsGrounded() && !_isJumping)
-            {
-                _animator.SetBool("Jump", true);
-            }
-            else if (IsGrounded()) _animator.SetBool("Jump", false);
-        
+
+            _isJumping = true;
+        }
+        else if (!IsGrounded())
+        {
+            // Ajusta la gravedad en función de la fuerza del salto
+            float dynamicGravity = _extraGravityBase + (_currentJumpForce * _extraGravityScale);
+            _myRB.AddForce(Vector3.down * dynamicGravity, ForceMode.Acceleration);
+        }
+
+        // Gestión de animaciones
+        if (IsGrounded() && _isJumping)
+        {
+            _animator.SetBool("Jump", false);
+            _isJumping = false;
+        }
+        else if (!IsGrounded() && !_isJumping)
+        {
+            _animator.SetBool("Jump", true);
+        }
+        else if (IsGrounded())
+        {
+            _animator.SetBool("Jump", false);
+        }
     }
     public bool IsGrounded()
     {

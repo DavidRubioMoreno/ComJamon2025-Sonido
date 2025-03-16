@@ -322,6 +322,9 @@ MonoBehaviour:
   _rayLenght: 0.35
   _offsetX: 0.7
   _offsetY: 0.7
+  _extraGravityBase: 25
+  _extraGravityScale: 0.8
+  _currentJumpForce: 0
 --- !u!114 &6324445642581789813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  reloadTime: 2
+  reloadTime: 4
   d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!114 &9164341682907505180
 MonoBehaviour:
@@ -397,8 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41925da9f9ff5554c861dd9921bde3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 100
-  maxVida: 100
+  vida: 60
+  maxVida: 60
   lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
   deathParticles: {fileID: 0}
   importantBranch: {fileID: 0}

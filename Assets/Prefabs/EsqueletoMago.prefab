@@ -279,10 +279,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41925da9f9ff5554c861dd9921bde3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
-  maxVida: 10
+  vida: 20
+  maxVida: 20
   lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
   deathParticles: {fileID: 4202501866729362098, guid: 0efb1ff3527edab41b92a3a56ab60b92, type: 3}
+  importantBranch: {fileID: 0}
+  missile: {fileID: 0}
+  dropBranch: 0
+  spawnMissile: 0
 --- !u!114 &6692598670258540604
 MonoBehaviour:
   m_ObjectHideFlags: 0
