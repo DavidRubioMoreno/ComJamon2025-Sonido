@@ -12,6 +12,7 @@ public class Espada : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             collision.GetComponent<LifeComponent>().LoseLife(_damage);
+            this.enabled = false;
         }
     }
 }
