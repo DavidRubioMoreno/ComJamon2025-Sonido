@@ -13,12 +13,29 @@ public class MiniBossMorao : MonoBehaviour
     public GameObject misilPrefab; // Prefab del misil
 
     private Rigidbody rb;
+    private Animator _animator;
+    private LifeComponent _lifeComponent;
+
+    private enum AnimationState
+    {
+        Walk,
+        Run,
+        Attack,
+        Hit,
+        Death,
+        Spell,
+        Idle
+    }
+    AnimationState _animationState;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         StartCoroutine(CarcelYCharco());
         StartCoroutine(MisilesOrbitales());
+        _animator = GetComponent<Animator>();
+        _lifeComponent = GetComponent<LifeComponent>();
+        _animationState = AnimationState.Idle;
     }
 
     void Update()
@@ -31,9 +48,31 @@ public class MiniBossMorao : MonoBehaviour
         if (distancia <= rangoVision)
         {
             if (distancia > rangoAndar)
+            {
                 Mover(direccion, velocidadCorrer);
+                if(_animationState != AnimationState.Run)
+                {
+                    _animator.SetTrigger("Run");
+                    _animationState = AnimationState.Run;
+                }
+            }
             else
+            {
                 Mover(direccion, velocidadAndar);
+                if (_animationState != AnimationState.Walk)
+                {
+                    _animator.SetTrigger("Walk");
+                    _animationState = AnimationState.Walk;
+                }
+            }
+        }
+        else
+        {
+            if (_animationState != AnimationState.Idle)
+            {
+                _animator.SetTrigger("Idle");
+                _animationState = AnimationState.Idle;
+            }
         }
     }
 
@@ -43,6 +82,8 @@ public class MiniBossMorao : MonoBehaviour
             rb.MovePosition(transform.position + direccion * velocidad * Time.deltaTime);
         else
             transform.Translate(direccion * velocidad * Time.deltaTime, Space.World);
+
+        transform.LookAt(GameManager.Instance.Player.transform.position);
     }
 
     IEnumerator CarcelYCharco()
