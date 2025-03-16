@@ -4,6 +4,13 @@ using UnityEngine;
 public class MiniBossRojo : MonoBehaviour
 {
     private Transform jugador;
+
+    [SerializeField]
+    private Transform mano;
+
+    [SerializeField]
+    private GameObject puño;
+
     public float rangoVision = 10f;
     public float rangoCorrer = 5f;
     public float rangoAtaque = 1f;
@@ -14,6 +21,7 @@ public class MiniBossRojo : MonoBehaviour
     public GameObject ataqueDirigidoPrefab; 
 
     private bool atacando = false;
+    private bool spell = false;
     private Rigidbody rb;
     private Animator _animator;
 
@@ -45,7 +53,7 @@ public class MiniBossRojo : MonoBehaviour
         if (GameManager.Instance.Player == null) return;
 
         float distancia = Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position);
-        Debug.Log(distancia);
+        //Debug.Log(distancia);
 
         if (distancia <= rangoVision) 
         {
@@ -75,6 +83,7 @@ public class MiniBossRojo : MonoBehaviour
                 if (!atacando)
                 {
                     StartCoroutine(AtaqueBasico());
+                    rb.velocity = Vector3.zero;
                     if (_animationState != AnimationState.Attack)
                     {
                         _animator.SetTrigger("Attack");
@@ -92,6 +101,15 @@ public class MiniBossRojo : MonoBehaviour
                 _animationState = AnimationState.Idle;
             }
         }
+        //if (spell)
+        //{
+        //    if (_animationState != AnimationState.Spell)
+        //    {
+        //        _animator.SetTrigger("Cast Spell");
+        //        _animationState = AnimationState.Spell;
+        //    }
+        //}
+
     }
 
     void Mover(Vector3 direccion, float velocidad)
@@ -111,9 +129,9 @@ public class MiniBossRojo : MonoBehaviour
     {
         atacando = true;
         Debug.Log("MiniBoss ataca!");
-
+        Instantiate(puño,mano.position, Quaternion.identity);
         yield return new WaitForSeconds(1.5f);
-
+        Debug.Log("Noataq");
         atacando = false;
     }
 
@@ -122,6 +140,7 @@ public class MiniBossRojo : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(10f);
+            spell = true;
             Debug.Log("Lluvia de meteoritos!");
             SoundManager.Instance.PlaySound(SoundManager.Instance.bosrojomet);
             for (int i = 0; i < 15; i++) 
@@ -146,6 +165,11 @@ public class MiniBossRojo : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(20f);
+            if (_animationState != AnimationState.Spell)
+            {
+                _animator.SetTrigger("Cast Spell");
+                _animationState = AnimationState.Spell;
+            }
             Debug.Log("Ataque dirigido al jugador!");
 
             if (GameManager.Instance.Player != null)
@@ -163,5 +187,10 @@ public class MiniBossRojo : MonoBehaviour
             _animator.SetTrigger("Idle");
             _animationState = AnimationState.Idle;
         }
+    }
+
+    public void AntiSpell()
+    {
+        
     }
 }

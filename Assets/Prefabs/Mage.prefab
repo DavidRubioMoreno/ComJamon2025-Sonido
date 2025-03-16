@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  reloadTime: 7.5
+  reloadTime: 2
   d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
 --- !u!114 &9164341682907505180
 MonoBehaviour:
