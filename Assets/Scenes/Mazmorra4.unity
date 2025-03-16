@@ -3538,7 +3538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "pu\xF1o": {fileID: 4380918445339287248, guid: 39e2112409f9a5448956ed5c10f39ce1, type: 3}
-  boss: {fileID: 1606168026059956959, guid: a093ab01e2a0cba4b9ffa59fe178b510, type: 3}
+  boss: {fileID: 1895013562162311071, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
   bossT: {fileID: 154424805}
   time: 2
 --- !u!1001 &429352090
@@ -6855,7 +6855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "pu\xF1o": {fileID: 4380918445339287248, guid: 39e2112409f9a5448956ed5c10f39ce1, type: 3}
-  boss: {fileID: 1606168026059956959, guid: a093ab01e2a0cba4b9ffa59fe178b510, type: 3}
+  boss: {fileID: 6498581095319646004, guid: 4decf55e00caaf94c8760559d9e81dbc, type: 3}
   bossT: {fileID: 578398183}
   time: 2
 --- !u!1001 &1073157720
@@ -14763,6 +14763,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4843162468523659105, guid: a992cfc77c44fcc49852d8a21d252765, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360569459989718039, guid: a992cfc77c44fcc49852d8a21d252765, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
