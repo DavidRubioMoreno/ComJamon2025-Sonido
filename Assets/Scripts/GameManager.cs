@@ -51,7 +51,23 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player { get { return player; } }
 
-    
+    public struct PortalsBool
+    {
+        public bool dungeon_1;
+        public bool dungeon_2;
+        public bool dungeon_3;
+
+        // Constructor opcional para inicializar los valores
+        public PortalsBool(bool d1, bool d2, bool d3)
+        {
+            dungeon_1 = d1;
+            dungeon_2 = d2;
+            dungeon_3 = d3;
+        }
+    }
+
+    // Para guardar el avance de las dungeons que llevamos
+    public PortalsBool portalsBool; 
 
     private void Awake()
     {
@@ -76,6 +92,8 @@ public class GameManager : MonoBehaviour
 
         canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
         canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
+
+        portalsBool = new PortalsBool(true, false, false);
 
         if (sData.sceneName != null)
         {
