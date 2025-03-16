@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Security.Cryptography;
 using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
