@@ -20,6 +20,7 @@ public class Branch : Collectable
     // Update is called once per frame
     public override void onCollect() 
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.mejora);
         GameManager.Instance.addBranch();
         switch(currentDungeon)
         {

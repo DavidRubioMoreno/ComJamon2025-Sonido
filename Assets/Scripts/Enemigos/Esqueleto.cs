@@ -39,7 +39,11 @@ public class Esqueleto: MonoBehaviour
     {
 
         if (_espada != null)
+        {
+
             _espada.SetActive(true);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto);
+        }
     }
 
     public void OnAttackExit()

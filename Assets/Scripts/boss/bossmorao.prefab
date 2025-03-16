@@ -2075,7 +2075,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895013562162311071}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2131,6 +2131,10 @@ MonoBehaviour:
   maxVida: 0
   lifePrefab: {fileID: 6934052133350547013, guid: dc28f1fc8d160134d9579b5870bef92e, type: 3}
   deathParticles: {fileID: 4202501866729362098, guid: 0efb1ff3527edab41b92a3a56ab60b92, type: 3}
+  importantBranch: {fileID: 0}
+  missile: {fileID: 0}
+  dropBranch: 0
+  spawnMissile: 0
 --- !u!114 &7423830995465681291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,6 +2151,7 @@ MonoBehaviour:
   rangoAndar: 20
   velocidadAndar: 6
   velocidadCorrer: 10
+  rangoCerca: 1
   carcelPrefab: {fileID: 6880024102621881412, guid: 3e8684fe7864901478329ce8926a078d, type: 3}
   charcoPrefab: {fileID: 1478517980432780445, guid: b0b91515915fe0d4095545226d2d1cef, type: 3}
   misilPrefab: {fileID: 2898262132930136279, guid: 33a012b4889d1584cadc1c1577ba2d28, type: 3}

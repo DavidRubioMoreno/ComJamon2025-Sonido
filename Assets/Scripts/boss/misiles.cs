@@ -32,8 +32,7 @@ public class misiles : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>())
         {
-            Debug.Log("Jugador impactado por misil orbital!");
-            //daño player
+            other.gameObject.GetComponent<LifeComponent>().LoseLife(1);
         }
     }
 }

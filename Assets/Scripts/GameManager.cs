@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
         }
+        
     }
 
     private void OnLevelWasLoaded(int level)
@@ -292,11 +293,15 @@ public class GameManager : MonoBehaviour
         {
             canvas.SetActive(false);
             paused = false;
+            
+                player.GetComponent<PlayerInput>().enabled = true;
+            
         }
         else
         {
             canvas.SetActive(true);
             paused = true;
+            player.GetComponent<PlayerInput>().enabled = false;
         }
 
     }

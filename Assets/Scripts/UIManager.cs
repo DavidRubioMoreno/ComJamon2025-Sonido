@@ -13,11 +13,18 @@ public class UIManager : MonoBehaviour
     private Image healthFill; // Referencia a la parte de relleno de la barra (opcional)
     [SerializeField]
     private Gradient healthGradient; // Color dinámico de la barra
+    [SerializeField]
+    private GameObject damageImage;
 
     [SerializeField]
     private float maxLife = 50;
     [SerializeField]
     private float health = 50;
+
+    private float elapsed = 0;
+    private float timeDamage = 0.5f;
+
+    private bool active = false;
 
     private void Awake()
     {
@@ -35,9 +42,26 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Mantiene el UIManager entre escenas
     }
 
-    private void Update()
+    public void Hit()
     {
-        UpdateHealthBar(health, maxLife);
+        active = true;
+        damageImage.SetActive(true);
+        elapsed = 0;
+    }
+
+    void Update()
+    {
+        if(GameManager.Instance.Player)
+        UpdateHealthBar(GameManager.Instance.Player.GetComponent<LifeComponent>().vida, GameManager.Instance.Player.GetComponent<LifeComponent>().maxVida);
+        if(active)
+        {
+            elapsed += Time.deltaTime;
+            if(elapsed > timeDamage)
+            {
+                active = false;
+                damageImage.SetActive(false);
+            }
+        }
     }
     // Actualiza la barra de vida
     public void UpdateHealthBar(float currentHealth, float maxHealth)

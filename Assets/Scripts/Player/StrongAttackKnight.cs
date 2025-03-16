@@ -73,6 +73,7 @@ public class StrongAttackKnight : MonoBehaviour
     {
         if (_canAttack && _myPM.IsGrounded())
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.giro);
             _animator.SetBool("StrongAttack", true);
             _canAttack = false;
             isAttacking = true;
