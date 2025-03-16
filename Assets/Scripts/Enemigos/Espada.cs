@@ -8,11 +8,10 @@ public class Espada : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("dado");
-        LifeComponent life = collision.gameObject.GetComponent<LifeComponent>();
-        if (life != null)
+        Debug.Log("hitPlayer");
+        if (collision.GetComponent<PlayerMovement>())
         {
-            life.LoseLife(_damage);
+            collision.GetComponent<LifeComponent>().LoseLife(_damage);
         }
     }
 }

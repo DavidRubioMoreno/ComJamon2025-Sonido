@@ -51,6 +51,7 @@ public class Esqueleto: MonoBehaviour
 
     private void Update()
     {
+        if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);
         Vector3 targetVelocity =  v.normalized * _maxSpeed;
 
@@ -72,7 +73,7 @@ public class Esqueleto: MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);
         if (v.magnitude > rObjetivo)
         {

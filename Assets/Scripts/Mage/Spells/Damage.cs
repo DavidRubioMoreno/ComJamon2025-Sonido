@@ -7,6 +7,8 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     private int damage;
+    [SerializeField]
+    private GameObject explosion;
 
     private bool hit;
     void Start()
@@ -34,6 +36,8 @@ public class Damage : MonoBehaviour
                 }
                 if (GetComponent<Dest>() != null)
                 {
+                    if (explosion)
+                        Instantiate(explosion, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
                 hit = true;
