@@ -300,8 +300,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 3780421940416587889}
     m_Modifications:
     - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0551414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6544018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5841413
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Center.x
+      value: 0.18665123
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Center.y
+      value: -0.17279911
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858512841123136425, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2920711
       objectReference: {fileID: 0}
     - target: {fileID: 5804695658519700434, guid: 4159945f7f85ee44d814efc5ad6e96f0, type: 3}
       propertyPath: m_Name
@@ -381,4 +405,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6374e32ad286c48a5532ded8f2ff72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 3

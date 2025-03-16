@@ -33,6 +33,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip espadaesqueleto;
     public AudioClip giro;
 
+    public AudioClip carcel;
+    public AudioClip bolasrota;
+    public AudioClip toxico;
+    public AudioClip pegao;
 
     private void Awake()
     {
