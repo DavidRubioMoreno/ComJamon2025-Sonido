@@ -15,6 +15,19 @@ public class MiniBossRojo : MonoBehaviour
 
     private bool atacando = false;
     private Rigidbody rb;
+    private Animator _animator;
+
+    private enum AnimationState
+    {
+        Walk,
+        Run,
+        Attack,
+        Hit,
+        Death,
+        Spell,
+        Idle
+    }
+    AnimationState _animationState;
 
     void Start()
     {
@@ -23,6 +36,8 @@ public class MiniBossRojo : MonoBehaviour
 
         StartCoroutine(LluviaDeMeteoritos());
         StartCoroutine(AtaqueDirigido());
+        _animator = GetComponent<Animator>();
+        _animationState = AnimationState.Idle;
     }
 
     void Update()
@@ -39,15 +54,42 @@ public class MiniBossRojo : MonoBehaviour
             if (distancia > rangoCorrer)
             {
                 Mover(direccion, velocidadAndar); // Andar
+                if (_animationState != AnimationState.Walk)
+                {
+                    _animator.SetTrigger("Walk");
+                    _animationState = AnimationState.Walk;
+                }
+                
+            }
+            else if(distancia <= rangoCorrer &&  distancia > rangoAtaque)
+            {
+                Mover(direccion, velocidadCorrer); // Correr
+                if (_animationState != AnimationState.Run)
+                {
+                    _animator.SetTrigger("Run");
+                    _animationState = AnimationState.Run;
+                }
             }
             else
             {
-                Mover(direccion, velocidadCorrer); // Correr
+                if (!atacando)
+                {
+                    StartCoroutine(AtaqueBasico());
+                    if (_animationState != AnimationState.Attack)
+                    {
+                        _animator.SetTrigger("Attack");
+                        _animationState = AnimationState.Attack;
+                    }
+                }
+                    
             }
-
-            if (distancia <= rangoAtaque && !atacando)
+        }
+        else
+        {
+            if (_animationState != AnimationState.Idle)
             {
-                StartCoroutine(AtaqueBasico());
+                _animator.SetTrigger("Idle");
+                _animationState = AnimationState.Idle;
             }
         }
     }
@@ -62,6 +104,7 @@ public class MiniBossRojo : MonoBehaviour
         {
             transform.Translate(direccion * velocidad * Time.deltaTime, Space.World);
         }
+        transform.LookAt(GameManager.Instance.Player.transform.position);
     }
 
     IEnumerator AtaqueBasico()
@@ -110,6 +153,15 @@ public class MiniBossRojo : MonoBehaviour
                 Instantiate(ataqueDirigidoPrefab, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
                 SoundManager.Instance.PlaySound(SoundManager.Instance.bossrojobolon);
             }
+        }
+    }
+
+    public void ToIdle()
+    {
+        if (_animationState != AnimationState.Idle)
+        {
+            _animator.SetTrigger("Idle");
+            _animationState = AnimationState.Idle;
         }
     }
 }
