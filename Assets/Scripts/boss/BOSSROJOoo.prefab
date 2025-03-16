@@ -11499,8 +11499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3916441d106982479c8a0eb5c042c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mano: {fileID: 0}
-  "pu\xF1o": {fileID: 0}
+  mano: {fileID: 3574814090722214840}
+  "pu\xF1o": {fileID: 3817001061789511810, guid: 80d30dbac8849ce459a06197cf553614, type: 3}
   rangoVision: 50
   rangoCorrer: 20
   rangoAtaque: 4
