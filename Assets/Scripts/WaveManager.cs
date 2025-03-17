@@ -134,7 +134,7 @@ public class WaveManager : MonoBehaviour
                 {
                     particles[j] = Instantiate(spawnParticles[j], spawnPosition, Quaternion.identity);
                     if (j == 1) particles[j].transform.localScale *= 3;
-                    SoundManager.Instance.PlaySound(SoundManager.Instance.invocar, 0.2f);
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.invocar, 0.05f);
                 }
             }
            

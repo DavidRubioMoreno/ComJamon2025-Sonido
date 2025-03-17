@@ -2339,7 +2339,7 @@ PrefabInstance:
       objectReference: {fileID: 1895013562162311071, guid: 6f9c4744daa828a468a6b5baf650d05f, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: enemiesPerWave
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
       propertyPath: spawnAreas.Array.size
