@@ -129,6 +129,9 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(_currentScene.name);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            branchesCollected++;
+
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
         if (cinematica && _partidaGuardada)

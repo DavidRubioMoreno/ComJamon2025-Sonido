@@ -126,7 +126,7 @@ public class MiniBossMorao : MonoBehaviour
             {
                 GameObject misil = Instantiate(misilPrefab, transform.position + Vector3.up * 2, Quaternion.Euler(-90f, 0f, 0f));
                 misil.GetComponent<misiles>().Configurar(transform, i * 120);
-                SoundManager.Instance.PlaySound(SoundManager.Instance.bolasrota);
+                SoundManager.Instance.PlaySound(SoundManager.Instance.bolasrota, 0.5f);
             }
         }
     }

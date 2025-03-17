@@ -44139,7 +44139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981caf684d5bb2409aab1fcb7b662f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   explosion: {fileID: 0}
 --- !u!114 &6973036940570496973
 MonoBehaviour:

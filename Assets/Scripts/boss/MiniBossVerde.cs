@@ -91,7 +91,7 @@ public class MiniBossVerde : MonoBehaviour
         while (true)
         {
             
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(1.5f);
             Debug.Log("MiniBoss Verde lanza rebote tóxico!");
             Vector3 spawnPos = transform.position + transform.forward * 2;
             GameObject bola = Instantiate(reboteToxicoPrefab, spawnPos, Quaternion.identity);
