@@ -686,11 +686,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 6032903974973978629}
-  _damage: 1
-  _reloadTime: 3
-  _damageTime: 0.3
+  _damage: 3
+  _reloadTime: 5.5
+  _damageTime: 0.5
   _time: 3
-  isAttacking: 0
+  isAttacking: 1
 --- !u!4 &2027603445228041236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
