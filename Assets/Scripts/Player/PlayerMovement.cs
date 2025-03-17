@@ -73,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!_animator.GetBool("Run"))
             {
+                _animator.SetBool("Block", false);
+                _animator.SetBool("Blocking", false);
+                _animator.SetBool("Blocked", false);
                 _animator.SetBool("Run", true);
                 _animator.SetBool("Idle", false);
             }
