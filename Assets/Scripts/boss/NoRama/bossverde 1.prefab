@@ -8878,7 +8878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangoVision: 50
   rangoCorrer: 20
-  rangoAtaque: 1
+  rangoAtaque: 4
   velocidadAndar: 2
   velocidadCorrer: 5
   zonaPegajosaPrefab: {fileID: 2428300643900595324, guid: d71e4320cd5376341b06a632e7d37243, type: 3}

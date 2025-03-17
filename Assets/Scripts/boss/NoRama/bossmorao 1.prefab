@@ -2151,7 +2151,7 @@ MonoBehaviour:
   rangoAndar: 20
   velocidadAndar: 6
   velocidadCorrer: 10
-  rangoCerca: 1
+  rangoCerca: 4
   carcelPrefab: {fileID: 6880024102621881412, guid: 3e8684fe7864901478329ce8926a078d, type: 3}
   charcoPrefab: {fileID: 1478517980432780445, guid: b0b91515915fe0d4095545226d2d1cef, type: 3}
   misilPrefab: {fileID: 2898262132930136279, guid: 33a012b4889d1584cadc1c1577ba2d28, type: 3}

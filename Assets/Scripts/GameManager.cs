@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            GuardarPartida();
+            SceneManager.LoadScene(_currentScene.name);
         }
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
