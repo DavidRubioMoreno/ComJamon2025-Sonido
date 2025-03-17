@@ -23,7 +23,7 @@ public class BackgroundMusic : MonoBehaviour
     public AudioClip boss;
     void Start()
     {
-        SetVolume(0.3f);
+        //SetVolume(0.3f);
         musicSource.clip = musicClip;
         musicSource.loop = true;
         musicSource.Play();
@@ -33,6 +33,7 @@ public class BackgroundMusic : MonoBehaviour
         musicSource.Stop();
         musicSource.clip = boss;
         musicSource.loop = true;
+        SetVolume(1.5f);
         musicSource.Play();
     }
     public void SetVolume(float volume)
