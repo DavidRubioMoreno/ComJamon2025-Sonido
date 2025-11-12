@@ -34,7 +34,7 @@ public class Dest : MonoBehaviour
         if (obj != null)
         {
             
-            rb.velocity = (obj.position+new Vector3(0,1,0) - transform.position).normalized * Time.fixedDeltaTime * velocity * 100;
+            rb.linearVelocity = (obj.position+new Vector3(0,1,0) - transform.position).normalized * Time.fixedDeltaTime * velocity * 100;
 
         }
         else

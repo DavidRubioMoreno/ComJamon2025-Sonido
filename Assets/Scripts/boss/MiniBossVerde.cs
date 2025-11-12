@@ -82,7 +82,7 @@ public class MiniBossVerde : MonoBehaviour
             Debug.Log("MiniBoss Verde lanza zona pegajosa!");
             Vector3 posicion = GameManager.Instance.Player.transform.position + Vector3.up * 2;
             Instantiate(zonaPegajosaPrefab, posicion, Quaternion.identity);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.pegao);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.pegao);
         }
     }
 
@@ -92,11 +92,11 @@ public class MiniBossVerde : MonoBehaviour
         {
             
             yield return new WaitForSeconds(1.5f);
-            Debug.Log("MiniBoss Verde lanza rebote tóxico!");
+            Debug.Log("MiniBoss Verde lanza rebote tï¿½xico!");
             Vector3 spawnPos = transform.position + transform.forward * 2;
             GameObject bola = Instantiate(reboteToxicoPrefab, spawnPos, Quaternion.identity);
-            bola.GetComponent<Rigidbody>().velocity = (GameManager.Instance.Player.transform.position - transform.position).normalized * 10f;
-            SoundManager.Instance.PlaySound(SoundManager.Instance.toxico);
+            bola.GetComponent<Rigidbody>().linearVelocity = (GameManager.Instance.Player.transform.position - transform.position).normalized * 10f;
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.toxico);
         }
     }
 

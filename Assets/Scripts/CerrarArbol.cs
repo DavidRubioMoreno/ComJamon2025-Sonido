@@ -15,8 +15,8 @@ public class CerrarArbol : MonoBehaviour
     }
     public void AbrirCerrar(InputAction.CallbackContext callback)
     {
-        Debug.Log("e");
-        if (arbolHabilidadesUI.active)
+        //Debug.Log("e");
+        if (arbolHabilidadesUI.activeSelf)
         {
             Cerrar();
         }

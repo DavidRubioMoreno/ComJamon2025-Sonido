@@ -51,11 +51,11 @@ public class AutoAttack : MonoBehaviour
             _canAttack = false;
             if (_random == 0)
             {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.espada);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.espada);
             }
             else
             {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.espada2,0.2f);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.espada2,0.2f);
             }
             isAttacking = true;
         }

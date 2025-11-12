@@ -65,7 +65,7 @@ public class AttackComponent : MonoBehaviour
 
     public void activeNormalAttack()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.magia);
+        //SoundManager.Instance.PlaySound(SoundManager.Instance.magia);
         Instantiate(fireBall, nSpawn.position, Quaternion.identity);
 
         _animator.SetBool("Attack", false);

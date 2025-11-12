@@ -8,7 +8,7 @@ public class Life : Collectable
     // Start is called before the first frame update
     public override void onCollect()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.mejora);
+        //SoundManager.Instance.PlaySound(SoundManager.Instance.mejora);
         GameManager.Instance.Player.GetComponent<LifeComponent>().AddLife(HP);
         Destroy(transform.parent.gameObject);
     }

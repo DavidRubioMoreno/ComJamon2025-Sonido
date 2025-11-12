@@ -108,7 +108,7 @@ public class MiniBossMorao : MonoBehaviour
             // Crear el charco en la posición ORIGINAL donde apareció la cárcel
             Vector3 posicionInicial2 = posicionInicial + Vector3.up * 15f;
             Instantiate(charcoPrefab, posicionInicial2, Quaternion.identity);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.carcel);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.carcel);
             
         }
     }
@@ -126,7 +126,7 @@ public class MiniBossMorao : MonoBehaviour
             {
                 GameObject misil = Instantiate(misilPrefab, transform.position + Vector3.up * 2, Quaternion.Euler(-90f, 0f, 0f));
                 misil.GetComponent<misiles>().Configurar(transform, i * 120);
-                SoundManager.Instance.PlaySound(SoundManager.Instance.bolasrota, 0.1f);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.bolasrota, 0.1f);
             }
         }
     }

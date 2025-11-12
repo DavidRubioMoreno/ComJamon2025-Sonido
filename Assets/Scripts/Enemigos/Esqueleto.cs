@@ -41,7 +41,7 @@ public class Esqueleto: MonoBehaviour
         {
 
             _espada.SetActive(true);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto, 0.1f);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto, 0.1f);
         }
     }
 
@@ -91,7 +91,7 @@ public class Esqueleto: MonoBehaviour
         _player = GameManager.Instance.Player;
         if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);
-        Debug.Log("EEEEEE");
+        //Debug.Log("EEEEEE");
         if (v.magnitude > rObjetivo)
         {
             Vector3 newPosition = _myRB.position + _currentVelocity * Time.fixedDeltaTime;

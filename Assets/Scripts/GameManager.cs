@@ -294,7 +294,7 @@ public class GameManager : MonoBehaviour
     }
     public void Options(InputAction.CallbackContext callback)
     {
-        if (canvas.active)
+        if (canvas.activeSelf)
         {
             canvas.SetActive(false);
             paused = false;

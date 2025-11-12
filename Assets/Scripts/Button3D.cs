@@ -19,16 +19,16 @@ public class Button3D : MonoBehaviour
         switch (action)
         {
             case "Play":
-                SoundManager.Instance.PlaySound(SoundManager.Instance.Jugarnueva, 3);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.Jugarnueva, 3);
                 break;
             case "Load":
-                SoundManager.Instance.PlaySound(SoundManager.Instance.jugarcargada, 3);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.jugarcargada, 3);
                 break;
             case "Options":
-                SoundManager.Instance.PlaySound(SoundManager.Instance.opciones, 3);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.opciones, 3);
                 break;
             case "Exit":
-                SoundManager.Instance.PlaySound(SoundManager.Instance.salir, 3);
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.salir, 3);
                 break;
         }
     }

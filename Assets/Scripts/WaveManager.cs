@@ -94,8 +94,8 @@ public class WaveManager : MonoBehaviour
        if(final && activeEnemies.Count == 0 && !GG)
         {
             GG = true;
-            SoundManager.Instance.PlaySound(SoundManager.Instance.explo);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.terre);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.explo);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.terre);
             if (tree)
                StartCoroutine(tree.ScaleObject());
             explosions.SetActive(true);
@@ -134,7 +134,7 @@ public class WaveManager : MonoBehaviour
                 {
                     particles[j] = Instantiate(spawnParticles[j], spawnPosition, Quaternion.identity);
                     if (j == 1) particles[j].transform.localScale *= 3;
-                    SoundManager.Instance.PlaySound(SoundManager.Instance.invocar, 0.05f);
+                    //SoundManager.Instance.PlaySound(SoundManager.Instance.invocar, 0.05f);
                 }
             }
            

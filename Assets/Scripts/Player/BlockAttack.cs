@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,7 +47,7 @@ public class BlockAttack : MonoBehaviour
                 _myPM.StopMovement();
                 _wasMoving = true;
             }
-            SoundManager.Instance.PlaySound(SoundManager.Instance.escudo);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.escudo);
             _animator.SetBool("Block", true);
             _canBlock = false;
             isBlocking = true;

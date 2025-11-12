@@ -46,13 +46,13 @@ public class Dash : MonoBehaviour
         if (_dash > 0)
         {
             _dash = 0;
-            _rb.velocity=Vector3.zero;
+            _rb.linearVelocity=Vector3.zero;
             GameObject ds=Instantiate(d, transform.position, Quaternion.identity);
             ds.transform.parent=transform;
             _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
             _an.SetBool("Dash", true);
             nDash += 1;
-            SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
         }
         
     }

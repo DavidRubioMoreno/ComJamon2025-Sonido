@@ -41,7 +41,7 @@ public class EsqueletoArquero : MonoBehaviour
     public void OnAttack()
     {
         GameObject flecha = Instantiate(_flecha, _ballesta.transform.position, Quaternion.identity);
-        SoundManager.Instance.PlaySound(SoundManager.Instance.arco, 0.5f);
+        //SoundManager.Instance.PlaySound(SoundManager.Instance.arco, 0.5f);
         FlechaComponent fc = flecha.AddComponent<FlechaComponent>();
         fc._target = _player.transform.position;
     }

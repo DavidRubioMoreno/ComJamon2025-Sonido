@@ -32,7 +32,7 @@ public class EsqueletoMago : MonoBehaviour
         if (elapsedTime > spawnTime)
         {
             Vector3 origen= transform.position+new Vector3(Random.Range(-10.5f, 10.5f),0, Random.Range(-10.5f, 10.5f));
-            SoundManager.Instance.PlaySound(SoundManager.Instance.bruja);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.bruja);
             Instantiate(spawn,origen,Quaternion.identity);
             elapsedTime = 0;
             spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);

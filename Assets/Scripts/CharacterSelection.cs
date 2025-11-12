@@ -23,11 +23,11 @@ public class CharacterSelection : MonoBehaviour
         anim.SetBool("Cambio",true); // Activa la animación al pasar el mouse
         if (characterIndex == 0)
         {
-            SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
         }
         else
         {
-            SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
+            //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
         }
     }
 

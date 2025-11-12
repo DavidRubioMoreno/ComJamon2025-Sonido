@@ -20,7 +20,7 @@ public class Spwner : MonoBehaviour
         elapsed+=Time.deltaTime;
         if (elapsed > 2.5)
         {
-            GameObject duro=Instantiate(esk[Random.RandomRange(0,3)],transform.position,Quaternion.identity);
+            GameObject duro=Instantiate(esk[Random.Range(0,3)],transform.position,Quaternion.identity);
             WaveManager.Instance.Peruano(duro);  
             Destroy(gameObject);
         }
