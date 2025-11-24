@@ -2688,6 +2688,7 @@ GameObject:
   - component: {fileID: 1203248321}
   - component: {fileID: 1203248320}
   - component: {fileID: 1203248323}
+  - component: {fileID: 1203248324}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2788,6 +2789,20 @@ MonoBehaviour:
   sensitivity: 2
   minYAngle: -30
   maxYAngle: 60
+--- !u!114 &1203248324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203248319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1281024107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,6 +2891,7 @@ GameObject:
   - component: {fileID: 1389648962}
   - component: {fileID: 1389648963}
   - component: {fileID: 1389648964}
+  - component: {fileID: 1389648965}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3037,6 +3053,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mData:
     dataTypes: []
+--- !u!114 &1389648965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389648957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: intro
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &1418856400
 GameObject:
   m_ObjectHideFlags: 0
