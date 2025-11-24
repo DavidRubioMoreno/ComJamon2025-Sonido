@@ -1,3 +1,5 @@
+using FMODUnity;
+using FMOD;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _myRB;
     private bool _isJumping;
     private bool _isMoving;
+    
 
     private Vector3 _movePlayer;
 
@@ -38,18 +41,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _offsetY;
 
+    [SerializeField]
+    FMODUnity.EventReference eventFMOD;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance instance;
+
     private void Start()
     {
         _myRB = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _isJumping = false;
         _isMoving = false;
+
+        
+
+        instance = FMODManager.instance.CreateEventInstance(eventFMOD);
+
+        RuntimeManager.AttachInstanceToGameObject(instance, gameObject);
+
+        FMOD.RESULT result = instance.start();
+        UnityEngine.Debug.Log("FMOD Start: " + result);
     }
 
     private void Update()
     {
         CamDir();
-        Debug.Log(_maxSpeed);
+        //Debug.Log(_maxSpeed);
         Vector2 targetVelocity = _inputMovement * _maxSpeed;
 
         _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
@@ -71,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         {
+            
             if (!_animator.GetBool("Run"))
             {
                 _animator.SetBool("Block", false);
@@ -113,7 +131,9 @@ public class PlayerMovement : MonoBehaviour
             _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
 
-        if (_jump == 1 && IsGrounded() && !_isJumping)
+        bool isGrounded = IsGrounded();
+
+        if (_jump == 1 && isGrounded && !_isJumping)
         {
             _animator.SetBool("Jump", true);
 
@@ -139,24 +159,32 @@ public class PlayerMovement : MonoBehaviour
 
             _isJumping = true;
         }
-        else if (!IsGrounded())
+        else if (!isGrounded)
         {
             // Ajusta la gravedad en función de la fuerza del salto
             float dynamicGravity = _extraGravityBase + (_currentJumpForce * _extraGravityScale);
             _myRB.AddForce(Vector3.down * dynamicGravity, ForceMode.Acceleration);
         }
 
+        if (isGrounded && _isMoving)
+        {
+            instance.setParameterByName("Walking", 1);
+        }
+        else {
+            instance.setParameterByName("Walking", 0);
+        }
+
         // Gestión de animaciones
-        if (IsGrounded() && _isJumping)
+        if (isGrounded && _isJumping)
         {
             _animator.SetBool("Jump", false);
             _isJumping = false;
         }
-        else if (!IsGrounded() && !_isJumping)
+        else if (!isGrounded && !_isJumping)
         {
             _animator.SetBool("Jump", true);
         }
-        else if (IsGrounded())
+        else if (isGrounded)
         {
             _animator.SetBool("Jump", false);
         }
@@ -171,10 +199,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 posY2 = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z - _offsetY);
 
 
-        Debug.DrawRay(posX, Vector3.down * _rayLenght, Color.red);  
-        Debug.DrawRay(posX2, Vector3.down * _rayLenght, Color.green); 
-        Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue); 
-        Debug.DrawRay(posY2, Vector3.down * _rayLenght, Color.yellow);
+        //Debug.DrawRay(posX, Vector3.down * _rayLenght, Color.red);  
+        //Debug.DrawRay(posX2, Vector3.down * _rayLenght, Color.green); 
+        //Debug.DrawRay(posY, Vector3.down * _rayLenght, Color.blue); 
+        //Debug.DrawRay(posY2, Vector3.down * _rayLenght, Color.yellow);
 
         if (Physics.Raycast(posX, Vector3.down, out hitAbajo, _rayLenght, 1 << _intLayerMask))
         {
@@ -214,5 +242,26 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext callback) 
     {
         _jump = callback.ReadValue<float>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        string surfaceTag = collision.gameObject.tag;
+
+        switch (surfaceTag)
+        {
+            case "Grass":
+                instance.setParameterByName("FloorType", 0);
+                break;
+            case "Rock":
+                instance.setParameterByName("FloorType", 1);
+                break;
+            case "Sand":
+                instance.setParameterByName("FloorType", 2);
+                break;
+            default:
+                instance.setParameterByName("FloorType", 0);
+                break;
+        }
     }
 }

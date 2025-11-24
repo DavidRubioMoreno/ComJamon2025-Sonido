@@ -59,6 +59,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -164,6 +167,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -418,7 +424,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 532e08cf-8712-41a5-bb5f-25a4cfbdabb0
-    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: 'Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 203233774197687314}
@@ -434,7 +440,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 5775b6f4-98b2-4747-b31e-db235c7281eb
-    m_ActionName: Player/Jump[/Keyboard/space]
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5151636329407123482}
@@ -450,7 +456,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ebadcbd6-4913-467e-b142-ae37bce6aecb
-    m_ActionName: Player/Attack[/Mouse/leftButton]
+    m_ActionName: 'Player/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
@@ -470,7 +476,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: fd3dccfc-9002-444d-a8b3-4d91b79d0006
-    m_ActionName: Player/Block[/Keyboard/f]
+    m_ActionName: 'Player/Block[/Keyboard/f]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3824840060443755227}
@@ -486,7 +492,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
-    m_ActionName: Player/StrongAttack[/Mouse/rightButton]
+    m_ActionName: 'Player/StrongAttack[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657885432192493998}
@@ -502,11 +508,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
-    m_ActionName: Player/Dash[/Keyboard/shift]
+    m_ActionName: 'Player/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
-    m_ActionName: Player/Opciones[/Keyboard/escape]
+    m_ActionName: 'Player/Opciones[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -534,6 +540,13 @@ MonoBehaviour:
   _rayLenght: 0.3
   _offsetX: 0.7
   _offsetY: 0.7
+  eventFMOD:
+    Guid:
+      Data1: -1474820823
+      Data2: 1334924694
+      Data3: 344499613
+      Data4: 1028942398
+    Path: event:/Walking
   _extraGravityBase: 25
   _extraGravityScale: 0.8
   _currentJumpForce: 0
@@ -566,7 +579,7 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!95 &8742210292533887005
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -580,6 +593,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

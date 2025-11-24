@@ -32,11 +32,11 @@ public class PortalManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Checkea BIENN");
+        //Debug.Log("Checkea BIENN");
         if (other.gameObject.GetComponent<PlayerMovement>())
         {
 
-            Debug.Log("DEBERIA COLISIONAR ;P");
+            //Debug.Log("DEBERIA COLISIONAR ;P");
             GameManager.PortalsBool pb = GameManager.Instance.portalsBool;
 
             if (pb.dun1_finished && !pb.dungeon_2)
