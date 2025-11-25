@@ -29,7 +29,6 @@ public class FMODManager : MonoBehaviour
 
     public FMOD.Studio.EventInstance CreateEventInstance(EventReference eventRef)
     {
-        Debug.Log("Creando instancia");
         FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(eventRef);
         return instance;
     }

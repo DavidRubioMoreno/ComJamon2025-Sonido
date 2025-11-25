@@ -540,13 +540,20 @@ MonoBehaviour:
   _rayLenght: 0.3
   _offsetX: 0.7
   _offsetY: 0.7
-  eventFMOD:
+  walkingEvent:
     Guid:
       Data1: -1474820823
       Data2: 1334924694
       Data3: 344499613
       Data4: 1028942398
     Path: event:/Walking
+  jumpingEvent:
+    Guid:
+      Data1: -467381629
+      Data2: 1329321441
+      Data3: 1249782951
+      Data4: -1525122553
+    Path: event:/Jumping
   _extraGravityBase: 25
   _extraGravityScale: 0.8
   _currentJumpForce: 0

@@ -73,6 +73,32 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-4949087925925304821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jumping/JumpSound
+  m_EditorClassIdentifier: 
+  Name: JumpSound
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3837027040
+    data2: 2482904356
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Jump
+  - Landing
+  Exists: 1
 --- !u!114 &-4762457216065347396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +126,34 @@ MonoBehaviour:
   - Rock
   - Sand
   Exists: 1
+--- !u!114 &-4517876589996069688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Jumping
+  m_EditorClassIdentifier: 
+  Path: event:/Jumping
+  Guid:
+    Data1: -467381629
+    Data2: 1329321441
+    Data3: 1249782951
+    Data4: -1525122553
+  Banks:
+  - {fileID: -2765163032688818300}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4949087925925304821}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-2765163032688818300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +169,10 @@ MonoBehaviour:
   Path: FMODProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638996064194586733
+  lastModified: 638996636899293137
   FileSizes:
   - Name: Desktop
-    Value: 33568
+    Value: 47904
   Exists: 1
 --- !u!114 &-2542712970265917630
 MonoBehaviour:
@@ -157,16 +211,19 @@ MonoBehaviour:
   - {fileID: -2765163032688818300}
   EditorEvents:
   - {fileID: -8503447469429288006}
+  - {fileID: -4517876589996069688}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2765163032688818300}
   StringsBanks:
   - {fileID: 2613024869344153138}
   cacheVersion: 131857
-  cacheTime: 638996064194596728
+  cacheTime: 638996636899293137
   SerializableEventsDict:
   - key: event:/Walking
     index: 0
+  - key: event:/Jumping
+    index: 1
 --- !u!114 &2613024869344153138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,10 +239,10 @@ MonoBehaviour:
   Path: FMODProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638996064194596728
+  lastModified: 638996636899293137
   FileSizes:
   - Name: Desktop
-    Value: 870
+    Value: 960
   Exists: 1
 --- !u!114 &4151942606948206927
 MonoBehaviour:

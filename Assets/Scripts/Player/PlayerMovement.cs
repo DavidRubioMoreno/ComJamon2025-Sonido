@@ -42,9 +42,13 @@ public class PlayerMovement : MonoBehaviour
     private float _offsetY;
 
     [SerializeField]
-    FMODUnity.EventReference eventFMOD;   // Seleccionado desde el inspector
+    FMODUnity.EventReference walkingEvent;   // Seleccionado desde el inspector
 
-    private FMOD.Studio.EventInstance instance;
+    [SerializeField]
+    FMODUnity.EventReference jumpingEvent;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance walkingEventInstance;
+    private FMOD.Studio.EventInstance jumpingEventInstance;
 
     private void Start()
     {
@@ -53,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
         _isJumping = false;
         _isMoving = false;
 
-        
 
-        instance = FMODManager.instance.CreateEventInstance(eventFMOD);
+        walkingEventInstance = FMODManager.instance.CreateEventInstance(walkingEvent);
+        jumpingEventInstance = FMODManager.instance.CreateEventInstance(jumpingEvent);
 
-        RuntimeManager.AttachInstanceToGameObject(instance, gameObject);
+        RuntimeManager.AttachInstanceToGameObject(walkingEventInstance, gameObject);
+        RuntimeManager.AttachInstanceToGameObject(jumpingEventInstance, gameObject);
 
-        FMOD.RESULT result = instance.start();
-        UnityEngine.Debug.Log("FMOD Start: " + result);
+        FMOD.RESULT result = walkingEventInstance.start();
     }
 
     private void Update()
@@ -131,7 +135,25 @@ public class PlayerMovement : MonoBehaviour
             _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
 
+
         bool isGrounded = IsGrounded();
+
+        // Gestión de animaciones
+        if (isGrounded && _isJumping)
+        {
+            _animator.SetBool("Jump", false);
+            jumpingEventInstance.setParameterByName("JumpSound", 1);
+            jumpingEventInstance.start();
+            _isJumping = false;
+        }
+        else if (!isGrounded && !_isJumping)
+        {
+            _animator.SetBool("Jump", true);
+        }
+        else if (isGrounded)
+        {
+            _animator.SetBool("Jump", false);
+        }
 
         if (_jump == 1 && isGrounded && !_isJumping)
         {
@@ -155,9 +177,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 _currentJumpForce = _jumpForce; // Salto con fuerza máxima
                 _myRB.AddForce(Vector3.up * _currentJumpForce, ForceMode.Impulse);
+                UnityEngine.Debug.Log("Saltando");
             }
 
             _isJumping = true;
+
+            jumpingEventInstance.setParameterByName("JumpSound", 0);
+            jumpingEventInstance.start();
         }
         else if (!isGrounded)
         {
@@ -168,26 +194,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && _isMoving)
         {
-            instance.setParameterByName("Walking", 1);
+            walkingEventInstance.setParameterByName("Walking", 1);
         }
         else {
-            instance.setParameterByName("Walking", 0);
+            walkingEventInstance.setParameterByName("Walking", 0);
         }
 
-        // Gestión de animaciones
-        if (isGrounded && _isJumping)
-        {
-            _animator.SetBool("Jump", false);
-            _isJumping = false;
-        }
-        else if (!isGrounded && !_isJumping)
-        {
-            _animator.SetBool("Jump", true);
-        }
-        else if (isGrounded)
-        {
-            _animator.SetBool("Jump", false);
-        }
+        
     }
     public bool IsGrounded()
     {
@@ -251,16 +264,16 @@ public class PlayerMovement : MonoBehaviour
         switch (surfaceTag)
         {
             case "Grass":
-                instance.setParameterByName("FloorType", 0);
+                walkingEventInstance.setParameterByName("FloorType", 0);
                 break;
             case "Rock":
-                instance.setParameterByName("FloorType", 1);
+                walkingEventInstance.setParameterByName("FloorType", 1);
                 break;
             case "Sand":
-                instance.setParameterByName("FloorType", 2);
+                walkingEventInstance.setParameterByName("FloorType", 2);
                 break;
             default:
-                instance.setParameterByName("FloorType", 0);
+                walkingEventInstance.setParameterByName("FloorType", 0);
                 break;
         }
     }
