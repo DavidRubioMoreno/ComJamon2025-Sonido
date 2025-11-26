@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,10 @@ public class StrongAttackKnight : MonoBehaviour
     private HashSet<GameObject> _enemiesInsideTrigger = new HashSet<GameObject>();
     private HashSet<GameObject> _damagedEnemies = new HashSet<GameObject>();
 
+    [SerializeField]
+    FMODUnity.EventReference attackEvent;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance attackEventInstance;
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -35,6 +40,10 @@ public class StrongAttackKnight : MonoBehaviour
         _myPM = GetComponent<PlayerMovement>();
         isAttacking = false;
         _coroutineRunning = false;
+
+        attackEventInstance = FMODManager.instance.CreateEventInstance(attackEvent);
+
+        RuntimeManager.AttachInstanceToGameObject(attackEventInstance, gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,7 +82,8 @@ public class StrongAttackKnight : MonoBehaviour
     {
         if (_canAttack && _myPM.IsGrounded())
         {
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.giro);
+            attackEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            attackEventInstance.start();
             _animator.SetBool("StrongAttack", true);
             _canAttack = false;
             isAttacking = true;
@@ -88,6 +98,8 @@ public class StrongAttackKnight : MonoBehaviour
         isAttacking = false;
         _collider.SetActive(false);
         StartCoroutine(WaitForReloadTime());
+
+        attackEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     IEnumerator WaitForReloadTime()

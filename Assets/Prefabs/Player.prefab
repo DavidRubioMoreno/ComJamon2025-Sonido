@@ -651,7 +651,7 @@ MonoBehaviour:
       Data2: 1232705646
       Data3: -2089197124
       Data4: 57286403
-    Path: event:/Attack
+    Path: event:/NormalAttack
 --- !u!114 &5628913436012919497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +719,13 @@ MonoBehaviour:
   _damageTime: 0.5
   _time: 3
   isAttacking: 1
+  attackEvent:
+    Guid:
+      Data1: 409098265
+      Data2: 1221677726
+      Data3: 541066121
+      Data4: -283245539
+    Path: event:/SpinAttack
 --- !u!4 &2027603445228041236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}
