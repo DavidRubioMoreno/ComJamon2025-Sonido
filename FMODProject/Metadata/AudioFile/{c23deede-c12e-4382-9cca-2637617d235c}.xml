@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{c23deede-c12e-4382-9cca-2637617d235c}">
 		<property name="assetPath">
-			<value>Sounds/arco.mp3</value>
+			<value>Attacks/arco.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

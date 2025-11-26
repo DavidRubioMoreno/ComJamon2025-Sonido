@@ -645,6 +645,13 @@ MonoBehaviour:
   _damage: 5
   _reloadTime: 0.2
   isAttacking: 0
+  attackEvent:
+    Guid:
+      Data1: -1726766297
+      Data2: 1232705646
+      Data3: -2089197124
+      Data4: 57286403
+    Path: event:/Attack
 --- !u!114 &5628913436012919497
 MonoBehaviour:
   m_ObjectHideFlags: 0

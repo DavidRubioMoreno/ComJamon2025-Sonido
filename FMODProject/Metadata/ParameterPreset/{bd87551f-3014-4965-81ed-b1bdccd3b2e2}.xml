@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{bd87551f-3014-4965-81ed-b1bdccd3b2e2}">
+		<property name="name">
+			<value>AttackType</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7fe1fb5d-3711-4623-86d7-a6a44235b028}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8c661eb1-4a7b-41de-9a1f-63d7d6bb1ee2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8c661eb1-4a7b-41de-9a1f-63d7d6bb1ee2}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Swing</value>
+			<value>Spin</value>
+			<value>Strong</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,12 @@ public class AutoAttack : MonoBehaviour
     private bool _canAttack;
     public bool isAttacking;
     private PlayerMovement _myPM;
+
+    [SerializeField]
+    FMODUnity.EventReference attackEvent;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance attackEventInstance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +34,10 @@ public class AutoAttack : MonoBehaviour
         _canAttack = true;
         _myPM = GetComponent<PlayerMovement>();
         isAttacking = false;
+
+        attackEventInstance = FMODManager.instance.CreateEventInstance(attackEvent);
+
+        RuntimeManager.AttachInstanceToGameObject(attackEventInstance, gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,11 +62,17 @@ public class AutoAttack : MonoBehaviour
             _canAttack = false;
             if (_random == 0)
             {
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.espada);
+                attackEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                attackEventInstance.setParameterByName("AttackType", 0);
+                attackEventInstance.setParameterByName("SwingPitch", 10);
+                attackEventInstance.start();
             }
             else
             {
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.espada2,0.2f);
+                attackEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                attackEventInstance.setParameterByName("AttackType", 0);
+                attackEventInstance.setParameterByName("SwingPitch", -10);
+                attackEventInstance.start();
             }
             isAttacking = true;
         }

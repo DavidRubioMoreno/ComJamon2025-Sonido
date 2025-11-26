@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{86584d29-c41e-4a09-a43f-2f74edccb719}">
 		<property name="assetPath">
-			<value>Sounds/ataquemagiapocho.mp3</value>
+			<value>Attacks/ataquemagiapocho.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
