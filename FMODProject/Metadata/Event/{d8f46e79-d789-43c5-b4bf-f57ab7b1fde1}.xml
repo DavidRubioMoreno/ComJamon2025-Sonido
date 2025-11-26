@@ -102,10 +102,13 @@
 			<value>100</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>2500</value>
+			<value>3500</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>0.599999964</value>
+			<value>4</value>
+		</property>
+		<property name="maximumScatterDistance">
+			<value>30</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>2</value>
@@ -115,9 +118,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b53d41d6-96f4-43ba-b214-6201afe7cbdf}">
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<property name="name">
 			<value>Branches</value>
 		</property>
@@ -150,7 +150,11 @@
 			<destination>{611a80ab-0ab1-4b7b-aaf5-87f98dd20341}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{fa29a99a-1a31-407d-afc3-d0bcbd4db199}" />
+	<object class="MixerBusPanner" id="{fa29a99a-1a31-407d-afc3-d0bcbd4db199}">
+		<property name="surroundLFELevel">
+			<value>-2</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{e27954ce-8983-4c80-9c76-9eb90f3cb67f}" />
 	<object class="MultiSound" id="{113a165b-2de9-4535-8a89-20742b4dfb90}">
 		<relationship name="sounds">
@@ -165,7 +169,11 @@
 			<destination>{25353217-9285-48ea-9454-7498399f222b}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{6d6a40e7-18e4-418d-a12b-eb645b6d7ea3}" />
+	<object class="MixerBusPanner" id="{6d6a40e7-18e4-418d-a12b-eb645b6d7ea3}">
+		<relationship name="modulators">
+			<destination>{615eeca0-2fff-488a-888f-138474cdd9ce}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{611a80ab-0ab1-4b7b-aaf5-87f98dd20341}" />
 	<object class="SingleSound" id="{0194a329-7070-45c6-84f1-84a7341ca927}">
 		<property name="volume">
@@ -200,4 +208,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{25353217-9285-48ea-9454-7498399f222b}" />
+	<object class="RandomizerModulator" id="{615eeca0-2fff-488a-888f-138474cdd9ce}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>surroundPanDirection</value>
+		</property>
+		<property name="amount">
+			<value>100</value>
+		</property>
+	</object>
 </objects>

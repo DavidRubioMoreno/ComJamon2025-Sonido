@@ -27,6 +27,11 @@ public class FMODManager : MonoBehaviour
         FMOD.Studio.System.create(out fmodSystem);
     }
 
+    private void OnDestroy()
+    {
+        RuntimeManager.UnloadBank("Master");
+    }
+
     public FMOD.Studio.EventInstance CreateEventInstance(EventReference eventRef)
     {
         FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(eventRef);

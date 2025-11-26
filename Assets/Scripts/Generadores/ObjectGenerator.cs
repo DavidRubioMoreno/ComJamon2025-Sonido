@@ -48,17 +48,20 @@ public class ObjectGenerator : MonoBehaviour
     private FMOD.Studio.EventInstance branchesEventInstance;
 
     float elapsedTime = 0;
+
+    bool init = false;
     // Start is called before the first frame update
     void Start()
     {
         nextGenerationtime = 0;
 
-        branchesEventInstance = FMODManager.instance.CreateEventInstance(branchesEvent);
+       branchesEventInstance = FMODManager.instance.CreateEventInstance(branchesEvent);
 
-        RuntimeManager.AttachInstanceToGameObject(branchesEventInstance, gameObject);
+    }
 
-        branchesEventInstance.start();
-
+    private void OnDestroy()
+    {
+        FMODManager.instance.StopEvent(branchesEventInstance);
     }
 
     // Update is called once per frame
@@ -100,6 +103,26 @@ public class ObjectGenerator : MonoBehaviour
                     //Debug.Log(angularSpeed);
                 }
             }
+
+            if (init)
+            {
+                //branchesEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(objectSpawned));
+            }          
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(!init && GameManager.Instance.Player)
+        {
+            
+            branchesEventInstance.start();
+
+            init = true;
+        }
+        if (init)
+        {
+            branchesEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(GameManager.Instance.Player));
         }
     }
 

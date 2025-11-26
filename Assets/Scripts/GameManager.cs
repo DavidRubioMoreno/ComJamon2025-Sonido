@@ -14,6 +14,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     [SerializeField]
     public bool menu;
     private bool nocreado;
@@ -100,8 +101,8 @@ public class GameManager : MonoBehaviour
         guardado = GetComponent<Guardado>();
         _currentScene = SceneManager.GetActiveScene();
 
-        canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
-        canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
+        //canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
+        //canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
 
         portalsBool = new PortalsBool(true, false, false);
 
@@ -129,8 +130,13 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(_currentScene.name);
         }
+
+        //Atajo coger rama
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            branchesCollected++;
+        {
+            addBranch();
+        }
+            
 
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
