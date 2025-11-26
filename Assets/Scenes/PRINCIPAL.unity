@@ -3631,11 +3631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1189028202228878139, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_TagString
-      value: Sand
+      value: Wood
       objectReference: {fileID: 0}
     - target: {fileID: 2241327311930366155, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241327311930366155, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     - target: {fileID: 7289971650518294000, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_Layer
@@ -3644,6 +3648,10 @@ PrefabInstance:
     - target: {fileID: 7823747290829295361, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823747290829295361, guid: d15b80b4d99733148ae4d7bb5f1c8ab1, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

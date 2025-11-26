@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -96,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -679,9 +676,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276149344}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -731,8 +727,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &276149346
 Transform:
   m_ObjectHideFlags: 0
@@ -1502,15 +1502,15 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 532e08cf-8712-41a5-bb5f-25a4cfbdabb0
-    m_ActionName: Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: 'Player/Movement[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 5775b6f4-98b2-4747-b31e-db235c7281eb
-    m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
+    m_ActionName: 'Player/Jump[/DualShock4GamepadHID/buttonSouth,/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: ebadcbd6-4913-467e-b142-ae37bce6aecb
-    m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonWest,/Mouse/leftButton]
+    m_ActionName: 'Player/Attack[/DualShock4GamepadHID/buttonWest,/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 520032168}
@@ -1526,23 +1526,23 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: d88f738f-c2cb-446e-ad91-c3119306b94e
-    m_ActionName: Player/Camara[/DualShock4GamepadHID/rightStick]
+    m_ActionName: 'Player/Camara[/DualShock4GamepadHID/rightStick]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: fd3dccfc-9002-444d-a8b3-4d91b79d0006
-    m_ActionName: Player/Block[/Keyboard/f,/DualShock4GamepadHID/buttonNorth]
+    m_ActionName: 'Player/Block[/Keyboard/f,/DualShock4GamepadHID/buttonNorth]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f13da93c-6008-4439-b6cf-ee743572a129
-    m_ActionName: Player/StrongAttack[/DualShock4GamepadHID/buttonEast,/Mouse/rightButton]
+    m_ActionName: 'Player/StrongAttack[/DualShock4GamepadHID/buttonEast,/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 646ef0ca-f62f-4f58-b31b-520912c25188
-    m_ActionName: Player/Dash[/DualShock4GamepadHID/rightTrigger,/Keyboard/shift]
+    m_ActionName: 'Player/Dash[/DualShock4GamepadHID/rightTrigger,/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 437c1e01-9924-44bd-8ebf-490b1aaabc68
-    m_ActionName: Player/Opciones[/Keyboard/escape,/DualShock4GamepadHID/touchpadButton]
+    m_ActionName: 'Player/Opciones[/Keyboard/escape,/DualShock4GamepadHID/touchpadButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1575,7 +1575,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3324078964773853198, guid: f7252878024865d489f481a297f14993, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7ecfcaa2d10c956458a817f11c9d5042, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 7ecfcaa2d10c956458a817f11c9d5042, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2350,27 +2351,27 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: spawnAreas.Array.data[0]
+      propertyPath: 'spawnAreas.Array.data[0]'
       value: 
       objectReference: {fileID: 1389364735}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: spawnAreas.Array.data[1]
+      propertyPath: 'spawnAreas.Array.data[1]'
       value: 
       objectReference: {fileID: 1354811597}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: spawnAreas.Array.data[2]
+      propertyPath: 'spawnAreas.Array.data[2]'
       value: 
       objectReference: {fileID: 852498710}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: enemyPrefabs.Array.data[0]
+      propertyPath: 'enemyPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 4556817180686021323, guid: 427d9728ec83c334ca2ee075f094d986, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: enemyPrefabs.Array.data[1]
+      propertyPath: 'enemyPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 623784655520561469, guid: 7b61767722cb86945b059183672015a1, type: 3}
     - target: {fileID: 1243357578498549173, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
-      propertyPath: enemyPrefabs.Array.data[2]
+      propertyPath: 'enemyPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 4625617567915959844, guid: f7e82fdc43e90fa438d4fe47a6953794, type: 3}
     - target: {fileID: 7271943490169638393, guid: 039c7fceed7b12741a1e8587f7d28619, type: 3}
@@ -3118,6 +3119,10 @@ PrefabInstance:
     - target: {fileID: 3812069688033886789, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812069688033886789, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
+      propertyPath: m_TagString
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 4588290075371706623, guid: 30322853b192eb94da5368c9eec26b28, type: 3}
       propertyPath: m_LocalScale.x
@@ -4406,6 +4411,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 140820315480238819, guid: f7252878024865d489f481a297f14993, type: 2}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

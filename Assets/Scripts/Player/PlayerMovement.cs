@@ -272,6 +272,9 @@ public class PlayerMovement : MonoBehaviour
             case "Sand":
                 walkingEventInstance.setParameterByName("FloorType", 2);
                 break;
+            case "Wood":
+                walkingEventInstance.setParameterByName("FloorType", 3);
+                break;
             default:
                 walkingEventInstance.setParameterByName("FloorType", 0);
                 break;
