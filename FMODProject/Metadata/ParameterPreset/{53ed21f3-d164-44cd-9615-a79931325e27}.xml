@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{53ed21f3-d164-44cd-9615-a79931325e27}">
+		<property name="name">
+			<value>GoToOutro</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7fe1fb5d-3711-4623-86d7-a6a44235b028}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{70a83eab-9700-4dea-abca-a8a6f5b9ea99}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{70a83eab-9700-4dea-abca-a8a6f5b9ea99}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Continue</value>
+			<value>End</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

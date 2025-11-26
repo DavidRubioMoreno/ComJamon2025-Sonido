@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{e24fdcb2-c80d-42a3-a8cb-87336db61c18}">
+		<property name="name">
+			<value>ActiveMainTheme</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7fe1fb5d-3711-4623-86d7-a6a44235b028}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{263577df-8329-4d74-8a6c-bcdfc739143c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{263577df-8329-4d74-8a6c-bcdfc739143c}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Inactive</value>
+			<value>Active</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

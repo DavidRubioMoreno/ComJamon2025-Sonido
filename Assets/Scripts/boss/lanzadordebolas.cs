@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class lanzadordebolas : MonoBehaviour
 {
-    GameObject player;
 
     [Header("PARAMETROS")]
     [SerializeField]
@@ -18,13 +17,11 @@ public class lanzadordebolas : MonoBehaviour
 
     void Start()
     {
-        player = GameManager.Instance.Player;
         StartCoroutine(DispararBolas());
     }
 
     IEnumerator DispararBolas()
     {
-        Debug.Log("Deberia Disparar");
         while (true)
         {
             yield return new WaitForSeconds(timeBetweenShots);
