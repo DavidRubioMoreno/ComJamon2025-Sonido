@@ -1,19 +1,10 @@
-# FMOD Studio build artifacts
+# FMOD Studio build artifacts 
 Builds/
-.cache/
 
-# Autosaves y archivos temporales
+# Autosaves
 *.autosave
 *.unsaved
-*.tmp
-*.bak
 
-# Metadatos temporales (pueden recrearse)
-.metadata/
-
-# Logs
-*.log
-
-# Ignorar archivos de sistema
+# Sistema
 .DS_Store
 Thumbs.db
