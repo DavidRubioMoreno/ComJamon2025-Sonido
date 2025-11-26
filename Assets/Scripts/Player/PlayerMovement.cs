@@ -192,15 +192,7 @@ public class PlayerMovement : MonoBehaviour
             _myRB.AddForce(Vector3.down * dynamicGravity, ForceMode.Acceleration);
         }
 
-        if (isGrounded && _isMoving)
-        {
-            walkingEventInstance.setParameterByName("Walking", 1);
-        }
-        else {
-            walkingEventInstance.setParameterByName("Walking", 0);
-        }
-
-        
+        walkingEventInstance.setParameterByName("Walking", isGrounded && _isMoving ? 1 : 0);
     }
     public bool IsGrounded()
     {
@@ -255,6 +247,12 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext callback) 
     {
         _jump = callback.ReadValue<float>();
+    }
+
+    private void OnDestroy()
+    {
+        FMODManager.instance.StopEvent(jumpingEventInstance);
+        FMODManager.instance.StopEvent(walkingEventInstance);
     }
 
     private void OnCollisionEnter(Collision collision)
