@@ -98,20 +98,14 @@
 		<property name="length">
 			<value>10.5</value>
 		</property>
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>100</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>4500</value>
+			<value>2500</value>
 		</property>
 		<property name="minimumScatterDistance">
 			<value>0.599999964</value>
-		</property>
-		<property name="maximumScatterDistance">
-			<value>7.20000029</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>2</value>
