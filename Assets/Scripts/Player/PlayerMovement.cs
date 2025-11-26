@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(walkingEventInstance, gameObject);
         RuntimeManager.AttachInstanceToGameObject(jumpingEventInstance, gameObject);
 
-        FMOD.RESULT result = walkingEventInstance.start();
+        walkingEventInstance.start();
     }
 
     private void Update()

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9052556532087006050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Branches
+  m_EditorClassIdentifier: 
+  Path: event:/Branches
+  Guid:
+    Data1: -655069575
+    Data2: 1137039241
+    Data3: 2062925748
+    Data4: -503467593
+  Banks:
+  - {fileID: -2765163032688818300}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10500
 --- !u!114 &-8503447469429288006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +181,7 @@ MonoBehaviour:
   - {fileID: -4949087925925304821}
   MinDistance: 1
   MaxDistance: 20
-  Length: 1000
+  Length: 411
 --- !u!114 &-2765163032688818300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,10 +197,10 @@ MonoBehaviour:
   Path: FMODProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638997492142767903
+  lastModified: 638997546810001748
   FileSizes:
   - Name: Desktop
-    Value: 60768
+    Value: 178176
   Exists: 1
 --- !u!114 &-2542712970265917630
 MonoBehaviour:
@@ -213,18 +240,21 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -8503447469429288006}
   - {fileID: -4517876589996069688}
+  - {fileID: -9052556532087006050}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2765163032688818300}
   StringsBanks:
   - {fileID: 2613024869344153138}
   cacheVersion: 131857
-  cacheTime: 638997492142787871
+  cacheTime: 638997546810011872
   SerializableEventsDict:
   - key: event:/Walking
     index: 0
   - key: event:/Jumping
     index: 1
+  - key: event:/Branches
+    index: 2
 --- !u!114 &2613024869344153138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,10 +270,10 @@ MonoBehaviour:
   Path: FMODProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638997492142787871
+  lastModified: 638997546810011872
   FileSizes:
   - Name: Desktop
-    Value: 960
+    Value: 998
   Exists: 1
 --- !u!114 &4151942606948206927
 MonoBehaviour:

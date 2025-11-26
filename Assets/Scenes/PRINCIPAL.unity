@@ -539,6 +539,13 @@ MonoBehaviour:
   maxRotationForce: 2
   minScale: 0.1
   maxScale: 0.8
+  branchesEvent:
+    Guid:
+      Data1: -655069575
+      Data2: 1137039241
+      Data3: 2062925748
+      Data4: -503467593
+    Path: event:/Branches
 --- !u!4 &182367831
 Transform:
   m_ObjectHideFlags: 0

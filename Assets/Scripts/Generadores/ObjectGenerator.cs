@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -41,11 +42,23 @@ public class ObjectGenerator : MonoBehaviour
 
     private float nextGenerationtime;
 
+    [SerializeField]
+    FMODUnity.EventReference branchesEvent;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance branchesEventInstance;
+
     float elapsedTime = 0;
     // Start is called before the first frame update
     void Start()
     {
         nextGenerationtime = 0;
+
+        branchesEventInstance = FMODManager.instance.CreateEventInstance(branchesEvent);
+
+        RuntimeManager.AttachInstanceToGameObject(branchesEventInstance, gameObject);
+
+        branchesEventInstance.start();
+
     }
 
     // Update is called once per frame
