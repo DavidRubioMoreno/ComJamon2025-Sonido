@@ -1,4 +1,5 @@
 
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,11 @@ public class Dash : MonoBehaviour
     [SerializeField]
     private GameObject d;
 
+    [SerializeField]
+    FMODUnity.EventReference dashEvent;
+
+    private FMOD.Studio.EventInstance dashEventInstance;
+
     private Rigidbody _rb;
     private Animator _an;
     private PlayerMovement _pm;
@@ -29,6 +35,10 @@ public class Dash : MonoBehaviour
         _an=GetComponent<Animator>();
         _pm=GetComponent<PlayerMovement>();
         nDash = 0;
+
+        dashEventInstance = FMODManager.instance.CreateEventInstance(dashEvent);
+
+        RuntimeManager.AttachInstanceToGameObject(dashEventInstance, gameObject);
     }
 
     // Update is called once per frame
@@ -52,6 +62,7 @@ public class Dash : MonoBehaviour
             _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
             _an.SetBool("Dash", true);
             nDash += 1;
+            dashEventInstance.start();
             //SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
         }
         
@@ -62,9 +73,10 @@ public class Dash : MonoBehaviour
     }
     public void Dashito(InputAction.CallbackContext callback)
     {
-        Debug.Log("Dash");
+
         if (!_an.GetBool("Dash")&&nDash<1&&elapsedTime>reloadTime)
         {
+
             _dash = callback.ReadValue<float>();
             elapsedTime = 0;
         }

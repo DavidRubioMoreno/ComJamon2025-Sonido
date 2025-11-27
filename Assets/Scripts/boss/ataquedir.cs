@@ -33,9 +33,12 @@ public class AtaqueDirigido : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>())
         {
-            Debug.Log("Jugador impactado por ataque dirigido!");
             other.GetComponent<LifeComponent>().LoseLife(damage);
             Destroy(gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

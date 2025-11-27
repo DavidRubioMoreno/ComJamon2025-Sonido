@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float _acceleration = 10f;
     public float _deceleration = 10f;
     public float _rotationSpeed = 10f;
-    public float _jumpForce = 10f;
+    public float _jumpForce = 20f;
     private Vector2 _inputMovement;
     private Vector2 _currentVelocity;
     private Rigidbody _myRB;

@@ -534,7 +534,7 @@ MonoBehaviour:
   _acceleration: 20
   _deceleration: 20
   _rotationSpeed: 25
-  _jumpForce: 6
+  _jumpForce: 12
   _mainCamera: {fileID: 7193798602890344821, guid: 7c61468ffbe1c7b4b885d2d5a6aeb10b, type: 3}
   _intLayerMask: 6
   _rayLenght: 0.3
@@ -701,6 +701,13 @@ MonoBehaviour:
   force: 10
   reloadTime: 4
   d: {fileID: 6589521571311099153, guid: fb0e13e1223044f4e9094e99821db5b9, type: 3}
+  dashEvent:
+    Guid:
+      Data1: 1374569765
+      Data2: 1134575123
+      Data3: 192310670
+      Data4: -1992437140
+    Path: event:/Dash
 --- !u!114 &3824840060443755227
 MonoBehaviour:
   m_ObjectHideFlags: 0
