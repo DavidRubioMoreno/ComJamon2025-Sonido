@@ -128,10 +128,10 @@ public class MiniBossRojo : MonoBehaviour
     IEnumerator AtaqueBasico()
     {
         atacando = true;
-        Debug.Log("MiniBoss ataca!");
+
         Instantiate(puno,mano.position, Quaternion.identity);
         yield return new WaitForSeconds(1.5f);
-        Debug.Log("Noataq");
+
         atacando = false;
     }
 
@@ -141,7 +141,7 @@ public class MiniBossRojo : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             spell = true;
-            Debug.Log("Lluvia de meteoritos!");
+
             //SoundManager.Instance.PlaySound(SoundManager.Instance.bosrojomet);
             for (int i = 0; i < 15; i++) 
             {

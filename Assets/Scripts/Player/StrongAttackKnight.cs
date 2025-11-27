@@ -46,6 +46,11 @@ public class StrongAttackKnight : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(attackEventInstance, gameObject);
     }
 
+    private void OnDestroy()
+    {
+        FMODManager.instance.StopEvent(attackEventInstance);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<LifeComponent>())

@@ -1,3 +1,4 @@
+using System.Data.SqlTypes;
 using UnityEngine;
 
 public class BossMusicController : MonoBehaviour
@@ -6,6 +7,13 @@ public class BossMusicController : MonoBehaviour
     FMODUnity.EventReference mainThemeEvent;
 
     private FMOD.Studio.EventInstance instance;
+
+
+    float elapsed = 0;
+
+    float timeToSpawnBosses = 5f;
+
+    bool ready = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +38,29 @@ public class BossMusicController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
+            instance.setParameterByName("GoToOutro", 1);
+        }
+
+        if (GameManager.Instance.Player && !ready)
+        {
+            elapsed += Time.deltaTime;
+            if(elapsed > timeToSpawnBosses)
+            {
+                ready = true;
+            }
+        }
+
+
+
+        if(WaveManager.Instance.EnemiesAlive == 3 && ready)
+        {
+            UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
+            instance.setParameterByName("ActiveMainTheme", 1);
+        }
+
+        if (WaveManager.Instance.EnemiesAlive == 0 && ready)
+        {
+            UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
             instance.setParameterByName("GoToOutro", 1);
         }
     }

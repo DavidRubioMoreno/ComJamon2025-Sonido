@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{51bb34ee-c2ed-4ca1-80c1-f179aaad2ecb}">
+		<property name="name">
+			<value>FadeIn</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7fe1fb5d-3711-4623-86d7-a6a44235b028}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{12ddfb0e-82f4-4682-b357-9a1730ab73ae}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{12ddfb0e-82f4-4682-b357-9a1730ab73ae}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

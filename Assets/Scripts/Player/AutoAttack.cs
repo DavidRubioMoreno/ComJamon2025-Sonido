@@ -40,12 +40,16 @@ public class AutoAttack : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(attackEventInstance, gameObject);
     }
 
+    private void OnDestroy()
+    {
+        FMODManager.instance.StopEvent(attackEventInstance);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<LifeComponent>() &&  _collider.gameObject.activeSelf)
         {
             other.gameObject.GetComponent<LifeComponent>().LoseLife(_damage);
-            Debug.Log("DAÑO");
         }
     }
 
