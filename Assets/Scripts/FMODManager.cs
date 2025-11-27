@@ -31,6 +31,28 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference invokeEnemy;
 
+    [SerializeField]
+    FMODUnity.EventReference shoorArrowEnemy;
+
+    [SerializeField]
+    FMODUnity.EventReference enemySwordAttack;
+
+    [SerializeField]
+    FMODUnity.EventReference slowBoss;
+
+    [SerializeField]
+    FMODUnity.EventReference bigFireBalls;
+
+    [SerializeField]
+    FMODUnity.EventReference portal;
+
+    [SerializeField]
+    FMODUnity.EventReference damageBalls;
+
+    [SerializeField]
+    FMODUnity.EventReference carcel;
+
+
     // Asegurarse de que solo hay una instancia
     private void Awake()
     {
@@ -48,8 +70,6 @@ public class FMODManager : MonoBehaviour
         FMOD.Studio.System.create(out fmodSystem);
 
     }
-
-
 
     public void PlayEnemyDamaged()
     {
@@ -84,6 +104,43 @@ public class FMODManager : MonoBehaviour
     public void PlayInvokeEnemy()
     {
         RuntimeManager.PlayOneShot(invokeEnemy);
+    }
+
+
+
+    public void PlayBigFireBalls()
+    {
+        RuntimeManager.PlayOneShot(bigFireBalls);
+    }
+
+    public void PlaySlowBoss()
+    {
+        RuntimeManager.PlayOneShot(slowBoss);
+    }
+
+    public void PlayPortalSound()
+    {
+        RuntimeManager.PlayOneShot(portal);
+    }
+
+    public void PlaydamageBalls()
+    {
+        RuntimeManager.PlayOneShot(damageBalls);
+    }
+
+    public void PlayShootArrow()
+    {
+        RuntimeManager.PlayOneShot(shoorArrowEnemy);
+    }
+
+    public void PlaySwordEnemy()
+    {
+        RuntimeManager.PlayOneShot(enemySwordAttack);
+    }
+
+    public void PlayCarcel()
+    {
+        RuntimeManager.PlayOneShot(carcel);
     }
 
     public FMOD.Studio.EventInstance CreateEventInstance(EventReference eventRef)

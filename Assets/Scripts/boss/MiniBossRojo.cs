@@ -142,6 +142,7 @@ public class MiniBossRojo : MonoBehaviour
             yield return new WaitForSeconds(10f);
             spell = true;
 
+            FMODManager.instance.PlayBigFireBalls();
             //SoundManager.Instance.PlaySound(SoundManager.Instance.bosrojomet);
             for (int i = 0; i < 15; i++) 
             {

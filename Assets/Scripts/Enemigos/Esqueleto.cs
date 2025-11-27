@@ -41,6 +41,12 @@ public class Esqueleto: MonoBehaviour
         {
 
             _espada.SetActive(true);
+            if (!_onAttack)
+            {
+                _onAttack = true;
+                FMODManager.instance.PlaySwordEnemy();
+            }
+            
             //SoundManager.Instance.PlaySound(SoundManager.Instance.espadaesqueleto, 0.1f);
         }
     }
@@ -62,7 +68,7 @@ public class Esqueleto: MonoBehaviour
         if (v.magnitude < rObjetivo)
         {
             targetVelocity = Vector3.zero;
-            _onAttack = true;
+        
             _animator.SetBool("attack", true);
             OnAttack();
         }

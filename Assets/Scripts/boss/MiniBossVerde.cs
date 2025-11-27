@@ -83,6 +83,7 @@ public class MiniBossVerde : MonoBehaviour
             Vector3 posicion = GameManager.Instance.Player.transform.position + Vector3.up * 2;
             Instantiate(zonaPegajosaPrefab, posicion, Quaternion.identity);
             //SoundManager.Instance.PlaySound(SoundManager.Instance.pegao);
+            FMODManager.instance.PlaySlowBoss();
         }
     }
 
@@ -96,6 +97,7 @@ public class MiniBossVerde : MonoBehaviour
             GameObject bola = Instantiate(reboteToxicoPrefab, spawnPos, Quaternion.identity);
             bola.GetComponent<Rigidbody>().linearVelocity = (GameManager.Instance.Player.transform.position - transform.position).normalized * 10f;
             //SoundManager.Instance.PlaySound(SoundManager.Instance.toxico);
+            FMODManager.instance.PlaydamageBalls();
         }
     }
 

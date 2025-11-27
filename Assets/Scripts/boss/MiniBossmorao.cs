@@ -94,14 +94,15 @@ public class MiniBossMorao : MonoBehaviour
             yield return new WaitForSeconds(20f);
 
             // Posición inicial elevada de la cárcel (encima del jugador)
-            Vector3 posicionInicial = GameManager.Instance.Player.transform.position + Vector3.up * 6f;
+            Vector3 posicionInicial = GameManager.Instance.Player.transform.position + Vector3.up * 8f;
 
             // Rotación de la cárcel (-90° en X)
             Quaternion rotacionCarcel = Quaternion.Euler(-90f, 0f, 0f);
 
             // Instanciar la cárcel en el aire con la rotación correcta
             GameObject carcel = Instantiate(carcelPrefab, posicionInicial, rotacionCarcel);
-            Debug.Log("Cárcel creada arriba del jugador!");
+
+            FMODManager.instance.PlayCarcel();
 
             yield return new WaitForSeconds(1f); // Espera 1 segundo antes de generar el charco
 
@@ -109,7 +110,8 @@ public class MiniBossMorao : MonoBehaviour
             Vector3 posicionInicial2 = posicionInicial + Vector3.up * 15f;
             Instantiate(charcoPrefab, posicionInicial2, Quaternion.identity);
             //SoundManager.Instance.PlaySound(SoundManager.Instance.carcel);
-            
+
+
         }
     }
 
