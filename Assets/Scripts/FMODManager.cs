@@ -55,6 +55,9 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference heal;
 
+    [SerializeField]
+    FMODUnity.EventReference balls3;
+
 
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -113,6 +116,12 @@ public class FMODManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(heal);
     }
+
+    public void Play3Balls()
+    {
+        RuntimeManager.PlayOneShot(balls3);
+    }
+
 
 
 

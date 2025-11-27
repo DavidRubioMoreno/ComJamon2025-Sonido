@@ -3172,6 +3172,13 @@ MonoBehaviour:
       Data3: 1878227348
       Data4: 908357390
     Path: event:/Heal
+  balls3:
+    Guid:
+      Data1: 382161670
+      Data2: 1276396699
+      Data3: 1598090417
+      Data4: -1399013887
+    Path: event:/3BallsAttack
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0
