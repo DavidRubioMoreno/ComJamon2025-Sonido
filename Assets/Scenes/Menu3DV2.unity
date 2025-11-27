@@ -3072,6 +3072,13 @@ MonoBehaviour:
       Data3: -2110721390
       Data4: -1979986933
     Path: event:/EnemyDamaged
+  enemydead:
+    Guid:
+      Data1: 858363983
+      Data2: 1176640461
+      Data3: 1071549587
+      Data4: -701771588
+    Path: event:/EnemyDeath
 --- !u!1 &1418856400
 GameObject:
   m_ObjectHideFlags: 0

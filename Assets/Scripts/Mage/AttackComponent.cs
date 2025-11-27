@@ -68,6 +68,8 @@ public class AttackComponent : MonoBehaviour
         //SoundManager.Instance.PlaySound(SoundManager.Instance.magia);
         Instantiate(fireBall, nSpawn.position, Quaternion.identity);
 
+        FMODManager.instance.PlayMageAttack();
+
         _animator.SetBool("Attack", false);
         
     }

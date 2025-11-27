@@ -69,6 +69,8 @@ public class Tostador : MonoBehaviour
                 Instantiate(rayos, transform.position + new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)), Quaternion.identity);
             }
         }
+
+        FMODManager.instance.PlayMageThunder();
     }
     public void StrongAttack(InputAction.CallbackContext callback)
     {

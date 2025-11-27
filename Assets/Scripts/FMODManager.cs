@@ -13,7 +13,14 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference enemyDamaged;   // Seleccionado desde el inspector
 
-    private FMOD.Studio.EventInstance enemydamagedEventInstance;
+    [SerializeField]
+    FMODUnity.EventReference enemydead;
+
+    [SerializeField]
+    FMODUnity.EventReference mageDamage;
+
+    [SerializeField]
+    FMODUnity.EventReference mageThunder;
 
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -31,24 +38,32 @@ public class FMODManager : MonoBehaviour
         // Inicializar FMOD Studio
         FMOD.Studio.System.create(out fmodSystem);
 
-        //enemydamagedEventInstance.setVolume(0.1f);
-        enemydamagedEventInstance = CreateEventInstance(enemyDamaged);
     }
 
-    private void Start()
-    {
-        
-    }
 
     private void OnDestroy()
     {
-        StopEvent(enemydamagedEventInstance);
-        RuntimeManager.UnloadBank("Master");
+
     }
 
     public void PlayEnemyDamaged()
     {
-        enemydamagedEventInstance.start();
+        RuntimeManager.PlayOneShot(enemyDamaged);
+    }
+
+    public void PlayEnemyDead()
+    {
+        RuntimeManager.PlayOneShot(enemydead);
+    }
+
+    public void PlayMageAttack()
+    {
+        RuntimeManager.PlayOneShot(mageDamage);
+    }
+
+    public void PlayMageThunder()
+    {
+        RuntimeManager.PlayOneShot(mageThunder);
     }
 
     public FMOD.Studio.EventInstance CreateEventInstance(EventReference eventRef)

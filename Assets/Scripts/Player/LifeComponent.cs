@@ -26,6 +26,7 @@ public class LifeComponent : MonoBehaviour
     public void OnDeath()
     {
         //SoundManager.Instance.PlaySound(SoundManager.Instance.muerte, 0.5f);
+        FMODManager.instance.PlayEnemyDead();
         if (lifePrefab && UnityEngine.Random.Range(0, 3) == 0)
             Instantiate(lifePrefab, transform.position, Quaternion.identity);
         if(deathParticles)
@@ -55,12 +56,18 @@ public class LifeComponent : MonoBehaviour
 
         vida -= damage;
 
-        if (!GetComponent<PlayerMovement>())
+        
+        if (vida <= 0) { 
+            OnDeath(); 
+        }
+        else if (!GetComponent<PlayerMovement>()
+            && !GetComponent<MiniBossMorao>()
+            && !GetComponent<MiniBossRojo>()
+            && !GetComponent<MiniBossVerde>())
         {
             FMODManager.instance.PlayEnemyDamaged();
         }
-        if (vida <= 0) OnDeath();
-        Debug.Log(vida);
+
     }
 
     public void AddLife(int hp)
