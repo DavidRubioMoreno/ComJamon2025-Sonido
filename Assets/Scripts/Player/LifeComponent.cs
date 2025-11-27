@@ -60,12 +60,19 @@ public class LifeComponent : MonoBehaviour
         if (vida <= 0) { 
             OnDeath(); 
         }
-        else if (!GetComponent<PlayerMovement>()
-            && !GetComponent<MiniBossMorao>()
-            && !GetComponent<MiniBossRojo>()
-            && !GetComponent<MiniBossVerde>())
+        else if (!GetComponent<PlayerMovement>())
         {
-            FMODManager.instance.PlayEnemyDamaged();
+            if(GetComponent<MiniBossMorao>()
+             ||GetComponent<MiniBossRojo>()
+            || GetComponent<MiniBossVerde>())
+            {
+                FMODManager.instance.PlayBossDamaged();
+            }
+            else
+            {
+                FMODManager.instance.PlayEnemyDamaged();
+            }
+                
         }
 
     }

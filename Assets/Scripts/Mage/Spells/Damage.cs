@@ -28,7 +28,6 @@ public class Damage : MonoBehaviour
         {
             if (!hit)
             {
-                Debug.Log("Tostao");
                 LifeComponent l = other.GetComponent<LifeComponent>();
                 if (l != null)
                 {

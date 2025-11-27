@@ -53,6 +53,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5917875303148008588}
     - target: {fileID: 7564087433244636747, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
+      propertyPath: puno
+      value: 
+      objectReference: {fileID: 7379903612287015283}
+    - target: {fileID: 7564087433244636747, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
       propertyPath: "pu\xF1o"
       value: 
       objectReference: {fileID: 3817001061789511810, guid: 80d30dbac8849ce459a06197cf553614, type: 3}
@@ -88,5 +92,10 @@ PrefabInstance:
 --- !u!4 &5917875303148008588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3574814090722214840, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
+  m_PrefabInstance: {fileID: 7186845889493645108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7379903612287015283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 420630810815884871, guid: d9078c8bf4e555845883cae5f72e6e49, type: 3}
   m_PrefabInstance: {fileID: 7186845889493645108}
   m_PrefabAsset: {fileID: 0}

@@ -74,11 +74,11 @@ public class Tostador : MonoBehaviour
     }
     public void StrongAttack(InputAction.CallbackContext callback)
     {
-        Debug.Log(_animator.GetBool("Strong"));
+       
         if (!_animator.GetBool("Strong"))
         {
             _sAttack = callback.ReadValue<float>();
-
+            FMODManager.instance.PlayMageInvoking();
         }
     }
 

@@ -35,7 +35,6 @@ public class FlechaComponent : MonoBehaviour
     {
         if (collider.GetComponent<PlayerMovement>())
         {
-            Debug.Log("Hit");
             collider.GetComponent<LifeComponent>().LoseLife(damage);
         }
             

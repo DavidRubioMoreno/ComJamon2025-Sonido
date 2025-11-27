@@ -92,7 +92,6 @@ public class MiniBossVerde : MonoBehaviour
         {
             
             yield return new WaitForSeconds(1.5f);
-            Debug.Log("MiniBoss Verde lanza rebote t�xico!");
             Vector3 spawnPos = transform.position + transform.forward * 2;
             GameObject bola = Instantiate(reboteToxicoPrefab, spawnPos, Quaternion.identity);
             bola.GetComponent<Rigidbody>().linearVelocity = (GameManager.Instance.Player.transform.position - transform.position).normalized * 10f;

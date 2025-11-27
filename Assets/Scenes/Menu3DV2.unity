@@ -2935,6 +2935,13 @@ MonoBehaviour:
     type:
       type: 0
   camara: {fileID: 1203248321}
+  ambientMusic:
+    Guid:
+      Data1: -1597341217
+      Data2: 1327994525
+      Data3: 2095331744
+      Data4: -2956765
+    Path: event:/Dynamic_Music
 --- !u!4 &1389648961
 Transform:
   m_ObjectHideFlags: 0
@@ -3072,6 +3079,13 @@ MonoBehaviour:
       Data3: -2110721390
       Data4: -1979986933
     Path: event:/EnemyDamaged
+  bossDamaged:
+    Guid:
+      Data1: -424345073
+      Data2: 1086229278
+      Data3: 995249050
+      Data4: 469893454
+    Path: event:/BossDamaged
   enemydead:
     Guid:
       Data1: 858363983
@@ -3079,6 +3093,34 @@ MonoBehaviour:
       Data3: 1071549587
       Data4: -701771588
     Path: event:/EnemyDeath
+  mageDamage:
+    Guid:
+      Data1: 1534357157
+      Data2: 1177302472
+      Data3: -341073534
+      Data4: -1019292730
+    Path: event:/WizardFireBall
+  mageThunder:
+    Guid:
+      Data1: -1579013223
+      Data2: 1175921067
+      Data3: 1267495808
+      Data4: 1059634972
+    Path: event:/WizardLightning
+  mageInvoking:
+    Guid:
+      Data1: 836192627
+      Data2: 1121139794
+      Data3: 289744048
+      Data4: 454890931
+    Path: event:/InvocacionBruja
+  invokeEnemy:
+    Guid:
+      Data1: -90755030
+      Data2: 1226733745
+      Data3: 768920706
+      Data4: -826660508
+    Path: event:/InvocacionWave
 --- !u!1 &1418856400
 GameObject:
   m_ObjectHideFlags: 0

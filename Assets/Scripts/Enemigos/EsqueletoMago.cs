@@ -31,6 +31,7 @@ public class EsqueletoMago : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (elapsedTime > spawnTime)
         {
+            FMODManager.instance.PlayMageInvoking();
             Vector3 origen= transform.position+new Vector3(Random.Range(-10.5f, 10.5f),0, Random.Range(-10.5f, 10.5f));
             //SoundManager.Instance.PlaySound(SoundManager.Instance.bruja);
             Instantiate(spawn,origen,Quaternion.identity);

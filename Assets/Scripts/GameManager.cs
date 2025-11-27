@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     private bool paused = false;
 
+    private float value = 0;
+
     //[SerializeField]
     private GameObject player;
     [SerializeField]
@@ -51,6 +53,12 @@ public class GameManager : MonoBehaviour
     public State CurrentState { get { return state; } }
 
     public GameObject Player { get { return player; } }
+
+
+    [SerializeField]
+    FMODUnity.EventReference ambientMusic;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance ambientEventInstance;
 
     public struct PortalsBool
     {
@@ -91,15 +99,34 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
+
+    private void OnDestroy()
+    {
+        FMODManager.instance.StopEvent(ambientEventInstance);
+    }
+
 
     private void Start()
     {
-        
+
         //branchGenerator.enabled = false;
         cargado = GetComponent<Cargado>();
         guardado = GetComponent<Guardado>();
         _currentScene = SceneManager.GetActiveScene();
+
+        FMODManager.instance.StopEvent(ambientEventInstance);
+
+        if (_currentScene.name == "Menu3DV2")
+        {
+            Debug.Log("Creando musica");
+            ambientEventInstance = FMODManager.instance.CreateEventInstance(ambientMusic);
+            ambientEventInstance.setParameterByName("Combat", 0);
+
+            ambientEventInstance.start();
+        }
 
         //canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
         //canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
@@ -136,7 +163,12 @@ public class GameManager : MonoBehaviour
         {
             addBranch();
         }
-            
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("mazmorra4");
+        }
+
 
         elapsedTime += Time.deltaTime;
         updateState(CurrentState);
@@ -158,10 +190,27 @@ public class GameManager : MonoBehaviour
             _currentScene = SceneManager.GetActiveScene();
         }
 
+        if (WaveManager.Instance && WaveManager.Instance.EnemiesAlive > 0 && player)
+        {
+            value = Mathf.Min(value + WaveManager.Instance.EnemiesAlive * Time.deltaTime * 0.3f, 1); 
+        }
+        else
+        {
+            value = Mathf.Max(0, value - Time.deltaTime * 0.2f);           
+        }
 
-        
-       
-       if (UIManager.Instance && player)
+        if (WaveManager.Instance && !WaveManager.Instance.Final)
+        {
+            ambientEventInstance.setParameterByName("Combat", value);
+        }
+        else {
+            ambientEventInstance.setParameterByName("Combat", 0);
+        }
+
+
+
+
+        if (UIManager.Instance && player)
         {
             UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
         }
@@ -191,7 +240,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == State.DANCING)
         {
-            Debug.Log("Bailando");
+            //Debug.Log("Bailando");
 
             if (elapsedTime > dancingTime)
             {
