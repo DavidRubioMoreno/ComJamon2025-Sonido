@@ -3065,6 +3065,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa95203ae76c80b4a8717d97c6f5d4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamaged:
+    Guid:
+      Data1: -1187472488
+      Data2: 1195773928
+      Data3: -2110721390
+      Data4: -1979986933
+    Path: event:/EnemyDamaged
 --- !u!1 &1418856400
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,11 @@ public class FMODManager : MonoBehaviour
     // El sistema de audio FMOD
     private FMOD.Studio.System fmodSystem;
 
+    [SerializeField]
+    FMODUnity.EventReference enemyDamaged;   // Seleccionado desde el inspector
+
+    private FMOD.Studio.EventInstance enemydamagedEventInstance;
+
     // Asegurarse de que solo hay una instancia
     private void Awake()
     {
@@ -25,11 +30,25 @@ public class FMODManager : MonoBehaviour
 
         // Inicializar FMOD Studio
         FMOD.Studio.System.create(out fmodSystem);
+
+        //enemydamagedEventInstance.setVolume(0.1f);
+        enemydamagedEventInstance = CreateEventInstance(enemyDamaged);
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void OnDestroy()
     {
+        StopEvent(enemydamagedEventInstance);
         RuntimeManager.UnloadBank("Master");
+    }
+
+    public void PlayEnemyDamaged()
+    {
+        enemydamagedEventInstance.start();
     }
 
     public FMOD.Studio.EventInstance CreateEventInstance(EventReference eventRef)

@@ -54,6 +54,11 @@ public class LifeComponent : MonoBehaviour
             UIManager.Instance.Hit();
 
         vida -= damage;
+
+        if (!GetComponent<PlayerMovement>())
+        {
+            FMODManager.instance.PlayEnemyDamaged();
+        }
         if (vida <= 0) OnDeath();
         Debug.Log(vida);
     }
