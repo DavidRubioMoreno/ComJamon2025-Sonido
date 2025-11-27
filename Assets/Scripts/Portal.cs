@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
+            FMODManager.instance.PlayPortalSound();
             //SoundManager.Instance.PlaySound(SoundManager.Instance.portales);
             SceneManager.LoadScene(cargar);
         }
