@@ -171,7 +171,7 @@ public class MiniBossRojo : MonoBehaviour
                 _animator.SetTrigger("Cast Spell");
                 _animationState = AnimationState.Spell;
             }
-            Debug.Log("Ataque dirigido al jugador!");
+            //Debug.Log("Ataque dirigido al jugador!");
 
             if (GameManager.Instance.Player != null)
             {

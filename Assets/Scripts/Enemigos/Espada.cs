@@ -7,7 +7,7 @@ public class Espada : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("hitPlayer");
+        //Debug.Log("hitPlayer");
         if (collision.GetComponent<PlayerMovement>())
         {
             collision.GetComponent<LifeComponent>().LoseLife(_damage);

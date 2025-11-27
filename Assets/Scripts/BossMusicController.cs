@@ -54,13 +54,13 @@ public class BossMusicController : MonoBehaviour
 
         if(WaveManager.Instance.EnemiesAlive == 3 && ready)
         {
-            UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
+            //UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
             instance.setParameterByName("ActiveMainTheme", 1);
         }
 
         if (WaveManager.Instance.EnemiesAlive == 0 && ready)
         {
-            UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
+           // UnityEngine.Debug.Log("Enemigos" + WaveManager.Instance.EnemiesAlive);
             instance.setParameterByName("GoToOutro", 1);
         }
     }
