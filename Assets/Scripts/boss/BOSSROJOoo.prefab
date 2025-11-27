@@ -11514,8 +11514,8 @@ MonoBehaviour:
   rangoVision: 50
   rangoCorrer: 20
   rangoAtaque: 6
-  velocidadAndar: 8
-  velocidadCorrer: 6
+  velocidadAndar: 6
+  velocidadCorrer: 8
   meteoritoPrefab: {fileID: 7414837159830684491, guid: e754ed32cb0970b429cd41b4ed095da8, type: 3}
   ataqueDirigidoPrefab: {fileID: 3869893115352423797, guid: 45c5f93567e68854bb9977842c7a6402, type: 3}
 --- !u!54 &9039790372923568342

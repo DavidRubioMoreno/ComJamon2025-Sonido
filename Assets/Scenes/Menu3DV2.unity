@@ -3165,6 +3165,13 @@ MonoBehaviour:
       Data3: 441368478
       Data4: -1092342655
     Path: event:/Carcel
+  heal:
+    Guid:
+      Data1: 1796990056
+      Data2: 1268358940
+      Data3: 1878227348
+      Data4: 908357390
+    Path: event:/Heal
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0
