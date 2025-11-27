@@ -111,6 +111,8 @@ public class ObjectGenerator : MonoBehaviour
         }
     }
 
+    
+
     private void FixedUpdate()
     {
         if(!init && GameManager.Instance.Player)

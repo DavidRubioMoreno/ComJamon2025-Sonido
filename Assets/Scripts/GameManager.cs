@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,11 +55,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player { get { return player; } }
 
+    public StudioEventEmitter musicEmitter;
 
-    [SerializeField]
-    FMODUnity.EventReference ambientMusic;   // Seleccionado desde el inspector
+    bool musicPaused = false;
 
-    private FMOD.Studio.EventInstance ambientEventInstance;
+
+    //[SerializeField]
+    //FMODUnity.EventReference ambientMusic;   // Seleccionado desde el inspector
+
+    //private FMOD.Studio.EventInstance ambientEventInstance;
 
     public struct PortalsBool
     {
@@ -105,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        FMODManager.instance.StopEvent(ambientEventInstance);
+        //FMODManager.instance.StopEvent(ambientEventInstance);
     }
 
 
@@ -117,19 +122,6 @@ public class GameManager : MonoBehaviour
         guardado = GetComponent<Guardado>();
         _currentScene = SceneManager.GetActiveScene();
 
-        FMODManager.instance.StopEvent(ambientEventInstance);
-
-        if (_currentScene.name == "Menu3DV2")
-        {
-            Debug.Log("Creando musica");
-            ambientEventInstance = FMODManager.instance.CreateEventInstance(ambientMusic);
-            ambientEventInstance.setParameterByName("Combat", 0);
-
-            ambientEventInstance.start();
-        }
-
-        //canvas.GetComponent<OptionsMenu>().ChangeGeneralVolume(PlayerPrefs.GetFloat("Music", 1f));
-        //canvas.GetComponent<OptionsMenu>().ChangeMusicVolume(PlayerPrefs.GetFloat("SFX", 1f));
 
         portalsBool = new PortalsBool(true, false, false);
 
@@ -199,13 +191,18 @@ public class GameManager : MonoBehaviour
             value = Mathf.Max(0, value - Time.deltaTime * 0.2f);           
         }
 
-        if (WaveManager.Instance && !WaveManager.Instance.Final)
-        {
-            ambientEventInstance.setParameterByName("Combat", value);
-        }
-        else {
-            ambientEventInstance.setParameterByName("Combat", 0);
-        }
+        musicEmitter.SetParameter("Combat", value);
+
+        //if (WaveManager.Instance && !WaveManager.Instance.Final && ambientEventInstance.isValid())
+        //{
+        //    ambientEventInstance.setParameterByName("Combat", value);
+        //}
+        //else if(ambientEventInstance.isValid())
+        //{
+        //    ambientEventInstance.setParameterByName("Combat", 0);
+        //}
+
+
 
 
 
@@ -219,6 +216,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+
         if (level == 5 ||level == 2)
             cinematica = false;
         nocreado = false;
@@ -283,10 +281,18 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
 
-        //Debug.Log(branchesCollected);
-       
+
+        if (SceneManager.GetActiveScene().name == "Mazmorra4" && !musicPaused)
+        {
+            musicEmitter.EventInstance.setPaused(true);
+            musicPaused = true;
+        }
+        else if (musicPaused && WaveManager.Instance && SceneManager.GetActiveScene().name != "Mazmorra4")
+        {
+            musicPaused = false;
+            musicEmitter.EventInstance.setPaused(false);
+        }
     }
 
     public void addBranch()

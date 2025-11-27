@@ -2892,6 +2892,7 @@ GameObject:
   - component: {fileID: 1389648963}
   - component: {fileID: 1389648964}
   - component: {fileID: 1389648965}
+  - component: {fileID: 1389648966}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2935,13 +2936,7 @@ MonoBehaviour:
     type:
       type: 0
   camara: {fileID: 1203248321}
-  ambientMusic:
-    Guid:
-      Data1: -1597341217
-      Data2: 1327994525
-      Data3: 2095331744
-      Data4: -2956765
-    Path: event:/Dynamic_Music
+  musicEmitter: {fileID: 1389648966}
 --- !u!4 &1389648961
 Transform:
   m_ObjectHideFlags: 0
@@ -3121,6 +3116,39 @@ MonoBehaviour:
       Data3: 768920706
       Data4: -826660508
     Path: event:/InvocacionWave
+--- !u!114 &1389648966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389648957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1597341217
+      Data2: 1327994525
+      Data3: 2095331744
+      Data4: -2956765
+    Path: event:/Dynamic_Music
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Combat
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1418856400
 GameObject:
   m_ObjectHideFlags: 0
