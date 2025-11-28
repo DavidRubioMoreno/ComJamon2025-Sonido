@@ -23,10 +23,12 @@ public class CharacterSelection : MonoBehaviour
         anim.SetBool("Cambio",true); // Activa la animación al pasar el mouse
         if (characterIndex == 0)
         {
+            FMODManager.instance.PlayKnightSelection();
             //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
         }
         else
         {
+            FMODManager.instance.PlayMageSelection();
             //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
         }
     }

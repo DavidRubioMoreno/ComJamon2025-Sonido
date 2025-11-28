@@ -58,6 +58,12 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference balls3;
 
+    [SerializeField]
+    FMODUnity.EventReference knight;
+
+    [SerializeField]
+    FMODUnity.EventReference mage;
+
 
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -122,6 +128,15 @@ public class FMODManager : MonoBehaviour
         RuntimeManager.PlayOneShot(balls3);
     }
 
+    public void PlayMageSelection()
+    {
+        RuntimeManager.PlayOneShot(mage);
+    }
+
+    public void PlayKnightSelection()
+    {
+        RuntimeManager.PlayOneShot(knight);
+    }
 
 
 
