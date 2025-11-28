@@ -545,7 +545,7 @@ MonoBehaviour:
       Data2: 1137039241
       Data3: 2062925748
       Data4: -503467593
-    Path: event:/Branches
+    Path: event:/Other/Branches
 --- !u!4 &182367831
 Transform:
   m_ObjectHideFlags: 0
@@ -2719,6 +2719,7 @@ MonoBehaviour:
     type:
       type: 0
   camara: {fileID: 1648328566}
+  musicEmitter: {fileID: 0}
 --- !u!4 &1200901491
 Transform:
   m_ObjectHideFlags: 0

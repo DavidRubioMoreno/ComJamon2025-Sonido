@@ -3073,112 +3073,112 @@ MonoBehaviour:
       Data2: 1195773928
       Data3: -2110721390
       Data4: -1979986933
-    Path: event:/EnemyDamaged
+    Path: event:/Enemies/EnemyDamaged
   bossDamaged:
     Guid:
       Data1: -424345073
       Data2: 1086229278
       Data3: 995249050
       Data4: 469893454
-    Path: event:/BossDamaged
+    Path: event:/Enemies/BossDamaged
   enemydead:
     Guid:
       Data1: 858363983
       Data2: 1176640461
       Data3: 1071549587
       Data4: -701771588
-    Path: event:/EnemyDeath
+    Path: event:/Enemies/EnemyDeath
   mageDamage:
     Guid:
       Data1: 1534357157
       Data2: 1177302472
       Data3: -341073534
       Data4: -1019292730
-    Path: event:/WizardFireBall
+    Path: event:/Enemies/WizardFireBall
   mageThunder:
     Guid:
       Data1: -1579013223
       Data2: 1175921067
       Data3: 1267495808
       Data4: 1059634972
-    Path: event:/WizardLightning
+    Path: event:/Player/WizardLightning
   mageInvoking:
     Guid:
       Data1: 836192627
       Data2: 1121139794
       Data3: 289744048
       Data4: 454890931
-    Path: event:/InvocacionBruja
+    Path: event:/Enemies/InvocacionBruja
   invokeEnemy:
     Guid:
       Data1: -90755030
       Data2: 1226733745
       Data3: 768920706
       Data4: -826660508
-    Path: event:/InvocacionWave
+    Path: event:/Other/InvocacionWave
   shoorArrowEnemy:
     Guid:
       Data1: 162235532
       Data2: 1113413006
       Data3: -453741402
       Data4: 1249025090
-    Path: event:/ShootArrow
+    Path: event:/Enemies/ShootArrow
   enemySwordAttack:
     Guid:
       Data1: 1443276017
       Data2: 1320927007
       Data3: 1427805579
       Data4: -1962998814
-    Path: event:/EnemySwordAttack
+    Path: event:/Enemies/EnemySwordAttack
   slowBoss:
     Guid:
       Data1: 1105739852
       Data2: 1274517791
       Data3: 887587755
       Data4: 829725848
-    Path: event:/Slow
+    Path: event:/Enemies/Slow
   bigFireBalls:
     Guid:
       Data1: 38378360
       Data2: 1145437290
       Data3: -1278647894
       Data4: 286273932
-    Path: event:/BigFireBalls
+    Path: event:/Enemies/BigFireBalls
   portal:
     Guid:
       Data1: -1555633836
       Data2: 1241154167
       Data3: -740419710
       Data4: -1596783406
-    Path: event:/Portal
+    Path: event:/Other/Portal
   damageBalls:
     Guid:
       Data1: 1620912028
       Data2: 1101877541
       Data3: -2073675847
       Data4: -1570261173
-    Path: event:/DamageBalls
+    Path: event:/Enemies/DamageBalls
   carcel:
     Guid:
       Data1: -1152892343
       Data2: 1256288006
       Data3: 441368478
       Data4: -1092342655
-    Path: event:/Carcel
+    Path: event:/Other/Carcel
   heal:
     Guid:
       Data1: 1796990056
       Data2: 1268358940
       Data3: 1878227348
       Data4: 908357390
-    Path: event:/Heal
+    Path: event:/Player/Heal
   balls3:
     Guid:
       Data1: 382161670
       Data2: 1276396699
       Data3: 1598090417
       Data4: -1399013887
-    Path: event:/3BallsAttack
+    Path: event:/Enemies/3BallsAttack
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,7 +3198,7 @@ MonoBehaviour:
       Data2: 1327994525
       Data3: 2095331744
       Data4: -2956765
-    Path: event:/Dynamic_Music
+    Path: event:/Music/Dynamic_Music
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2

@@ -546,14 +546,14 @@ MonoBehaviour:
       Data2: 1334924694
       Data3: 344499613
       Data4: 1028942398
-    Path: event:/Walking
+    Path: event:/Player/Walking
   jumpingEvent:
     Guid:
       Data1: -467381629
       Data2: 1329321441
       Data3: 1249782951
       Data4: -1525122553
-    Path: event:/Jumping
+    Path: event:/Player/Jumping
   _extraGravityBase: 25
   _extraGravityScale: 0.8
   _currentJumpForce: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
       Data2: 1232705646
       Data3: -2089197124
       Data4: 57286403
-    Path: event:/NormalAttack
+    Path: event:/Player/NormalAttack
 --- !u!114 &5628913436012919497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
       Data2: 1134575123
       Data3: 192310670
       Data4: -1992437140
-    Path: event:/Dash
+    Path: event:/Player/Dash
 --- !u!114 &3824840060443755227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
       Data2: 1221677726
       Data3: 541066121
       Data4: -283245539
-    Path: event:/SpinAttack
+    Path: event:/Player/SpinAttack
 --- !u!4 &2027603445228041236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcaa473ba8339de4da5afcd5f8df353e, type: 3}

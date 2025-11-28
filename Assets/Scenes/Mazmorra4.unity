@@ -7714,7 +7714,7 @@ MonoBehaviour:
       Data2: 1324030735
       Data3: 1378233475
       Data4: -1027805328
-    Path: event:/Explosion
+    Path: event:/Other/Explosion
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 2
@@ -14532,7 +14532,7 @@ MonoBehaviour:
       Data2: 1130493730
       Data3: 2139260862
       Data4: -725450579
-    Path: event:/Boss_main_theme
+    Path: event:/Music/Boss_main_theme
 --- !u!4 &2032312183
 Transform:
   m_ObjectHideFlags: 0
