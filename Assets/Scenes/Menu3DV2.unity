@@ -3207,6 +3207,20 @@ MonoBehaviour:
       Data3: -1499524170
       Data4: -750624722
     Path: event:/UI/ButtonPress
+  animPortalMusic:
+    Guid:
+      Data1: 1219450219
+      Data2: 1168590744
+      Data3: 2133105331
+      Data4: -1946892737
+    Path: event:/Music/BeginPortalAnim
+  animPortalSpawn:
+    Guid:
+      Data1: -1022642625
+      Data2: 1081654406
+      Data3: -819539022
+      Data4: -2101885066
+    Path: event:/Other/OpenPortal
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0

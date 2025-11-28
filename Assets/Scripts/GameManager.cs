@@ -133,8 +133,9 @@ public class GameManager : MonoBehaviour
 
     public void enterFinalZone()
     {
-        if(branchesCollected >= 3)
+        if(branchesCollected >= 3 && !enterZone)
         {
+            FMODManager.instance.PlayAnimPortal();
             enterZone = true;
         }
     }
@@ -297,7 +298,8 @@ public class GameManager : MonoBehaviour
 
     public void addBranch()
     {
-        branchesCollected++;
+        if (branchesCollected < 3) 
+            branchesCollected++;
     }
 
     public void branchUsed()

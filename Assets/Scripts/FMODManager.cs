@@ -70,6 +70,12 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference buttonPress;
 
+    [SerializeField]
+    FMODUnity.EventReference animPortalMusic;
+
+    [SerializeField]
+    FMODUnity.EventReference animPortalSpawn;
+
 
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -154,6 +160,15 @@ public class FMODManager : MonoBehaviour
         RuntimeManager.PlayOneShot(buttonPress);
     }
 
+    public void PlayAnimPortal()
+    {
+        RuntimeManager.PlayOneShot(animPortalMusic);
+    }
+
+    public void PlatANimPortalSpawn()
+    {
+        RuntimeManager.PlayOneShot(animPortalSpawn);
+    }
 
 
 
