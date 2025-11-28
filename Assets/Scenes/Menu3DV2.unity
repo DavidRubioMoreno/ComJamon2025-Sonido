@@ -3193,6 +3193,20 @@ MonoBehaviour:
       Data3: -1296141889
       Data4: 1148490785
     Path: event:/Other/SpeakSelectionMage
+  buttonHover:
+    Guid:
+      Data1: -653058476
+      Data2: 1121567798
+      Data3: 1982516619
+      Data4: 733844121
+    Path: event:/UI/ButtonHover
+  buttonPress:
+    Guid:
+      Data1: -449663739
+      Data2: 1181341134
+      Data3: -1499524170
+      Data4: -750624722
+    Path: event:/UI/ButtonPress
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0

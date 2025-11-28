@@ -16,6 +16,7 @@ public class Button3D : MonoBehaviour
     void OnMouseEnter()
     {
         rend.material.color = new Color(1f, 1f, 0.6f); // Cambia el color al pasar el mouse
+        FMODManager.instance.PlayButtonHover();
         switch (action)
         {
             case "Play":
@@ -39,6 +40,7 @@ public class Button3D : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        FMODManager.instance.PlayButtonPress();
         switch (action)
         {
             case "Play":

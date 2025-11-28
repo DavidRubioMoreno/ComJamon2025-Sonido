@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{71acf9ea-563e-4c51-8a03-2d3b6a831d24}">
 		<property name="assetPath">
-			<value>SpinAttack.wav</value>
+			<value>Sounds/SpinAttack.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

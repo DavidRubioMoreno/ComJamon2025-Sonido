@@ -64,6 +64,12 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference mage;
 
+    [SerializeField]
+    FMODUnity.EventReference buttonHover;
+
+    [SerializeField]
+    FMODUnity.EventReference buttonPress;
+
 
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -136,6 +142,16 @@ public class FMODManager : MonoBehaviour
     public void PlayKnightSelection()
     {
         RuntimeManager.PlayOneShot(knight);
+    }
+
+    public void PlayButtonHover()
+    {
+        RuntimeManager.PlayOneShot(buttonHover);
+    }
+
+    public void PlayButtonPress()
+    {
+        RuntimeManager.PlayOneShot(buttonPress);
     }
 
 

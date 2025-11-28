@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{3a1d2317-dd61-42a5-9f7a-5bbbc1e5fe4c}">
 		<property name="assetPath">
-			<value>pajaro1.ogg</value>
+			<value>Sounds/pajaro1.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
