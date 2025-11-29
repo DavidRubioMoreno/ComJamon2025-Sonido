@@ -78,6 +78,17 @@ public class UIManager : MonoBehaviour
                 damageImage.SetActive(false);
             }
         }
+
+        if (GameManager.Instance.Pause)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
     // Actualiza la barra de vida
     public void UpdateHealthBar(float currentHealth, float maxHealth)

@@ -53,7 +53,7 @@ public class StrongAttackKnight : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<LifeComponent>())
+        if (other.gameObject.GetComponent<LifeComponent>() && !GameManager.Instance.Pause)
         {
             _enemiesInsideTrigger.Add(other.gameObject);
         }

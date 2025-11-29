@@ -44,28 +44,34 @@ public class Dash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_pm.IsGrounded())
+        
         {
-            nDash = 0;
-        }
+            if (_pm.IsGrounded())
+            {
+                nDash = 0;
+            }
 
-        elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
+        }
+        
     }
     private void FixedUpdate()
     {
-        if (_dash > 0)
+        if (!GameManager.Instance.Pause)
         {
-            _dash = 0;
-            _rb.linearVelocity=Vector3.zero;
-            GameObject ds=Instantiate(d, transform.position, Quaternion.identity);
-            ds.transform.parent=transform;
-            _rb.AddForce(transform.forward.normalized *  force,ForceMode.Impulse);
-            _an.SetBool("Dash", true);
-            nDash += 1;
-            dashEventInstance.start();
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
+            if (_dash > 0)
+            {
+                _dash = 0;
+                _rb.linearVelocity = Vector3.zero;
+                GameObject ds = Instantiate(d, transform.position, Quaternion.identity);
+                ds.transform.parent = transform;
+                _rb.AddForce(transform.forward.normalized * force, ForceMode.Impulse);
+                _an.SetBool("Dash", true);
+                nDash += 1;
+                dashEventInstance.start();
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.dash);
+            }
         }
-        
     }
     public void EndDash()
     {

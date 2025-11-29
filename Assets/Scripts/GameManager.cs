@@ -212,6 +212,8 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
             }
         }
+        if (paused && player != null) player.GetComponent<PlayerInput>().enabled = false;
+        else if(player!=null) player.GetComponent<PlayerInput>().enabled = true;
     }
 
     private void OnLevelWasLoaded(int level)

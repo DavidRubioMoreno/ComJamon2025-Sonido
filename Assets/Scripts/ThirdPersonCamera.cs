@@ -31,7 +31,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null || GameManager.Instance.Pause) return;
 
         
 

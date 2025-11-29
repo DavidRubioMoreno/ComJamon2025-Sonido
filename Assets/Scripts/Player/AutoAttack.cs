@@ -47,7 +47,7 @@ public class AutoAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<LifeComponent>() &&  _collider.gameObject.activeSelf)
+        if (other.gameObject.GetComponent<LifeComponent>() &&  _collider.gameObject.activeSelf && !GameManager.Instance.Pause)
         {
             other.gameObject.GetComponent<LifeComponent>().LoseLife(_damage);
         }

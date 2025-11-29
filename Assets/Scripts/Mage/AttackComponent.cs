@@ -34,22 +34,25 @@ public class AttackComponent : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (_nAttack!=0)
+        if (!GameManager.Instance.Pause)
         {
-            _nAttack = 0;
-
-
-            _animator.SetBool("Attack", true);
-
-        }
-
-        if (_animator.GetBool("Attack"))
-        {
-           elapsed+= Time.deltaTime;
-            if (elapsed > 0.9)
+            if (_nAttack != 0)
             {
-                _animator.SetBool("Attack", false);
-                elapsed = 0;
+                _nAttack = 0;
+
+
+                _animator.SetBool("Attack", true);
+
+            }
+
+            if (_animator.GetBool("Attack"))
+            {
+                elapsed += Time.deltaTime;
+                if (elapsed > 0.9)
+                {
+                    _animator.SetBool("Attack", false);
+                    elapsed = 0;
+                }
             }
         }
     }

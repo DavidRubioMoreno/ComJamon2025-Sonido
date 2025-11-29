@@ -69,42 +69,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        CamDir();
-        //Debug.Log(_maxSpeed);
-        Vector2 targetVelocity = _inputMovement * _maxSpeed;
-
-        _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
-            (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
-
-           
-        _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
-        //_movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
-        if (_movePlayer.magnitude < 0.1f)
+        if (!GameManager.Instance.Pause)
         {
-            _movePlayer = Vector3.zero;
-            _isMoving = false;
-            // Cambiar animacion
-            if (!_animator.GetBool("Idle"))
+            CamDir();
+            //Debug.Log(_maxSpeed);
+            Vector2 targetVelocity = _inputMovement * _maxSpeed;
+
+            _currentVelocity = Vector2.MoveTowards(_currentVelocity, targetVelocity,
+                (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
+
+
+            _movePlayer = _currentVelocity.x * _camRight + _currentVelocity.y * _camForward;
+            //_movePlayer = new Vector3(_currentVelocity.x,0,_currentVelocity.y);
+            if (_movePlayer.magnitude < 0.1f)
             {
-                _animator.SetBool("Idle", true);
-                _animator.SetBool("Run", false);
+                _movePlayer = Vector3.zero;
+                _isMoving = false;
+                // Cambiar animacion
+                if (!_animator.GetBool("Idle"))
+                {
+                    _animator.SetBool("Idle", true);
+                    _animator.SetBool("Run", false);
+                }
             }
-        }
-        else 
-        {
-            
-            if (!_animator.GetBool("Run"))
+            else
             {
-                _animator.SetBool("Block", false);
-                _animator.SetBool("Blocking", false);
-                _animator.SetBool("Blocked", false);
-                _animator.SetBool("Run", true);
-                _animator.SetBool("Idle", false);
+
+                if (!_animator.GetBool("Run"))
+                {
+                    _animator.SetBool("Block", false);
+                    _animator.SetBool("Blocking", false);
+                    _animator.SetBool("Blocked", false);
+                    _animator.SetBool("Run", true);
+                    _animator.SetBool("Idle", false);
+                }
+                _isMoving = true;
             }
-            _isMoving = true;
+
         }
-        
-        
     }
 
     public bool IsMoving()
@@ -127,72 +129,75 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_movePlayer.magnitude > 0.01f)
+        if (!GameManager.Instance.Pause)
         {
-            _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
-
-            Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
-            _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
-        }
-
-
-        bool isGrounded = IsGrounded();
-
-        // Gestión de animaciones
-        if (isGrounded && _isJumping)
-        {
-            _animator.SetBool("Jump", false);
-            jumpingEventInstance.setParameterByName("JumpSound", 1);
-            jumpingEventInstance.start();
-            _isJumping = false;
-        }
-        else if (!isGrounded && !_isJumping)
-        {
-            _animator.SetBool("Jump", true);
-        }
-        else if (isGrounded)
-        {
-            _animator.SetBool("Jump", false);
-        }
-
-        if (_jump == 1 && isGrounded && !_isJumping)
-        {
-            _animator.SetBool("Jump", true);
-
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, _rayLenght, 1 << _intLayerMask))
+            if (_movePlayer.magnitude > 0.01f)
             {
-                Vector3 surfaceNormal = hit.normal;
-                float angle = Vector3.Angle(surfaceNormal, Vector3.up);
+                _myRB.MovePosition(_myRB.position + _movePlayer * Time.fixedDeltaTime);
 
-                float angleThreshold = 20f;
-                float jumpMultiplier = Mathf.Clamp01(1f - (angle / angleThreshold));
-
-                _currentJumpForce = _jumpForce * jumpMultiplier; // Guarda la fuerza de este salto
-
-                Vector3 jumpDirection = Vector3.up * _currentJumpForce;
-                _myRB.AddForce(jumpDirection, ForceMode.Impulse);
-            }
-            else
-            {
-                _currentJumpForce = _jumpForce; // Salto con fuerza máxima
-                _myRB.AddForce(Vector3.up * _currentJumpForce, ForceMode.Impulse);
-                UnityEngine.Debug.Log("Saltando");
+                Quaternion targetRotation = Quaternion.LookRotation(_movePlayer, Vector3.up);
+                _myRB.rotation = Quaternion.Slerp(_myRB.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
             }
 
-            _isJumping = true;
 
-            jumpingEventInstance.setParameterByName("JumpSound", 0);
-            jumpingEventInstance.start();
-        }
-        else if (!isGrounded)
-        {
-            // Ajusta la gravedad en función de la fuerza del salto
-            float dynamicGravity = _extraGravityBase + (_currentJumpForce * _extraGravityScale);
-            _myRB.AddForce(Vector3.down * dynamicGravity, ForceMode.Acceleration);
-        }
+            bool isGrounded = IsGrounded();
 
-        walkingEventInstance.setParameterByName("Walking", isGrounded && _isMoving ? 1 : 0);
+            // Gestión de animaciones
+            if (isGrounded && _isJumping)
+            {
+                _animator.SetBool("Jump", false);
+                jumpingEventInstance.setParameterByName("JumpSound", 1);
+                jumpingEventInstance.start();
+                _isJumping = false;
+            }
+            else if (!isGrounded && !_isJumping)
+            {
+                _animator.SetBool("Jump", true);
+            }
+            else if (isGrounded)
+            {
+                _animator.SetBool("Jump", false);
+            }
+
+            if (_jump == 1 && isGrounded && !_isJumping)
+            {
+                _animator.SetBool("Jump", true);
+
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, _rayLenght, 1 << _intLayerMask))
+                {
+                    Vector3 surfaceNormal = hit.normal;
+                    float angle = Vector3.Angle(surfaceNormal, Vector3.up);
+
+                    float angleThreshold = 20f;
+                    float jumpMultiplier = Mathf.Clamp01(1f - (angle / angleThreshold));
+
+                    _currentJumpForce = _jumpForce * jumpMultiplier; // Guarda la fuerza de este salto
+
+                    Vector3 jumpDirection = Vector3.up * _currentJumpForce;
+                    _myRB.AddForce(jumpDirection, ForceMode.Impulse);
+                }
+                else
+                {
+                    _currentJumpForce = _jumpForce; // Salto con fuerza máxima
+                    _myRB.AddForce(Vector3.up * _currentJumpForce, ForceMode.Impulse);
+                    UnityEngine.Debug.Log("Saltando");
+                }
+
+                _isJumping = true;
+
+                jumpingEventInstance.setParameterByName("JumpSound", 0);
+                jumpingEventInstance.start();
+            }
+            else if (!isGrounded)
+            {
+                // Ajusta la gravedad en función de la fuerza del salto
+                float dynamicGravity = _extraGravityBase + (_currentJumpForce * _extraGravityScale);
+                _myRB.AddForce(Vector3.down * dynamicGravity, ForceMode.Acceleration);
+            }
+
+            walkingEventInstance.setParameterByName("Walking", isGrounded && _isMoving ? 1 : 0);
+        }       
     }
     public bool IsGrounded()
     {

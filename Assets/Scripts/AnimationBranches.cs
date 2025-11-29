@@ -19,7 +19,7 @@ public class AnimationBranches : MonoBehaviour
 
     private void Update()
     {
-        if(!begin && GameManager.Instance.ReadyToANim())
+        if(!begin && GameManager.Instance.ReadyToANim() && !GameManager.Instance.Pause)
         {
             begin = true;
             StartCoroutine(SwitchCameraAndExecute());

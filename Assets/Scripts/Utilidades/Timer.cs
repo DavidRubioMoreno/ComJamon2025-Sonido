@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     void FixedUpdate()
     {
         elapsed += Time.deltaTime;
-        if (elapsed > lifetime)
+        if (elapsed > lifetime || GameManager.Instance.Pause)
             Destroy(gameObject);
     }
 }

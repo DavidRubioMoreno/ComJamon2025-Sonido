@@ -18,7 +18,7 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Sound", volumenSlider.value);
         FMODManager.instance.SetMasterVolume(PlayerPrefs.GetFloat("Sound"));
         PlayerPrefs.SetFloat("Music", musicaSlider.value);
-
+        FMODManager.instance.SetMusicVolume(PlayerPrefs.GetFloat("Music"));
 
         // Asignar los valores al AudioListener
         volumenSlider.onValueChanged.AddListener(ChangeGeneralVolume);
@@ -43,6 +43,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeMusicVolume(float value)
     {
+        FMODManager.instance.SetMusicVolume(value);
         PlayerPrefs.SetFloat("Music", value); // Guardar configuración
     }
 

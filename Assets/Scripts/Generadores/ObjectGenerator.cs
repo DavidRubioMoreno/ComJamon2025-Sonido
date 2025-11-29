@@ -68,7 +68,7 @@ public class ObjectGenerator : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime > nextGenerationtime)
+        if (elapsedTime > nextGenerationtime && !GameManager.Instance.Pause)
         {
             nextGenerationtime = Random.Range(minGenerationTime, maxGenerationTime);
             elapsedTime = 0;
@@ -115,14 +115,14 @@ public class ObjectGenerator : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!init && GameManager.Instance.Player)
+        if(!init && GameManager.Instance.Player && !GameManager.Instance.Pause)
         {
             
             branchesEventInstance.start();
 
             init = true;
         }
-        if (init)
+        if (init && !GameManager.Instance.Pause)
         {
             branchesEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(GameManager.Instance.Player));
         }

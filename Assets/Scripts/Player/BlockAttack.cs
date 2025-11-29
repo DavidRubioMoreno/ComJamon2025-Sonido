@@ -27,15 +27,14 @@ public class BlockAttack : MonoBehaviour
 
     private void Update()
     {
-        if (_myPM.IsMoving() && !_canBlock && !_wasMoving)
+        if (!GameManager.Instance.Pause)
         {
-            StopBlocking();
+            if (_myPM.IsMoving() && !_canBlock && !_wasMoving)
+            {
+                StopBlocking();
+            }
         }
-        /* 
-         if(si es atacado){
-            ToBlocked();
-        }
-         */
+
     }
 
     public void Block(InputAction.CallbackContext callback)

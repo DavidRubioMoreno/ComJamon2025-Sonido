@@ -77,7 +77,7 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference animPortalSpawn;
 
-    private Bus masterBus;
+    private Bus masterBus, musicBus;
     // Asegurarse de que solo hay una instancia
     private void Awake()
     {
@@ -93,7 +93,8 @@ public class FMODManager : MonoBehaviour
 
         // Inicializar FMOD Studio
         FMOD.Studio.System.create(out fmodSystem);
-        masterBus = RuntimeManager.GetBus("bus:/");
+        masterBus = RuntimeManager.GetBus("bus:/SFX");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
 
     }
     //Cambiar el volumen general
@@ -104,6 +105,15 @@ public class FMODManager : MonoBehaviour
 
         // Aplica el volumen al Bus Maestro.
         masterBus.setVolume(clampedVolume);
+    }
+    //Cambiar el volumen de la música
+    public void SetMusicVolume(float volume)
+    {
+        // Limita el valor para asegurar que esté entre 0 y 1.
+        float clampedVolume = Mathf.Clamp01(volume);
+
+        // Aplica el volumen al Bus Maestro.
+        musicBus.setVolume(clampedVolume);
     }
     public void PlayEnemyDamaged()
     {

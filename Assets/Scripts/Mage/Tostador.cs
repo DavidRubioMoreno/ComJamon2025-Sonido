@@ -25,7 +25,7 @@ public class Tostador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_sAttack > 0)
+        if(_sAttack > 0 && !GameManager.Instance.Pause)
         {
             _sAttack = 0;
             _animator.SetBool("Strong",true);
