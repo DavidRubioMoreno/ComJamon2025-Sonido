@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player { get { return player; } }
 
+    public bool Pause { get { return paused; } }
+
     public StudioEventEmitter musicEmitter;
 
     bool musicPaused = false;
@@ -146,73 +148,70 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (!paused)
         {
-            SceneManager.LoadScene(_currentScene.name);
-        }
-
-        //Atajo coger rama
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            addBranch();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene("mazmorra4");
-        }
-
-
-        elapsedTime += Time.deltaTime;
-        updateState(CurrentState);
-        if (cinematica && _partidaGuardada)
-        {
-            if (_cargarPartida)
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                _cargarPartida = false;
-                Cargar();
+                SceneManager.LoadScene(_currentScene.name);
+            }
+
+            //Atajo coger rama
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                addBranch();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SceneManager.LoadScene("mazmorra4");
+            }
+
+
+            elapsedTime += Time.deltaTime;
+            updateState(CurrentState);
+            if (cinematica && _partidaGuardada)
+            {
+                if (_cargarPartida)
+                {
+                    _cargarPartida = false;
+                    Cargar();
+                }
+            }
+            if (!menu && !nocreado && cinematica && !_cargarPartida)
+            {
+                createPlayer();
+
+            }
+            if (_currentScene != SceneManager.GetActiveScene())
+            {
+                _currentScene = SceneManager.GetActiveScene();
+            }
+
+            if (WaveManager.Instance && WaveManager.Instance.EnemiesAlive > 0 && player)
+            {
+                value = Mathf.Min(value + WaveManager.Instance.EnemiesAlive * Time.deltaTime * 0.3f, 1);
+            }
+            else
+            {
+                value = Mathf.Max(0, value - Time.deltaTime * 0.2f);
+            }
+
+            musicEmitter.SetParameter("Combat", value);
+
+            //if (WaveManager.Instance && !WaveManager.Instance.Final && ambientEventInstance.isValid())
+            //{
+            //    ambientEventInstance.setParameterByName("Combat", value);
+            //}
+            //else if(ambientEventInstance.isValid())
+            //{
+            //    ambientEventInstance.setParameterByName("Combat", 0);
+            //}
+
+            if (UIManager.Instance && player)
+            {
+                UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
             }
         }
-        if (!menu && !nocreado && cinematica && !_cargarPartida)
-        {
-            createPlayer();
-
-        }
-        if (_currentScene != SceneManager.GetActiveScene())
-        {
-            _currentScene = SceneManager.GetActiveScene();
-        }
-
-        if (WaveManager.Instance && WaveManager.Instance.EnemiesAlive > 0 && player)
-        {
-            value = Mathf.Min(value + WaveManager.Instance.EnemiesAlive * Time.deltaTime * 0.3f, 1); 
-        }
-        else
-        {
-            value = Mathf.Max(0, value - Time.deltaTime * 0.2f);           
-        }
-
-        musicEmitter.SetParameter("Combat", value);
-
-        //if (WaveManager.Instance && !WaveManager.Instance.Final && ambientEventInstance.isValid())
-        //{
-        //    ambientEventInstance.setParameterByName("Combat", value);
-        //}
-        //else if(ambientEventInstance.isValid())
-        //{
-        //    ambientEventInstance.setParameterByName("Combat", 0);
-        //}
-
-
-
-
-
-
-        if (UIManager.Instance && player)
-        {
-            UIManager.Instance.UpdateHealthBar(player.GetComponent<LifeComponent>().vida, player.GetComponent<LifeComponent>().maxVida);
-        }
-        
     }
 
     private void OnLevelWasLoaded(int level)
@@ -283,17 +282,20 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
 
-
-        if (SceneManager.GetActiveScene().name == "Mazmorra4" && !musicPaused)
+        if (!paused)
         {
-            musicEmitter.EventInstance.setPaused(true);
-            musicPaused = true;
+            if (SceneManager.GetActiveScene().name == "Mazmorra4" && !musicPaused)
+            {
+                musicEmitter.EventInstance.setPaused(true);
+                musicPaused = true;
+            }
+            else if (musicPaused && WaveManager.Instance && SceneManager.GetActiveScene().name != "Mazmorra4")
+            {
+                musicPaused = false;
+                musicEmitter.EventInstance.setPaused(false);
+            }
         }
-        else if (musicPaused && WaveManager.Instance && SceneManager.GetActiveScene().name != "Mazmorra4")
-        {
-            musicPaused = false;
-            musicEmitter.EventInstance.setPaused(false);
-        }
+        
     }
 
     public void addBranch()
@@ -357,16 +359,14 @@ public class GameManager : MonoBehaviour
         if (canvas.activeSelf)
         {
             canvas.SetActive(false);
-            paused = false;
-            
-                player.GetComponent<PlayerInput>().enabled = true;
-            
+            paused = false;           
+            if(player != null)player.GetComponent<PlayerInput>().enabled = true;         
         }
         else
         {
             canvas.SetActive(true);
             paused = true;
-            player.GetComponent<PlayerInput>().enabled = false;
+            if(player != null)player.GetComponent<PlayerInput>().enabled = false;
         }
 
     }

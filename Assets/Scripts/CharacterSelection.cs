@@ -19,18 +19,22 @@ public class CharacterSelection : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //rend.material.color = new Color(1f, 1f, 0.6f);
-        anim.SetBool("Cambio",true); // Activa la animación al pasar el mouse
-        if (characterIndex == 0)
+        if (!GameManager.Instance.Pause)
         {
-            FMODManager.instance.PlayKnightSelection();
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
+            //rend.material.color = new Color(1f, 1f, 0.6f);
+            anim.SetBool("Cambio", true); // Activa la animación al pasar el mouse
+            if (characterIndex == 0)
+            {
+                FMODManager.instance.PlayKnightSelection();
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
+            }
+            else
+            {
+                FMODManager.instance.PlayMageSelection();
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
+            }
         }
-        else
-        {
-            FMODManager.instance.PlayMageSelection();
-            //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
-        }
+        
     }
 
     private void OnMouseExit()
@@ -41,10 +45,13 @@ public class CharacterSelection : MonoBehaviour
 
     private void OnMouseDown()
     {
-        PlayerPrefs.SetInt("SelectedCharacter", characterIndex); // Guarda el índice
-        SceneManager.LoadScene("PRINCIPAL"); // Carga la nueva escena
-        GameManager.Instance.menu = false;
-        //GameManager.Instance.createPlayer();
+        if (!GameManager.Instance.Pause)
+        {
+            PlayerPrefs.SetInt("SelectedCharacter", characterIndex); // Guarda el índice
+            SceneManager.LoadScene("PRINCIPAL"); // Carga la nueva escena
+            GameManager.Instance.menu = false;
+            //GameManager.Instance.createPlayer();
+        }
     }
 }
 

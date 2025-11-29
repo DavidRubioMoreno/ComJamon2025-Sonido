@@ -1,6 +1,7 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using UnityEngine;
-using FMODUnity;
 
 public class FMODManager : MonoBehaviour
 {
@@ -76,7 +77,7 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference animPortalSpawn;
 
-
+    private Bus masterBus;
     // Asegurarse de que solo hay una instancia
     private void Awake()
     {
@@ -92,9 +93,18 @@ public class FMODManager : MonoBehaviour
 
         // Inicializar FMOD Studio
         FMOD.Studio.System.create(out fmodSystem);
+        masterBus = RuntimeManager.GetBus("bus:/");
 
     }
+    //Cambiar el volumen general
+    public void SetMasterVolume(float volume)
+    {
+        // Limita el valor para asegurar que esté entre 0 y 1.
+        float clampedVolume = Mathf.Clamp01(volume);
 
+        // Aplica el volumen al Bus Maestro.
+        masterBus.setVolume(clampedVolume);
+    }
     public void PlayEnemyDamaged()
     {
         RuntimeManager.PlayOneShot(enemyDamaged);
@@ -252,4 +262,6 @@ public class FMODManager : MonoBehaviour
         string eventPath = "event:/" + eventName;  // Convierte el nombre del evento en el path correcto
         PlayEvent(eventPath);
     }
+
+
 }

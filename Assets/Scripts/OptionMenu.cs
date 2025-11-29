@@ -10,16 +10,16 @@ public class OptionsMenu : MonoBehaviour
     public GameObject exitConfirmationPanel; // El panel de confirmación de salida
     //public Slider sliderGeneral;
     //public Slider sliderMusic;
-    [SerializeField] private AudioMixer audioMixer; // Mixer principal
     [SerializeField] private Slider volumenSlider; // Slider para volumen general
     [SerializeField] private Slider musicaSlider; // Slider para música
     private void Start()
     {
         // Cargar valores guardados
-        volumenSlider.value = PlayerPrefs.GetFloat("Music", 1f);
-        musicaSlider.value = PlayerPrefs.GetFloat("SFX", 1f);
-        //ChangeGeneralVolume(volumenSlider.value);
-        //ChangeMusicVolume(musicaSlider.value);
+        PlayerPrefs.SetFloat("Sound", volumenSlider.value);
+        FMODManager.instance.SetMasterVolume(PlayerPrefs.GetFloat("Sound"));
+        PlayerPrefs.SetFloat("Music", musicaSlider.value);
+
+
         // Asignar los valores al AudioListener
         volumenSlider.onValueChanged.AddListener(ChangeGeneralVolume);
         musicaSlider.onValueChanged.AddListener(ChangeMusicVolume);
@@ -37,14 +37,13 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeGeneralVolume(float value)
     {
-        audioMixer.SetFloat("Music", Mathf.Log10(value) * 20); // Ajustar volumen
-        PlayerPrefs.SetFloat("Music", value); // Guardar configuración
+        FMODManager.instance.SetMasterVolume(value);
+        PlayerPrefs.SetFloat("Sound", value); // Guardar configuración
     }
 
     public void ChangeMusicVolume(float value)
     {
-        audioMixer.SetFloat("SFX", Mathf.Log10(value) * 20); // Ajustar música
-        PlayerPrefs.SetFloat("SFX", value); // Guardar configuración
+        PlayerPrefs.SetFloat("Music", value); // Guardar configuración
     }
 
     public void ShowExitConfirmation()

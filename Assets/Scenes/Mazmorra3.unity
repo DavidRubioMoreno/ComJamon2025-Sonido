@@ -6697,6 +6697,13 @@ MonoBehaviour:
   maxRotationForce: 9
   minScale: 0.5
   maxScale: 2
+  branchesEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &1332402725
 Transform:
   m_ObjectHideFlags: 0

@@ -15,23 +15,11 @@ public class Button3D : MonoBehaviour
 
     void OnMouseEnter()
     {
-        rend.material.color = new Color(1f, 1f, 0.6f); // Cambia el color al pasar el mouse
-        FMODManager.instance.PlayButtonHover();
-        switch (action)
+        if (!GameManager.Instance.Pause)
         {
-            case "Play":
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.Jugarnueva, 3);
-                break;
-            case "Load":
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.jugarcargada, 3);
-                break;
-            case "Options":
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.opciones, 3);
-                break;
-            case "Exit":
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.salir, 3);
-                break;
-        }
+            rend.material.color = new Color(1f, 1f, 0.6f); // Cambia el color al pasar el mouse
+            FMODManager.instance.PlayButtonHover();
+        }      
     }
 
     void OnMouseExit()
@@ -40,25 +28,29 @@ public class Button3D : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        FMODManager.instance.PlayButtonPress();
-        switch (action)
+        if (!GameManager.Instance.Pause)
         {
-            case "Play":
-                SceneManager.LoadScene("ElegirClase"); // Cargar la escena del juego
-                break;
-            case "Load":
-                // Aquí cargarías datos de una partida guardada
-                GameManager.Instance.CargarPartida();
-                break;
-            case "Options":
-                Debug.Log("Abrir menú de opciones...");
-                optionsMenu.SetActive(true);
-                // Aquí podrías mostrar un panel de opciones
-                break;
-            case "Exit":
-                Application.Quit(); // Salir del juego
-                break;
+            FMODManager.instance.PlayButtonPress();
+            switch (action)
+            {
+                case "Play":
+                    SceneManager.LoadScene("ElegirClase"); // Cargar la escena del juego
+                    break;
+                case "Load":
+                    // Aquí cargarías datos de una partida guardada
+                    GameManager.Instance.CargarPartida();
+                    break;
+                case "Options":
+                    Debug.Log("Abrir menú de opciones...");
+                    optionsMenu.SetActive(true);
+                    // Aquí podrías mostrar un panel de opciones
+                    break;
+                case "Exit":
+                    Application.Quit(); // Salir del juego
+                    break;
+            }
         }
+        
     }
 }
 
