@@ -11,10 +11,6 @@ public class CharacterSelection : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-
-        //rend = GetComponent<Renderer>();
-        //originalColor = rend.material.color;
-        //BackgroundMusic.Instance.bossfinal();
     }
 
     private void OnMouseEnter()
