@@ -149,9 +149,6 @@
 		<property name="voiceStealing">
 			<value>3</value>
 		</property>
-		<property name="maxVoices">
-			<value>1</value>
-		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{a6f26fba-02f3-4a69-ba4a-77d4e5aede55}</destination>
 		</relationship>
