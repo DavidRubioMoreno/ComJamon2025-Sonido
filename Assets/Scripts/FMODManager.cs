@@ -59,11 +59,6 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference balls3;
 
-    [SerializeField]
-    FMODUnity.EventReference knight;
-
-    [SerializeField]
-    FMODUnity.EventReference mage;
 
     [SerializeField]
     FMODUnity.EventReference buttonHover;
@@ -168,16 +163,6 @@ public class FMODManager : MonoBehaviour
     public void Play3Balls()
     {
         RuntimeManager.PlayOneShot(balls3);
-    }
-
-    public void PlayMageSelection()
-    {
-        RuntimeManager.PlayOneShot(mage);
-    }
-
-    public void PlayKnightSelection()
-    {
-        RuntimeManager.PlayOneShot(knight);
     }
 
     public void PlayButtonHover()

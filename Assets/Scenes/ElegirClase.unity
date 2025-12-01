@@ -159,6 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterIndex: 1
+  knightEvent:
+    Guid:
+      Data1: 1681101070
+      Data2: 1302764897
+      Data3: -1484124027
+      Data4: -341377158
+    Path: event:/Other/SpeakSelectionCaballero
+  mageEvent:
+    Guid:
+      Data1: -2053829824
+      Data2: 1176040555
+      Data3: -1296141889
+      Data4: 1148490785
+    Path: event:/Other/SpeakSelectionMage
 --- !u!136 &38181287
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1708,6 +1722,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterIndex: 0
+  knightEvent:
+    Guid:
+      Data1: 1681101070
+      Data2: 1302764897
+      Data3: -1484124027
+      Data4: -341377158
+    Path: event:/Other/SpeakSelectionCaballero
+  mageEvent:
+    Guid:
+      Data1: -2053829824
+      Data2: 1176040555
+      Data3: -1296141889
+      Data4: 1148490785
+    Path: event:/Other/SpeakSelectionMage
 --- !u!136 &1733913104
 CapsuleCollider:
   m_ObjectHideFlags: 0

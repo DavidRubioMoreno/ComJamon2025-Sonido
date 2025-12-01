@@ -7,27 +7,33 @@ public class CharacterSelection : MonoBehaviour
     public int characterIndex; // 0 o 1, depende del personaje
     private Renderer rend;
     private Color originalColor;
+    [SerializeField]
+    FMODUnity.EventReference knightEvent;
+    [SerializeField]
+    FMODUnity.EventReference mageEvent;
+
+    FMOD.Studio.EventInstance knightEventInstance;
+    FMOD.Studio.EventInstance mageEventInstance;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        knightEventInstance = FMODManager.instance.CreateEventInstance(knightEvent);
+        mageEventInstance = FMODManager.instance.CreateEventInstance(mageEvent);
     }
 
     private void OnMouseEnter()
     {
         if (!GameManager.Instance.Pause)
         {
-            //rend.material.color = new Color(1f, 1f, 0.6f);
             anim.SetBool("Cambio", true); // Activa la animación al pasar el mouse
             if (characterIndex == 0)
             {
-                FMODManager.instance.PlayKnightSelection();
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeC);
+                knightEventInstance.start();
             }
             else
             {
-                FMODManager.instance.PlayMageSelection();
-                //SoundManager.Instance.PlaySound(SoundManager.Instance.eligemeM);
+                mageEventInstance.start();
             }
         }
         
@@ -35,7 +41,6 @@ public class CharacterSelection : MonoBehaviour
 
     private void OnMouseExit()
     {
-        //rend.material.color = originalColor; // Vuelve al color original
         anim.SetBool("Cambio", false);
     }
 
@@ -46,7 +51,10 @@ public class CharacterSelection : MonoBehaviour
             PlayerPrefs.SetInt("SelectedCharacter", characterIndex); // Guarda el índice
             SceneManager.LoadScene("PRINCIPAL"); // Carga la nueva escena
             GameManager.Instance.menu = false;
-            //GameManager.Instance.createPlayer();
+            if(characterIndex == 0)
+            {
+                knightEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            }else mageEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 }
