@@ -50,7 +50,7 @@ public class MiniBossRojo : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.Player == null) return;
+        if (GameManager.Instance.Player == null || GameManager.Instance.Pause) return;
 
         float distancia = Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position);
         //Debug.Log(distancia);

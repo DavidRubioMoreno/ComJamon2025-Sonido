@@ -41,7 +41,7 @@ public class MiniBossMorao : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.Player == null) return;
+        if (GameManager.Instance.Player == null ||  GameManager.Instance.Pause) return;
 
         float distancia = Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position);
         Vector3 direccion = (GameManager.Instance.Player.transform.position - transform.position).normalized;

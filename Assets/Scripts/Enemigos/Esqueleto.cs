@@ -60,40 +60,44 @@ public class Esqueleto: MonoBehaviour
 
     private void Update()
     {
-        _player = GameManager.Instance.Player;
-        if (_player == null) return;
-        Vector3 v = (_player.transform.position - transform.position);
-        Vector3 targetVelocity =  v.normalized * _maxSpeed;
+        if (!GameManager.Instance.Pause)
+        {
+            _player = GameManager.Instance.Player;
+            if (_player == null) return;
+            Vector3 v = (_player.transform.position - transform.position);
+            Vector3 targetVelocity = v.normalized * _maxSpeed;
 
-        if (v.magnitude < rObjetivo)
-        {
-            targetVelocity = Vector3.zero;
-        
-            _animator.SetBool("attack", true);
-            OnAttack();
-        }
-        else if(v.magnitude < rRalentizado)
-        {
-            targetVelocity *= fRalentizado;
-        }
-        
+            if (v.magnitude < rObjetivo)
+            {
+                targetVelocity = Vector3.zero;
 
-        _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity,(targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
+                _animator.SetBool("attack", true);
+                OnAttack();
+            }
+            else if (v.magnitude < rRalentizado)
+            {
+                targetVelocity *= fRalentizado;
+            }
 
-        if (_currentVelocity == Vector3.zero)
-        {
-            _animator.SetBool("vel", false);
-            _animator.SetBool("idle", true);
-        }
-        if (!_animator.GetBool("attack"))
-        {
-            _animator.SetBool("vel", true);
-            _animator.SetBool("idle", false);
-        }
+
+            _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity, (targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.deltaTime);
+
+            if (_currentVelocity == Vector3.zero)
+            {
+                _animator.SetBool("vel", false);
+                _animator.SetBool("idle", true);
+            }
+            if (!_animator.GetBool("attack"))
+            {
+                _animator.SetBool("vel", true);
+                _animator.SetBool("idle", false);
+            }
+        }   
     }
 
     private void FixedUpdate()
     {
+        if(GameManager.Instance.Pause) return;
         _player = GameManager.Instance.Player;
         if (_player == null) return;
         Vector3 v = (_player.transform.position - transform.position);

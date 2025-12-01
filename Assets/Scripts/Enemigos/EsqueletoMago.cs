@@ -28,6 +28,7 @@ public class EsqueletoMago : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.Pause) return;
         elapsedTime += Time.deltaTime;
         if (elapsedTime > spawnTime)
         {
