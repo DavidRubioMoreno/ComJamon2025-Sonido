@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
                 value = Mathf.Max(0, value - Time.deltaTime * 0.2f);
             }
 
-            musicEmitter.SetParameter("Combat", value);
+            if(musicEmitter)musicEmitter.SetParameter("Combat", value);
 
             //if (WaveManager.Instance && !WaveManager.Instance.Final && ambientEventInstance.isValid())
             //{

@@ -2637,9 +2637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad679628f636a84eb94cef3d389725a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 488309360}
-  musicClip: {fileID: 8300000, guid: 7ecfcaa2d10c956458a817f11c9d5042, type: 3}
-  boss: {fileID: 8300000, guid: 79e037a7c4c57524cbc83a588cb27b08, type: 3}
 --- !u!114 &1200901489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,37 +2649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a710b42dd0a44bbdedf064c5302e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxSource: {fileID: 1074192954}
-  mejora: {fileID: 8300000, guid: d513dd290dc5e204bb3b2d514a9d2741, type: 3}
-  espada: {fileID: 0}
-  espada2: {fileID: 0}
-  escudo: {fileID: 0}
-  magia: {fileID: 0}
-  masmagia: {fileID: 0}
-  opciones: {fileID: 8300000, guid: 9e677db861703f14287184d69420ae8a, type: 3}
-  salir: {fileID: 8300000, guid: 2ffef4a890a0c6c42bc8da6e1d3af72d, type: 3}
-  Jugarnueva: {fileID: 8300000, guid: 2c6d8cb104e45fe4bbfecf7b35a84344, type: 3}
-  jugarcargada: {fileID: 8300000, guid: 09f92974f1293784aaf43752a9da0a2d, type: 3}
-  eligemeM: {fileID: 8300000, guid: 5b075aadb7e7783459963bd0dd71e529, type: 3}
-  eligemeC: {fileID: 8300000, guid: cdf65c6af6a7b004d9594da5e1a7ecce, type: 3}
-  bosrojomet: {fileID: 0}
-  bossrojobolon: {fileID: 0}
-  portales: {fileID: 0}
-  finmazmorra: {fileID: 0}
-  muerte: {fileID: 0}
-  dash: {fileID: 0}
-  invocar: {fileID: 0}
-  bruja: {fileID: 0}
-  arco: {fileID: 0}
-  espadaesqueleto: {fileID: 0}
-  giro: {fileID: 0}
-  carcel: {fileID: 0}
-  bolasrota: {fileID: 0}
-  toxico: {fileID: 0}
-  pegao: {fileID: 0}
-  manin: {fileID: 0}
-  explo: {fileID: 0}
-  terre: {fileID: 0}
 --- !u!114 &1200901490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3287,7 +3253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: duracionMovimiento
-      value: 1
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 7920686076245478036, guid: d1db228ebb208074b8f5aadaa458d65b, type: 3}
       propertyPath: tiempoAntesDeCambio

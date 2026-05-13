@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: 1
-  cinematica: 0
+  cinematica: 1
   branchesCollected: 0
   characters:
   - {fileID: 1686789631571177134, guid: 23262a9647cb6e34489cb0876ce59665, type: 3}
@@ -3219,20 +3219,6 @@ MonoBehaviour:
       Data3: 1598090417
       Data4: -1399013887
     Path: event:/Enemies/3BallsAttack
-  knight:
-    Guid:
-      Data1: 1681101070
-      Data2: 1302764897
-      Data3: -1484124027
-      Data4: -341377158
-    Path: event:/Other/SpeakSelectionCaballero
-  mage:
-    Guid:
-      Data1: -2053829824
-      Data2: 1176040555
-      Data3: -1296141889
-      Data4: 1148490785
-    Path: event:/Other/SpeakSelectionMage
   buttonHover:
     Guid:
       Data1: -653058476
@@ -3261,6 +3247,13 @@ MonoBehaviour:
       Data3: -819539022
       Data4: -2101885066
     Path: event:/Other/OpenPortal
+  menuMusic:
+    Guid:
+      Data1: 207890899
+      Data2: 1170509630
+      Data3: -1905712200
+      Data4: 1839363409
+    Path: event:/InformaticaMusical/MenuST
 --- !u!114 &1389648966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3268,7 +3261,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389648957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -3276,11 +3269,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1597341217
-      Data2: 1327994525
-      Data3: 2095331744
-      Data4: -2956765
-    Path: event:/Music/Dynamic_Music
+      Data1: 207890899
+      Data2: 1170509630
+      Data3: -1905712200
+      Data4: 1839363409
+    Path: event:/InformaticaMusical/MenuST
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -3288,9 +3281,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params:
-  - Name: Combat
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

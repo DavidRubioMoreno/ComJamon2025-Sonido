@@ -1,7 +1,9 @@
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FMODManager : MonoBehaviour
 {
@@ -72,6 +74,10 @@ public class FMODManager : MonoBehaviour
     [SerializeField]
     FMODUnity.EventReference animPortalSpawn;
 
+    [SerializeField]
+    FMODUnity.EventReference menuMusic;
+    private FMOD.Studio.EventInstance menuMusicInstance;
+
     private Bus masterBus, musicBus, sfxBus;
     // Asegurarse de que solo hay una instancia
     private void Awake()
@@ -91,8 +97,22 @@ public class FMODManager : MonoBehaviour
         masterBus = RuntimeManager.GetBus("bus:/");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
         musicBus = RuntimeManager.GetBus("bus:/Music");
-
     }
+
+    private void Start()
+    {
+        menuMusicInstance = FMODManager.instance.CreateEventInstance(menuMusic);
+
+        menuMusicInstance.start();
+    }
+    private void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().name == "PRINCIPAL")
+        {
+            menuMusicInstance.setParameterByName("MenuSong", 1);
+        }
+    }
+
     //Cambiar el volumen general
     public void SetMasterVolume(float volume)
     {
