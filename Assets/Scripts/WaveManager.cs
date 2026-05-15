@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField]
+    FMODUnity.EventReference combatST;
+    private FMOD.Studio.EventInstance combatSTInstance;
+
     [Header("Enemy Configuration")]
     public GameObject[] enemyPrefabs; // Lista de enemigos disponibles
     public GameObject bossPrefab; // Prefab del jefe final
@@ -55,8 +59,12 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        
-       
+        combatSTInstance = FMODManager.instance.CreateEventInstance(combatST);
+        combatSTInstance.setVolume(0.9f);
+
+        combatSTInstance.setParameterByName("StartWave", 1);
+        combatSTInstance.setParameterByName("Boss", 1);
+        combatSTInstance.start();
     }
 
     public List<GameObject> getActiveEnemies()
@@ -78,7 +86,6 @@ public class WaveManager : MonoBehaviour
             started = true;
             StartNextWave();
         }
-
         // Si no estamos generando enemigos y ya no hay enemigos vivos, pasamos a la siguiente oleada
         if (started && !spawning && activeEnemies.Count == 0)
         {
@@ -95,6 +102,7 @@ public class WaveManager : MonoBehaviour
         //Debug.Log(activeEnemies.Count);
        if(final && activeEnemies.Count == 0 && !GG)
         {
+            combatSTInstance.setParameterByName("Boss", 1);
             GG = true;
             //SoundManager.Instance.PlaySound(SoundManager.Instance.explo);
             //SoundManager.Instance.PlaySound(SoundManager.Instance.terre);
@@ -112,6 +120,7 @@ public class WaveManager : MonoBehaviour
         if(currentWave < spawnAreas.Length) spawnArea = spawnAreas[currentWave];
         currentWave++;
         spawning = true;
+        combatSTInstance.setParameterByName("StartWave", 0);
         StartCoroutine(SpawnWave());
     }
 
@@ -175,6 +184,7 @@ public class WaveManager : MonoBehaviour
     }
     void SpawnBoss()
     {
+        combatSTInstance.setParameterByName("Boss", 0);
         spawning = true;
         Vector3 bossPosition = spawnArea.position;
 

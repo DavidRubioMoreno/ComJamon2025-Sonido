@@ -44,10 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e02273e448f4645ade034cf02d7b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatST:
+    Guid:
+      Data1: -1286979596
+      Data2: 1172531407
+      Data3: -323220809
+      Data4: 464189493
+    Path: event:/InformaticaMusical/CombatST
   enemyPrefabs:
   - {fileID: 0}
   bossPrefab: {fileID: 0}
-  spawnArea: {fileID: 0}
+  spawnAreas: []
+  areaRadius: 5
   numberOfWaves: 3
   enemiesPerWave: 5
   spawnDelay: 0.2
@@ -55,3 +63,7 @@ MonoBehaviour:
   spawnParticles:
   - {fileID: 1087034665551826729, guid: 8bbbb41a0749ed948b8e7c937a90b1d6, type: 3}
   - {fileID: 4380918445339287248, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
+  activeEnemies: []
+  tree: {fileID: 0}
+  explosions: {fileID: 0}
+  timeToBegin: 3

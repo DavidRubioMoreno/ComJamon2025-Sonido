@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{ad99139f-2598-4488-845e-c94c4467297d}">
+		<property name="assetPath">
+			<value>Soundtracks/CombatST/CombatEnemies/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0dce1683-862d-410d-ad80-1da2dab38504}</destination>
+		</relationship>
+	</object>
+</objects>

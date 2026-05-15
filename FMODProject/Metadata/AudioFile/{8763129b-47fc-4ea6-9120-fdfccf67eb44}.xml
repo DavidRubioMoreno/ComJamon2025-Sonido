@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8763129b-47fc-4ea6-9120-fdfccf67eb44}">
+		<property name="assetPath">
+			<value>Soundtracks/CombatST/CombatEnemies/CombatEnemiesSoundtrack-004.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>24</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0dce1683-862d-410d-ad80-1da2dab38504}</destination>
+		</relationship>
+	</object>
+</objects>

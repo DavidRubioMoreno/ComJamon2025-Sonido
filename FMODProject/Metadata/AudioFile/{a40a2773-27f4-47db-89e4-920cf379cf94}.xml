@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a40a2773-27f4-47db-89e4-920cf379cf94}">
+		<property name="assetPath">
+			<value>Soundtracks/CombatST/Boss/FinalBossST-007.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0dce1683-862d-410d-ad80-1da2dab38504}</destination>
+		</relationship>
+	</object>
+</objects>

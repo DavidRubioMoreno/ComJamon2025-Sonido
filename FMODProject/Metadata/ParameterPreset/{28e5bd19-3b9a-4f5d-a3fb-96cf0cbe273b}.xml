@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{28e5bd19-3b9a-4f5d-a3fb-96cf0cbe273b}">
+		<property name="name">
+			<value>StartWave</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7fe1fb5d-3711-4623-86d7-a6a44235b028}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{979a8c57-d112-4441-bc0e-561a799a7be6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{979a8c57-d112-4441-bc0e-561a799a7be6}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>True</value>
+			<value>False</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
