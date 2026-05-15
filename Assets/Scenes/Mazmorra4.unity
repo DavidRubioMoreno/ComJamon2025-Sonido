@@ -7769,11 +7769,11 @@ MonoBehaviour:
   maxScale: 20
   branchesEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1678238776
+      Data2: 1324030735
+      Data3: 1378233475
+      Data4: -1027805328
+    Path: event:/Other/Explosion
 --- !u!4 &1199269213
 Transform:
   m_ObjectHideFlags: 0

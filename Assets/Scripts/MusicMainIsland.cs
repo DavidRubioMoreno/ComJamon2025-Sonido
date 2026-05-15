@@ -14,6 +14,11 @@ public class MusicMainIsland : MonoBehaviour
 
         FMODManager.instance.ExitSelector();
 
+        if(islandMusicInstance.isValid())
+        {
+            islandMusicInstance.release();
+        }
+
         StartCoroutine(StartIslandMusic());
     }
 
@@ -42,7 +47,6 @@ public class MusicMainIsland : MonoBehaviour
         if (islandMusicInstance.isValid())
         {
             islandMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            islandMusicInstance.release();
         }
 
         if(FMODManager.instance.menuMusicInstance.isValid())

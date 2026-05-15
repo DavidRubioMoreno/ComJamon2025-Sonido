@@ -31,6 +31,6 @@ public class lanzadordebolas : MonoBehaviour
 
     void LanzarBola()
     {        // Crear la bola en la posición del lanzador
-        Instantiate(ball, transform.position + Vector3.up * 5, Quaternion.identity);
+        Instantiate(ball, transform.position + Vector3.up * 10, Quaternion.identity);
     }
 }

@@ -67,6 +67,12 @@ public class WaveManager : MonoBehaviour
         combatSTInstance.start();
     }
 
+    private void OnDestroy()
+    {
+        combatSTInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        combatSTInstance.release();
+    }
+
     public List<GameObject> getActiveEnemies()
     {
         return activeEnemies;
@@ -102,7 +108,7 @@ public class WaveManager : MonoBehaviour
         //Debug.Log(activeEnemies.Count);
        if(final && activeEnemies.Count == 0 && !GG)
         {
-            combatSTInstance.setParameterByName("Boss", 1);
+            //combatSTInstance.setParameterByName("Boss", 1);
             GG = true;
             //SoundManager.Instance.PlaySound(SoundManager.Instance.explo);
             //SoundManager.Instance.PlaySound(SoundManager.Instance.terre);
@@ -127,7 +133,6 @@ public class WaveManager : MonoBehaviour
     IEnumerator goBack()
     {
         yield return new WaitForSeconds(10.0f);
-        combatSTInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene("Menu3DV2");
     }
 
