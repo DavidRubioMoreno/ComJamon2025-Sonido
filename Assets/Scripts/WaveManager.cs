@@ -127,6 +127,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator goBack()
     {
         yield return new WaitForSeconds(10.0f);
+        combatSTInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene("Menu3DV2");
     }
 

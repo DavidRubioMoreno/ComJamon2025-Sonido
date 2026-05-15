@@ -76,7 +76,7 @@ public class FMODManager : MonoBehaviour
 
     [SerializeField]
     FMODUnity.EventReference menuMusic;
-    private FMOD.Studio.EventInstance menuMusicInstance;
+    public FMOD.Studio.EventInstance menuMusicInstance;
 
     private Bus masterBus, musicBus, sfxBus;
     // Asegurarse de que solo hay una instancia
@@ -105,12 +105,10 @@ public class FMODManager : MonoBehaviour
 
         menuMusicInstance.start();
     }
-    private void FixedUpdate()
+
+    public void ExitSelector()
     {
-        if (SceneManager.GetActiveScene().name == "PRINCIPAL")
-        {
-            menuMusicInstance.setParameterByName("MenuSong", 1);
-        }
+        menuMusicInstance.setParameterByName("MenuSong", 1);
     }
 
     //Cambiar el volumen general
